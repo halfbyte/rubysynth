@@ -6,11 +6,16 @@
   - Squarewave
   - Filter
   - Envelopes
+  - LFO
   - Notes -> Frequencies > Chords
 - Drums
   - Bassdrum
   - Snare
   - Hihat
+
+- Sequencing
+  - Beats and Bars and Notes
+  - Sequencing DSL
 
 - FX
   - Delay
