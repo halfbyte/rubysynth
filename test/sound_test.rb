@@ -35,8 +35,25 @@ class TestSound < Minitest::Test
     sound.mode = :monophonic
     sound.start(1)
     sound.stop(3)
-    assert_equal [[1, :start, 36, 127]], sound.active_events(2)
-    assert_equal [], sound.active_events(3)
+    sound.start(4)
+    sound.start(5)
+    sound.stop(6)
+    assert_equal [{started: 1, note: 36, velocity: 127 }], sound.active_events(2)
+    assert_equal [{started: 1, note: 36, velocity: 127, stopped: 3}], sound.active_events(3)
+    assert_equal [
+      {started: 1, note: 36, velocity: 127, stopped: 3},
+      {started: 4, note: 36, velocity: 127},
+    ], sound.active_events(4)
+    assert_equal [
+      {started: 1, note: 36, velocity: 127, stopped: 3},
+      {started: 4, note: 36, velocity: 127, stopped: 5},
+      {started: 5, note: 36, velocity: 127},
+    ], sound.active_events(5)
+    assert_equal [
+      {started: 1, note: 36, velocity: 127, stopped: 3},
+      {started: 4, note: 36, velocity: 127, stopped: 5},
+      {started: 5, note: 36, velocity: 127, stopped: 6},
+    ], sound.active_events(6)
   end
 
   def test_polyphonic_events
@@ -46,10 +63,19 @@ class TestSound < Minitest::Test
     sound.start(2, note: 35)
     sound.stop(3, note: 40)
     sound.stop(4, note: 35)
-    assert_equal [[1, :start, 40, 127]], sound.active_events(1)
-    assert_equal [[1, :start, 40, 127], [2, :start, 35, 127]], sound.active_events(2)
-    assert_equal [[2, :start, 35, 127]], sound.active_events(3)
-    assert_equal [], sound.active_events(4)
+    assert_equal [{started: 1, note: 40, velocity: 127}], sound.active_events(1)
+    assert_equal [
+      {started: 1, note: 40, velocity: 127},
+      {started: 2, note: 35, velocity: 127},
+    ], sound.active_events(2)
+    assert_equal [
+      {started: 1, note: 40, velocity: 127, stopped: 3},
+      {started: 2, note: 35, velocity: 127},
+    ], sound.active_events(3)
+    assert_equal [
+      {started: 1, note: 40, velocity: 127, stopped: 3},
+      {started: 2, note: 35, velocity: 127, stopped: 4},
+    ], sound.active_events(4)
   end
 
 end

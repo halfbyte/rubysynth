@@ -61,17 +61,18 @@ class Sound
   private
 
   def active_monophonic_events(t)
-    active = nil
+    active = []
     @events.each_with_index do |event|
       if event.first <= t
         if event[1] == :start
-          active = event
+          active.map! {|e| e[:stopped] = event.first if e[:stopped].nil?; e }
+          active << { started: event.first, note: event[2], velocity: event[3] }
         elsif event[1] == :stop
-          active = nil
+          active.map! {|e| e[:stopped] = event.first if e[:stopped].nil?; e }
         end
       end
     end
-    return [active].compact
+    return active
   end
 
   def active_polyphonic_events(t)
@@ -79,10 +80,10 @@ class Sound
     @events.each_with_index do |event|
       if event.first <= t
         if event[1] == :start
-          active.reject! { |e| e[2] == event[2] }
-          active << event
+          active.map! {|e| e[:stopped] = event.first if e[:note] == event[2] && e[:stopped].nil?; e }
+          active << { started: event.first, note: event[2], velocity: event[3] }
         elsif event[1] == :stop
-          active.reject! { |e| e[2] == event[2] }
+          active.map! {|e| e[:stopped] = event.first if e[:note] == event[2] && e[:stopped].nil?; e }
         end
       end
     end
