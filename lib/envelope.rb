@@ -1,3 +1,4 @@
+# Attack / Release envelope
 class Envelope
   def initialize(a,r)
     @a = a

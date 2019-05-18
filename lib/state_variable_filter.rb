@@ -1,25 +1,36 @@
+# Simple State Variable filter
+#
+# source: http://www.musicdsp.org/en/latest/Filters/23-state-variable.html
+# More info: https://www.earlevel.com/main/2003/03/02/the-digital-state-variable-filter/
 
 class StateVariableFilter
 
   def initialize(sfreq)
-    @sfreq = sfreq
-    @d1 = 0
-    @d2 = 0
+    @sampling_frequency = sfreq
+    @delay_1 = 0
+    @delay_2 = 0
   end
 
-  def run(x, f, q, type: :lowpass)
+  # run the filter from input value
+  # frequency is cutoff freq in Hz
+  # q is resonance, from 0 to ...
+  # type can be :lowpass, :highpass, :bandpass and :notch
+  def run(input, frequency, q, type: :lowpass)
+    # derived parameters
     q1 = 1.0 / q.to_f
-    f1 = 2 * Math::PI * f / @sfreq
-    l = @d2 + f1 * @d1
-    h = x - l - q1 * @d1
-    b = f1 * h + @d1
-    n = h + l
+    f1 = 2 * Math::PI * frequency / @sampling_frequency
+
+    # calculate filters
+    lowpass = @delay_2 + f1 * @delay_1
+    highpass = input - lowpass - q1 * @delay_1
+    bandpass = f1 * highpass + @delay_1
+    notch = highpass + lowpass
 
     # store delays
-    @d1 = b
-    @d2 = l
+    @delay_1 = bandpass
+    @delay_2 = lowpass
 
-    results = {lowpass: l, highpass: h, bandpass: b, notch: n}
+    results = { lowpass: lowpass, highpass: highpass, bandpass: bandpass, notch: notch }
     results[type]
   end
 end

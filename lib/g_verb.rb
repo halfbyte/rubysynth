@@ -1,5 +1,25 @@
+# Direct port from GVerb
+# Source: https://github.com/swh/lv2/blob/master/gverb/gverbdsp.c
+# (and other files from that repo)
+#
+# Here's the original (c) notice from https://github.com/swh/lv2/blob/master/gverb/gverbdsp.c
+#
+#     Copyright (C) 1999 Juhana Sadeharju
+#                    kouhia at nic.funet.fi
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+#
+
 require 'prime'
-require 'pp'
 
 class FixedDelay
   def initialize(size)
@@ -158,7 +178,10 @@ class GVerb
     end
   end
 
-  def run(x)
+
+  # runs a value through the reverb, returns the reverberated signal
+  # mixed with the original. Mix Parameter: (0=no reverb, 1=only reverb)
+  def run(x, mix)
     if x.nan? || x.abs > 100000.0
       x = 0.0
     end
@@ -200,6 +223,10 @@ class GVerb
     rsum = @rdifs[1].run(rsum)
     rsum = @rdifs[2].run(rsum)
     rsum = @rdifs[3].run(rsum)
+
+    lsum = x * (1.0 - mix) + lsum * mix
+    rsum = x * (1.0 - mix) + rsum * mix
+
 
     return [lsum, rsum]
   end

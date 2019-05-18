@@ -1,9 +1,3 @@
-DrumSound.start(t)
-DrumSound.stop(t)
-DrumSound.set(time, value)
-DrumSound.automate(:linear, time, value) # linearRampToValueAtTime
-DrumSound.gen(sample, length)
-
 require_relative 'lib/sequencer'
 include SequencerDSL
 

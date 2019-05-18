@@ -1,8 +1,16 @@
+# A better sounding lowpass (for some applications that is)
+# Source http://www.musicdsp.org/en/latest/Filters/26-moog-vcf-variation-2.html
+# Straight port from c++
+
 class MoogFilter
   def initialize
     @in1 = @in2 = @in3 = @in4 = 0
     @out1 = @out2 = @out3 = @out4 = 0
   end
+
+  # runs the filter on the input value
+  # fc is the cutoff frequency (not in Hz but from 0..1)
+  # res is the resonance from 0..4
   def run(input, fc, res)
     f = fc * 1.16;
     fb = res * (1.0 - 0.15 * f * f);

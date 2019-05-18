@@ -9,7 +9,6 @@
 
 - Snaredrum
 - Chords
-- Delay with filter
 
 # Sound base class
 
