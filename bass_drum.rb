@@ -5,6 +5,7 @@ require_relative 'lib/g_verb'
 require_relative 'lib/utils'
 require_relative 'lib/delay'
 require_relative 'lib/eq'
+require 'wavefile'
 include Utils
 
 SFREQ = 44100
@@ -29,19 +30,27 @@ eq.mg = 0.4
 eq.hg = 1.1
 
 in_cycle = 0
-File.open('debug.txt', 'w') do |debug|
-  (SFREQ*1).times do |sample|
-    t = sample.to_f / SFREQ.to_f # time in seconds
-    freq = (FREQ.to_f + (pEnv.run(t) * 200.0))
-    v = osc.run(freq, waveform: :sine)
-    # debug.puts "#{sample},#{t}, #{pEnv.run(t)}, #{freq},#{period},#{in_cycle}"
-    # v = filter.run(v, 0.05 + (fEnv.run(t) * 0.1), 3)
-    v *= 0.8 * vEnv.run(t)
-    v = simple_waveshaper(v, 4)
-    v = delay.run(v, 0.4, 0.5) do |signal|
-      eq.run(signal)
-    end
-    v = verb.run(v, 0.01).first
-    print [v].pack('e')
+buffer = []
+
+(SFREQ*1).times do |sample|
+  t = sample.to_f / SFREQ.to_f # time in seconds
+  freq = (FREQ.to_f + (pEnv.run(t) * 200.0))
+  v = osc.run(freq, waveform: :sine)
+  # debug.puts "#{sample},#{t}, #{pEnv.run(t)}, #{freq},#{period},#{in_cycle}"
+  # v = filter.run(v, 0.05 + (fEnv.run(t) * 0.1), 3)
+  v *= 0.8 * vEnv.run(t)
+  v = simple_waveshaper(v, 4)
+  v = delay.run(v, 0.4, 0.5) do |signal|
+    eq.run(signal)
   end
+  buffer << verb.run(v, 0.01)
+end
+
+AMPLITUDE = 0.3
+one_square_cycle = ([AMPLITUDE] * 50) + ([-AMPLITUDE] * 50)
+
+wavbuffer = WaveFile::Buffer.new(buffer, WaveFile::Format.new(:stereo, :float, SFREQ))
+
+WaveFile::Writer.new(STDOUT, WaveFile::Format.new(:mono, :pcm_16, 44100)) do |writer|
+  writer.write(wavbuffer)
 end

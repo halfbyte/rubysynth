@@ -39,11 +39,11 @@ delay_eq.mg = 0.6
   b = t / s_per_b # quarternote
   t_in_b = t % s_per_b #time in quarternote
   l = (b / 4).floor # loop
-  freq = n2f(NOTES[b % NOTES.length] + OFFSETS[l % OFFSETS.length])
+  freq = n2f(24 + NOTES[b % NOTES.length] + OFFSETS[l % OFFSETS.length])
   v = oscillator.run(freq, waveform: :sawtooth)
-  v = filter.run(v, 200 + flt_ar.run(t_in_b) * 500, 3)
+  v = filter.run(v, 200 + flt_ar.run(t_in_b) * 1500, 4)
   v *= vol_ar.run(t_in_b)
-  v = simple_waveshaper(v, 4)
+  v = simple_waveshaper(v, 2)
   v = eq.run(v)
   v = delay.run(v, 0.4, 0.4) do |f|
     delay_eq.run(f)
