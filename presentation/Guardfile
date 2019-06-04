@@ -25,6 +25,9 @@ module ::Guard
       slides = File.read('slides.md')
       result = template.sub(/<--slides-->/, slides)
       File.write('slides.html', result)
+      slides = File.read('runconf.md')
+      result = template.sub(/<--slides-->/, slides)
+      File.write('runconf.html', result)
     end
 
     def run_all
@@ -38,5 +41,6 @@ end
 
 guard 'mix' do
   watch('slides.md')
+  watch('runconf.md')
   watch('slides.template.html')
 end

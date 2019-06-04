@@ -46,11 +46,8 @@ buffer = []
   buffer << verb.run(v, 0.01)
 end
 
-AMPLITUDE = 0.3
-one_square_cycle = ([AMPLITUDE] * 50) + ([-AMPLITUDE] * 50)
 
 wavbuffer = WaveFile::Buffer.new(buffer, WaveFile::Format.new(:stereo, :float, SFREQ))
-
 WaveFile::Writer.new(STDOUT, WaveFile::Format.new(:mono, :pcm_16, 44100)) do |writer|
   writer.write(wavbuffer)
 end

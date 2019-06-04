@@ -16,10 +16,14 @@ class DemoPlayer {
     this.slideshow.on('hideSlide', () => { this.active = false})
   }
   insertUI() {
+    const wrapper = document.createElement('div')
+    wrapper.className = `player player-${this.playerType}`
+
+
     const playButton = document.createElement('button')
     const buttonText = document.createTextNode(">")
     playButton.appendChild(buttonText)
-    this.element.parentNode.insertBefore(playButton, this.element.nextSibling)
+    this.element.parentNode.insertBefore(wrapper, this.element.nextSibling)
     playButton.onclick = this.play.bind(this)
     if (this.playerType === 'simple') { return }
     if (this.playerType === 'scope') {
@@ -27,7 +31,7 @@ class DemoPlayer {
       this.scope.className = "scope"
       this.scope.width = 200
       this.scope.height = 200
-      this.element.parentNode.insertBefore(this.scope, playButton)
+      wrapper.appendChild(this.scope)
       this.scopeContext = this.scope.getContext('2d')
       this.updateScope = this.updateScope.bind(this)
     }
@@ -36,10 +40,11 @@ class DemoPlayer {
       this.scope.className = "scope"
       this.scope.width = 600
       this.scope.height = 200
-      this.element.parentNode.insertBefore(this.scope, playButton)
+      wrapper.appendChild(this.scope)
       this.scopeContext = this.scope.getContext('2d')
       this.updateFFT = this.updateFFT.bind(this)
     }
+    wrapper.appendChild(playButton)
   }
   updateScope() {
     const dataArray = new Float32Array(this.analyzer.fftSize)
