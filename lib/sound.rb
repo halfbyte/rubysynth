@@ -2,10 +2,19 @@ class Sound
 
   attr_accessor :mode
 
-  def initialize()
+  def run(start, len)
+    raise "Base Class, should not be called"
+  end
+
+  def frequency(note)
+    (2.0 ** ((note.to_f - 69.0) / 12.0)) * 440.0
+  end
+
+  def initialize(sfreq, mode: :polyphonic)
+    @mode = mode
+    @sampling_frequency = sfreq
     @parameters = {}
     @events = []
-    @mode = :polyphonic
   end
 
   # create a note on event at time t with note and velocity
@@ -29,11 +38,21 @@ class Sound
     end
   end
 
+  # sets a parameter to a specific value at a given time.
+  # you can interpolate linearly between two points by setting to value A
+  # then setting value B at a later point in time with type: linear
+  # TODO: implement quadratic interpolation
+  #
+  # Note: this does no sanity checking, so please make sure you set events
+  # in the correct order etc.
+
   def set(parameter, time, value, type: :set)
     @parameters[parameter] ||= []
     @parameters[parameter] << [time, value, type]
     @parameters[parameter].sort_by! { |item| item.first }
   end
+
+  # get the exact parameter value including interpolation
 
   def get(parameter, time)
     return nil if @parameters[parameter].nil?
@@ -54,13 +73,18 @@ class Sound
     end
   end
 
+  # no idea why this exists.
+
   def automate(parameter, type, time, value)
     set(parameter, time, value, type: type)
   end
 
   private
 
+  # returns correct events for a monophonic synth with proper not priority.
+
   def active_monophonic_events(t)
+
     active = []
     @events.each_with_index do |event|
       if event.first <= t
@@ -72,8 +96,10 @@ class Sound
         end
       end
     end
-    return active
+    active
   end
+
+  #
 
   def active_polyphonic_events(t)
     active = []

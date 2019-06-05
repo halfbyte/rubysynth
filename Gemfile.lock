@@ -1,12 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    irb (1.0.0)
     wavefile (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  irb (~> 1.0)
   wavefile (~> 1.1)
 
 BUNDLED WITH
