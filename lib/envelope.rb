@@ -4,7 +4,9 @@ class Envelope
     @a = a
     @r = r
   end
-  def run(t)
+  def run(t, a=@a, r=@r)
+    @a = a
+    @r = r
     if t > @a + @r
       return 0
     elsif t > @a #release

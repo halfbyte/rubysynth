@@ -74,7 +74,7 @@ end
 class GVerb
   FDNORDER = 4
 
-  def initialize(srate, max_room_size:, room_size:, rev_time:, damping:, spread:, input_bandwidth:, early_level:, tail_level:)
+  def initialize(srate, max_room_size: 120.0, room_size: 50.0, rev_time: 2.0, damping: 0.3, spread: 15.0, input_bandwidth: 1.5, early_level: 0.8, tail_level: 0.5, mix: 0.2)
     @rate = srate
     @damping = damping
     @max_room_size = max_room_size
@@ -82,6 +82,7 @@ class GVerb
     @rev_time = rev_time
     @early_level = early_level
     @tail_level = tail_level
+    @mix = mix
     @max_delay = @rate * @max_room_size / 340.0
     @largest_delay = @rate * @room_size / 340.0
     @input_bandwidth = input_bandwidth;
@@ -181,7 +182,7 @@ class GVerb
 
   # runs a value through the reverb, returns the reverberated signal
   # mixed with the original. Mix Parameter: (0=no reverb, 1=only reverb)
-  def run(x, mix)
+  def run(x)
     if x.nan? || x.abs > 100000.0
       x = 0.0
     end
@@ -208,7 +209,7 @@ class GVerb
     sum += x* @early_level
 
     lsum = sum
-    rsum = sum
+    # rsum = sum
 
     @f = fdn_matrix(@d)
 
@@ -220,15 +221,13 @@ class GVerb
     lsum = @ldifs[2].run(lsum)
     lsum = @ldifs[3].run(lsum)
 
-    rsum = @rdifs[1].run(rsum)
-    rsum = @rdifs[2].run(rsum)
-    rsum = @rdifs[3].run(rsum)
+    # rsum = @rdifs[1].run(rsum)
+    # rsum = @rdifs[2].run(rsum)
+    # rsum = @rdifs[3].run(rsum)
 
-    lsum = x * (1.0 - mix) + lsum * mix
-    rsum = x * (1.0 - mix) + rsum * mix
-
-
-    return [lsum, rsum]
+    lsum = x * (1.0 - @mix) + lsum * @mix
+    # rsum = x * (1.0 - mix) + rsum * mix
+    return lsum
   end
 
 

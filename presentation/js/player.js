@@ -6,7 +6,7 @@ class DemoPlayer {
     this.slideshow = slideshow
     this.context = context
     this.element = element
-    this.sourceNode = context.createMediaElementSource(element)
+    this.sourceNode = new MediaElementAudioSourceNode(this.context, {mediaElement: element})
     this.analyzer = context.createAnalyser()
     console.log(this.analyzer.frequencyBinCount)
     this.sourceNode.connect(this.analyzer)
@@ -25,7 +25,6 @@ class DemoPlayer {
     playButton.appendChild(buttonText)
     this.element.parentNode.insertBefore(wrapper, this.element.nextSibling)
     playButton.onclick = this.play.bind(this)
-    if (this.playerType === 'simple') { return }
     if (this.playerType === 'scope') {
       this.scope = document.createElement('canvas')
       this.scope.className = "scope"
@@ -86,6 +85,7 @@ class DemoPlayer {
     }
   }
   play() {
+    this.context.resume()
     this.element.play()
     console.log("play", this.active)
     if (!this.active) {
@@ -101,7 +101,9 @@ class DemoPlayer {
 
 }
 
-
-document.getElementsByTagName('audio').forEach(function(element) {
-  new DemoPlayer(slideshow, context, element)
-})
+function initPlayer() {
+  document.querySelectorAll('audio[data-player]').forEach(function(element) {
+    console.log("INIT AUDIO", slideshow, context, element)
+    new DemoPlayer(slideshow, context, element)
+  })
+}

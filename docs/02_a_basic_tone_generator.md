@@ -6,6 +6,8 @@ If we want to generate a tone, that, later, will be used in a musical context, w
 
 I'll explain this in the reverse of the signal path, so let's start with the question of what sound itself is.
 
+## What is sound
+
 Sound, fundamentally, is air particles being moved in a way that can be detected by your ear. Usually we talk about sound waves, which means that the particles are being moved back and forth in a wave function.
 
 To generate sound, you'll somehow need to get these air particles moving. You could do that by attenuating a string like on a guitar or in a piano, hitting a drum skin or a metal or wooden bar like in a marimba, but if we want to involve a computer here, it's pretty obvious that we somehow need to convert electrical signals into these particle waves.

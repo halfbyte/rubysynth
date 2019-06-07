@@ -1,8 +1,7 @@
 class Sound
-
   attr_accessor :mode
 
-  def run(start, len)
+  def run(offset)
     raise "Base Class, should not be called"
   end
 
@@ -10,15 +9,20 @@ class Sound
     (2.0 ** ((note.to_f - 69.0) / 12.0)) * 440.0
   end
 
+  def live_params
+    []
+  end
+
   def initialize(sfreq, mode: :polyphonic)
     @mode = mode
     @sampling_frequency = sfreq
     @parameters = {}
     @events = []
+    initialize_live_params
   end
 
   # create a note on event at time t with note and velocity
-  def start(t, note: 36, velocity: 127)
+  def start(t, note: 36, velocity: 1.0)
     @events << [t, :start, note, velocity]
     @events.sort_by! { |item| item.first }
   end
@@ -36,6 +40,10 @@ class Sound
     else
       active_monophonic_events(t)
     end
+  end
+
+  def time(offset)
+    offset.to_f / @sampling_frequency.to_f
   end
 
   # sets a parameter to a specific value at a given time.
@@ -77,6 +85,12 @@ class Sound
 
   def automate(parameter, type, time, value)
     set(parameter, time, value, type: type)
+  end
+
+  def initialize_live_params
+    live_params.each do |p|
+      set(p, 0, @preset[p], type: :set)
+    end
   end
 
   private

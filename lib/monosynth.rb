@@ -2,6 +2,7 @@ require_relative 'oscillator'
 require_relative 'state_variable_filter'
 require_relative 'adsr'
 require_relative 'sound'
+require_relative 'chorus'
 require 'logger'
 
 class Monosynth < Sound
@@ -18,7 +19,7 @@ class Monosynth < Sound
       flt_sustain: 0.2,
       flt_release: 0.2,
       flt_envmod: 3000,
-      flt_frequency: 200,
+      flt_frequency: 1000,
       flt_Q: 2,
       osc_waveform: :square,
       lfo_waveform: :sine,
@@ -40,28 +41,25 @@ class Monosynth < Sound
       @preset[:flt_sustain],
       @preset[:flt_release]
     )
+    @chorus = Chorus.new(sfreq, 0.0, 0.5, 7.0)
   end
 
-  def run(start, length)
-    output = []
-    length.times do |i|
-      # time in seconds
-      t = (start.to_f + i.to_f) / @sampling_frequency.to_f
-      events = active_events(t)
-      if events.empty?
-        output << 0.0
-      else
-        event = events.last
-        lfo_out = (@lfo.run(@preset[:lfo_frequency], waveform: @preset[:lfo_waveform]) + 1) / 8 + 0.5
-        osc_out = @oscillator.run(frequency(event[:note]), waveform: @preset[:osc_waveform], pulse_width: lfo_out)
-        local_started = t - event[:started]
-        local_stopped = event[:stopped] && event[:stopped] - event[:started]
-        osc_out = @filter.run(osc_out, @preset[:flt_frequency] + @flt_env.run(local_started, local_stopped) * @preset[:flt_envmod], @preset[:flt_Q])
-        # osc_out = @filter2.run(osc_out, @preset[:flt_frequency] + @flt_env.run(local_started, local_stopped) * @preset[:flt_envmod], @preset[:flt_Q])
-        output << 0.3 * osc_out * @amp_env.run(local_started, local_stopped)
-      end
+  def run(offset)
+    # time in seconds
+    t = time(offset)
+    events = active_events(t)
+    if events.empty?
+      0.0
+    else
+      event = events.last
+      # lfo_out = (@lfo.run(@preset[:lfo_frequency], waveform: @preset[:lfo_waveform]) + 1) / 8 + 0.5
+      osc_out = @oscillator.run(frequency(event[:note]), waveform: @preset[:osc_waveform])
+      local_started = t - event[:started]
+      local_stopped = event[:stopped] && event[:stopped] - event[:started]
+      osc_out = @filter.run(osc_out, @preset[:flt_frequency] + @flt_env.run(local_started, local_stopped) * @preset[:flt_envmod], @preset[:flt_Q])
+      # osc_out = @filter2.run(osc_out, @preset[:flt_frequency] + @flt_env.run(local_started, local_stopped) * @preset[:flt_envmod], @preset[:flt_Q])
+      synth = 0.3 * osc_out * @amp_env.run(local_started, local_stopped)
+      @chorus.run(synth) * 0.5 + synth * 0.5
     end
-    output
   end
-
 end

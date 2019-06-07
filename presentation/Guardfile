@@ -17,30 +17,15 @@
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
 
-module ::Guard
-  class Mix < Plugin
+guard 'puma', config: 'puma.config.rb' do
 
-    def mix
-      template = File.read('slides.template.html')
-      slides = File.read('slides.md')
-      result = template.sub(/<--slides-->/, slides)
-      File.write('slides.html', result)
-      slides = File.read('runconf.md')
-      result = template.sub(/<--slides-->/, slides)
-      File.write('runconf.html', result)
-    end
-
-    def run_all
-      mix()
-    end
-    def run_on_modifications(paths)
-      mix()
-    end
-  end
 end
 
-guard 'mix' do
-  watch('slides.md')
-  watch('runconf.md')
-  watch('slides.template.html')
+guard 'livereload' do
+  Dir['*.md'].each do |file|
+    watch(file)
+  end
+Dir['*.html'].each do |file|
+  watch(file)
+end
 end

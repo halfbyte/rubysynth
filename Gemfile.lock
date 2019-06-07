@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     irb (1.0.0)
+    rack (2.0.7)
     wavefile (1.1.0)
 
 PLATFORMS
@@ -9,6 +10,7 @@ PLATFORMS
 
 DEPENDENCIES
   irb (~> 1.0)
+  rack
   wavefile (~> 1.1)
 
 BUNDLED WITH

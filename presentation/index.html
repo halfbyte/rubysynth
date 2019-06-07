@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>The musical Ruby - A presentation by Jan Krutisch for Euruko 2019</title>
     <meta charset="utf-8">
     <style>
       /* @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -16,7 +16,16 @@
       .depfu {
         background-color: #00f;
         color: #fff;
+      }
 
+      .title {
+        background-color: #008;
+        color: #fff;
+      }
+
+      .subtitle {
+        background-color: #008;
+        color: #fff;
       }
 
       .contain {
@@ -25,7 +34,7 @@
       .demo h1 {
         font-family: 'Marker Felt', cursive;
       }
-      ol {
+      .remark-slide-content > ol, .remark-slide-content > ul {
         font-size: 2em;
       }
       .remark-code, .remark-inline-code {
@@ -37,9 +46,11 @@
       }
       .player {
         width: 200px;
+        display: inline-block;
       }
       .player-fft {
         width: 600px;
+        display: inline-block;
       }
       .player button {
         display: block;
@@ -60,15 +71,22 @@
     <textarea id="source">
 <--slides-->
     </textarea>
+    <script type="text/javascript" src="js/player.js"></script>
     <script src="js/remark-latest.min.js">
     </script>
     <script>
+      const hash = location.hash
+      const match = hash.match(/\#(\d+)/)
       var slideshow = remark.create({
         ratio: '16:9',
         scroll: false,
         highlightLines: true,
-      });
+        sourceUrl: 'slides.md'
+      }, initPlayer);
+      // automatically go back to last slide
+      if (match) {
+        slideshow.gotoSlide(parseInt(match[1], 10))
+      }
     </script>
-    <script type="text/javascript" src="js/player.js"></script>
   </body>
 </html>
