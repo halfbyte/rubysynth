@@ -45,7 +45,13 @@ class: center, middle
 ---
 class: center, middle
 # Pure Ruby
-
+# (+ SoX)
+---
+# SoX
+## Lance Norskog
+## Chris Bagwell
+## (and many others)
+(It started in 1991. yeah.)
 ---
 ```ruby
 SAMPLING_FREQUENCY=44100
@@ -56,28 +62,11 @@ samples = SAMPLING_FREQUENCY.times.map do
   period = SAMPLING_FREQUENCY / FREQUENCY.to_f
   output = in_cycle > 0.5 ? -1.0 : 1.0
   in_cycle = (in_cycle + (1.0 / period)) % 1.0
-  output *= 0.5
+  output * 0.5
 end
 print samples.pack('e*')
 
 ```
-
----
-
-# How to play?
-
----
-
-# SoX to the rescue
-
----
-# Lance Norskog
-# Chris Bagwell
-# (and many others)
-
-(It started in 1991. yeah.)
-
----
 
 ```bash
 #!/bin/bash
@@ -85,9 +74,10 @@ print samples.pack('e*')
 ruby $1 | play -t raw -b 32 -r 44100 -c 1 \
   -e floating-point --endian little -
 ```
----
 
-<audio src="samples/square.wav" data-player="simple">
+---
+class: center, middle
+<audio src="samples/square.wav" data-player="simple"></audio>
 
 ---
 class: center, middle
@@ -106,62 +96,34 @@ class: center, middle
 ---
 class: center, middle
 
-# Pushing air particles
+# Vibrating air molecules
 
 ![fit](images/airwaves.jpg)
 
 ---
 class: center, middle
 
-# A tone
-![fit](images/wave.jpg)
-
----
-class: center, middle
-
-# the full system
+# The full system
 ![fit](images/loudspeaker_to_ear.jpg)
 
 ---
-class: center, middle
+class: center, middle, frame-image
 
 # Electrical current > Air movement
-TODO: Loudspeaker image
+## Loudspeaker
+![schematics of a loudspeaker](images/loudspeaker.svg)
+
 
 ---
 class: center, middle
 
 # Digital Data > Electrical current
-TODO: Image of a DAC chip
+## Digital to Analog Converter (DAC)
+![photo of a DAC chip](images/dac.jpg)
 ---
 class: center, middle
-# Digital to Analog Converter (DAC)
+# Digital to Analog challenges
 ![fit](images/digital_2_analog.jpg)
-
-
-
----
-class: center, middle
-
-# Two problems
-
-1. Sampling Frequency
-2. Sample Resolution
-
----
-class: center, middle
-
-# Sampling frequency vs. expressable frequencies
-
-
-
----
-class: center, middle
-
-# Nyquist - Shannon
-
-![fit](images/nyquist.jpg)
-
 
 <math>
   <mrow>
@@ -169,41 +131,13 @@ class: center, middle
   </mrow>
 </math>
 
----
-class: center, middle
-# So why 44,1 kHz?
-
----
-class: middle
-
-- Human hearing range
-  - F<sub>max</sub> ~ 20000 Hz
-  - F<sub>sample</sub> ~ 40000 Hz
-- Reasons.
-
----
-class: center, middle
-
-# Sample Resolution
-
----
-class: center, middle
-
-# 8 Bit / 16 Bit / 24 Bit
-
----
-class: center, middle
-# Float vs. Int
-
-
----
-class: middle, center
-# Better is not always better
-## (Quality vs. Storage space)
----
-class: middle, center
-# But sometimes it is
-## (Overhead when editing/processing)
+???
+- Two problems:
+  - Sampling frequency
+    - Nyquist shannon, 2 * Fmax
+    - ~ 40 kHz is enough, 20 kHz humans plus headroom
+  - Sampling resolution
+    - Enough is enough
 ---
 class: center, middle, subtitle
 # A Ruby Synth
@@ -227,13 +161,8 @@ print samples.pack('e*')
 class: center, middle
 # A squarewave at 440 Hz
 
-<audio src="samples/square.wav" data-player="scope">
+<audio src="samples/square.wav" data-player="scope"></audio>
 
----
-class: center, middle
-# A squarewave at 440 Hz
-
-<audio src="samples/square.wav" data-player="fft">
 ---
 class: center, middle
 # Why 440 Hz?
@@ -273,23 +202,27 @@ class: center, middle
 # There's a standard for that
 # (MIDI)
 ---
-
 class: center, middle
+
 <math>
   <mrow>
     <msup><mn>2</mn><mfrac><mrow><mi>n</mi><mo>-</mo><mn>69</mn></mrow><mn>12</mn></mfrac></msup><mo>*</mo><mn>440</mn><mu>Hz</mu>
   </mrow>
 </math>
+
 ---
+
 class: center, middle
 # n = MIDI note (0-127)
 # 0 = very low C
 # 60 = middle C
+
 ---
+
 class: center, middle
 # A squarewave at 440 Hz
 
-<audio src="samples/square.wav" data-player="fft">
+<audio src="samples/square.wav" data-player="fft"></audio>
 ---
 class: center, middle
 # Yes I know it sounds horrible
@@ -336,12 +269,17 @@ def run(input, frequency, q, type: :lowpass)
   # [...]
 end
 ```
+---
+class: center, middle
+# Lowpass
+![A lowpass frequency response diagram with resonance](images/filter_sketch.png)
+
 
 ---
 class: center, middle
 # A filtered squarewave at 440 Hz
 
-<audio src="samples/filtered.wav" data-player="fft">
+<audio src="samples/filtered.wav" data-player="fft"></audio>
 ---
 class: center, middle
 # Something's still wrong
@@ -362,16 +300,182 @@ class: center, middle
 ---
 class: center, middle
 # This!
-<video src="images/adsr.ogg" controls>
+<video src="images/adsr.ogg?aa" controls></video>
 ---
+class: small-code
+```ruby
+def linear(start, target, length, time)
+  (target - start) / length * time + start
+end
+
+def run(t, released)
+  if !released
+    if t < 0.0001 # initialize start value (slightly hacky, but works)
+      @start_value = @value
+      return @start_value
+    end
+    if t <= a # attack
+      return @value = linear(@start_value, 1, a, t)
+    end
+    if t > a && t < (a + d) # decay
+      return @value = linear(1.0, s, d, t - a)
+    end
+    if t >= a + d # sustain
+      return @value = s
+    end
+  else # release
+    if t <= a # when released in attack phase
+      attack_level = linear(@start_value, 1, a, releases)
+      return linear(attack_level, 0, t - released)
+    end
+    if t > a && t < (a + d) # when released in decay phase
+      decay_level = linear(1.0, s, d, released - a)
+      return @value = linear(decay_level, 0, r, t - released)
+    end
+    if t >= a + d && t < released + r # normal release
+      return @value = linear(s, 0, r, t - released)
+    end
+    if t >= released + r # after release
+      return @value = 0.0
+    end
+  end
+end
+
+```
+---
+class: center, middle
 # Shape everything!
 ---
+class: center, middle
 # Volume / Amplitude
+``` ruby
+# [...]
+env = Adsr.new(0.001, 0.2, 0.5, 0.2)
+t = i.to_f / SAMPLING_FREQUENCY.to_f
+stopped = t >= 0.5 ? 0.5 : nil
+output *= 0.3 * env.run(t, stopped)
+```
 ---
-# Filter frequency
+
+class: center, middle
+# Volume / Amplitude
+<audio src="samples/amp_env.wav" data-player="scope"></audio>
 ---
+class: center, middle
+# Filter Frequency
+``` ruby
+# [...]
+filter_env = Adsr.new(0.01, 0.1, 0.1, 0.1)
+t = i.to_f / SAMPLING_FREQUENCY.to_f
+stopped = t >= 0.5 ? 0.5 : nil
+output = filter.run(output, 500.0 + (8000.0 * filter_env.run(t, stopped)), 1)
+```
+---
+class: center, middle
+# Filter Frequency
+<audio src="samples/filter_env.wav" data-player="fft"></audio>
+---
+class: center, middle
 # Pitch
+``` ruby
+# [...]
+pitch_env = Adsr.new(0.01, 0.2, 0.0, 0.0)
+t = i.to_f / SAMPLING_FREQUENCY.to_f
+stopped = t >= 0.5 ? 0.5 : nil
+period = SAMPLING_FREQUENCY / (FREQUENCY.to_f * ((0.2 * pitch_env.run(t, stopped)) + 1))
+```
 ---
+class: center, middle
+# Pitch
+<audio src="samples/pitch_env.wav" data-player="fft"></audio>
+---
+class: center, middle
+# LFO
+## (Low Frequency Oscillator)
+---
+class: center, middle
+# LFO on Filter
+``` ruby
+lfo = Oscillator.new(SAMPLING_FREQUENCY)
+lfo_freq = 4
+# [...]
+output = filter.run(
+  output,
+  500.0 + ((lfo.run(lfo_freq, waveform: :sawtooth) + 1) * 2000.0),
+  2
+)
+```
+---
+class: center, middle
+# LFO on Filter
+<audio src="samples/lfo_wub.wav" data-player="scope"></audio>
+
+---
+class: center, middle, subtitle
+# Drums
+---
+class: center, middle, frame-image
+# Kick drum
+![photo of a real kickdrum](images/kickdrum.jpg)
+---
+class: center, middle, frame-image
+# Kick drum synthesized
+![diagrams on how to do a kickdrum](images/kickdrum_sketch.png)
+---
+
+class: center, middle, frame-image
+# Snare drum
+![drawing of a snare drum](images/snaredrum.png)
+---
+class: center, middle, frame-image
+# Snare drum synthesized
+![diagrams on how to do a snare drum](images/snare_sketch.png)
+---
+class: center, middle, frame-image
+# Hihat
+![photo of a hihat](images/hihat.jpg)
+---
+class: center, middle, frame-image
+# Hihat synthesized
+![diagrams on how to do a hihat](images/hihat_sketch.png)
+---
+class: center, middle, subtitle
+# Sound --> Music
+---
+class: center, middle
+# Sequencing sounds
+---
+class: center, middle
+# Beats, bars and s\*\*t
+---
+class: center, middle
+# Measure of 4 / 4
+---
+class: center, middle
+# 1, 2, 3, 4
+## (4 beats in a bar)
+## (beat == 1/4 note)
+(yes, music counts from 1 - yes, that confuses me)
+---
+class: center, middle
+# A bar
+![](images/sequencer_grid_sketch.png)
+---
+---
+# Tempo
+## BPM (Beats per minute)
+## (= Quarter notes per minute)
+---
+
+# Sequencer maths
+``` ruby
+BPM = 120
+beat_length_in_seconds = 60 / BPM # = 0.5s
+bar_length = beat_length_in_seconds * 4 # = 2s
+sixteenth_note_length = beat_length_in_seconds / 4 # = 0.125s
+
+```
+
 
 ---
 class: depfu, middle, center
@@ -380,3 +484,12 @@ class: depfu, middle, center
 ## 🎹 ✏️
 ## @halfbyte
 ## depfu.com
+
+
+---
+# Image Sources
+- [DAC chip](https://commons.wikimedia.org/wiki/File:CirrusLogicCS4282-AB.jpg)
+- [Loudspeaker](https://commons.wikimedia.org/wiki/File:Loudspeaker_side_en.svg)
+- [Kick drum](https://commons.wikimedia.org/wiki/File:Bass_drum_Premier_(8639408589).jpg)
+- [Snare drum](https://commons.wikimedia.org/wiki/File:Snare_drum_(line_art)_(PSF_S-860001_(cropped)).png)
+- [Hihat](https://commons.wikimedia.org/wiki/File:Hi-hat.jpg)

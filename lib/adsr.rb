@@ -1,9 +1,6 @@
-require 'logger'
-
 # Implementation of a linear ADSR envelope generator with a tracking
 # value so that envelope restarts don't click
 class Adsr
-  LOGGER = Logger.new("logs/adsr.log")
   attr_accessor :a, :d, :s, :r
 
   def initialize(a, d, s, r)
@@ -16,31 +13,25 @@ class Adsr
   end
 
   def linear(start, target, length, time)
-    range = target - start
-    range / length * time + start
+    (target - start) / length * time + start
   end
 
   def run(t, released)
-    # LOGGER.info("#{t} -> #{released}")
     if !released
-      # attack
-      # initialize start value
-      if t < 0.0001
+      if t < 0.0001 # initialize start value (slightly hacky, but works)
         @start_value = @value
         return @start_value
       end
-      if t <= a
+      if t <= a # attack
         return @value = linear(@start_value, 1, a, t)
       end
-      # decay
-      if t > a && t < (a + d)
+      if t > a && t < (a + d) # decay
         return @value = linear(1.0, s, d, t - a)
       end
-      # sustain
-      if t >= a + d
+      if t >= a + d # sustain
         return @value = s
       end
-    else # (early) release
+    else # release
       if t <= a # when released in attack phase
         attack_level = linear(@start_value, 1, a, releases)
         return linear(attack_level, 0, t - released)

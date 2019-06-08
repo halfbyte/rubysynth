@@ -1,6 +1,6 @@
 # Talk Outline
 
-- [ 5] A quick demo of Sonic Pi
+- [2] A quick demo of Sonic Pi
 - The first demo, explaining sox output
 - Synth
   - Squarewave
