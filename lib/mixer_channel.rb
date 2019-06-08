@@ -3,7 +3,6 @@ require_relative 'compressor'
 require_relative 'envelope'
 class MixerChannel < Sound
   LIVE_PARAMS = [:volume, :eq_low_gain, :eq_high_gain, :eq_mid_gain]
-  LOGGER = Logger.new('logs/mixer-channel.log')
   attr_accessor :preset
 
   def live_params

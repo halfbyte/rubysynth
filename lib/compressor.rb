@@ -47,7 +47,6 @@ class AttRelEnvelope
 end
 
 class Compressor
-  LOGGER = Logger.new('logs/comp.log')
   DC_OFFSET = 1.0E-25
   LOG_2_DB = 8.6858896380650365530225783783321
   DB_2_LOG = 0.11512925464970228420089957273422

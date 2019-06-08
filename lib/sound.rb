@@ -22,13 +22,13 @@ class Sound
   end
 
   # create a note on event at time t with note and velocity
-  def start(t, note, velocity)
+  def start(t, note=36, velocity=1.0)
     @events << [t, :start, note, velocity]
     @events.sort_by! { |item| item.first }
   end
 
   # create a note off event at time t with note
-  def stop(t, note)
+  def stop(t, note=36)
     @events << [t, :stop, note, 0]
     @events.sort_by! { |item| item.first }
   end

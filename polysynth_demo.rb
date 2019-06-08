@@ -16,21 +16,21 @@ send1 = SendChannel.new(SFREQ, insert_effects: [
 ], sends: [])
 
 
-poly.start(0, note: 48)
-poly.start(0, note: 48 + 3)
-poly.start(0, note: 48 + 7)
+poly.start(0, 48)
+poly.start(0, 48 + 3)
+poly.start(0, 48 + 7)
 
-poly.stop(2, note: 48)
-poly.stop(2, note: 48 + 3)
-poly.stop(2, note: 48 + 7)
+poly.stop(2, 48)
+poly.stop(2, 48 + 3)
+poly.stop(2, 48 + 7)
 
-poly.start(2, note: 48 + 5)
-poly.start(2, note: 48 + 3 + 5)
-poly.start(2, note: 48 + 7 + 5)
+poly.start(2, 48 + 5)
+poly.start(2, 48 + 3 + 5)
+poly.start(2, 48 + 7 + 5)
 
-poly.stop(4, note: 48 + 5)
-poly.stop(4, note: 48 + 3 + 5)
-poly.stop(4, note: 48 + 7 + 5)
+poly.stop(4, 48 + 5)
+poly.stop(4, 48 + 3 + 5)
+poly.stop(4, 48 + 7 + 5)
 
 channel.set(:eq_low_gain, 4, 1.0, type: :linear)
 channel.set(:eq_mid_gain, 4, 1.0, type: :linear)
