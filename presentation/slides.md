@@ -356,11 +356,13 @@ class: center, middle
 class: center, middle
 # Envelopes to the rescue
 ---
+class: center, middle
 # Not this
-TODO: Brief
+# ✉
 ---
+class: center, middle
 # This!
-TODO: ADSR image
+<video src="images/adsr.ogg" controls>
 ---
 # Shape everything!
 ---

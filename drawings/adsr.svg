@@ -1,0 +1,46 @@
+<svg width="210mm" height="297mm" version="1.1" viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <marker id="marker6270" overflow="visible" orient="auto">
+   <path transform="scale(1.1) rotate(180) translate(1)" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" stroke="#000" stroke-linejoin="round" stroke-width=".625"/>
+  </marker>
+  <marker id="marker6170" overflow="visible" orient="auto">
+   <path transform="scale(1.1) translate(1)" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" stroke="#000" stroke-linejoin="round" stroke-width=".625"/>
+  </marker>
+  <marker id="marker6074" overflow="visible" orient="auto">
+   <path transform="scale(1.1) rotate(180) translate(1)" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" stroke="#000" stroke-linejoin="round" stroke-width=".625"/>
+  </marker>
+  <marker id="marker5986" overflow="visible" orient="auto">
+   <path transform="scale(1.1) translate(1)" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" stroke="#000" stroke-linejoin="round" stroke-width=".625"/>
+  </marker>
+  <marker id="marker5156" overflow="visible" orient="auto">
+   <path transform="scale(1.1) rotate(180) translate(1)" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" stroke="#000" stroke-linejoin="round" stroke-width=".625"/>
+  </marker>
+  <marker id="marker5042" overflow="visible" orient="auto">
+   <path transform="scale(1.1) translate(1)" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" stroke="#000" stroke-linejoin="round" stroke-width=".625"/>
+  </marker>
+  <marker id="Arrow2Lend" overflow="visible" orient="auto">
+   <path transform="scale(1.1) rotate(180) translate(1)" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" stroke="#000" stroke-linejoin="round" stroke-width=".625"/>
+  </marker>
+  <marker id="Arrow2Lstart" overflow="visible" orient="auto">
+   <path transform="scale(1.1) translate(1)" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" stroke="#000" stroke-linejoin="round" stroke-width=".625"/>
+  </marker>
+ </defs>
+ <g fill="none" stroke="#000">
+  <path d="m21.649 85.323 29.934-65.214 29.934 29.132h89.803l21.114 36.081" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.0583"/>
+  <g>
+   <path d="m21.649 20.109h29.934" marker-end="url(#Arrow2Lend)" marker-start="url(#Arrow2Lstart)" stroke-width=".265"/>
+   <g stroke-width=".26458px">
+    <path d="m128.13 49.189v36.133" marker-end="url(#marker5156)" marker-start="url(#marker5042)"/>
+    <path d="m51.583 49.189h29.934" marker-end="url(#marker6074)" marker-start="url(#marker5986)"/>
+    <path d="m171.32 49.189h21.114" marker-end="url(#marker6270)" marker-start="url(#marker6170)"/>
+   </g>
+  </g>
+ </g>
+ <g fill="#000000" font-family="sans-serif" letter-spacing="0px" stroke-width=".26458" word-spacing="0px">
+  <text x="25.61758" y="17.297619" font-size="7.0556px" style="line-height:1.25" xml:space="preserve"><tspan x="25.61758" y="17.297619" font-size="7.0556px" stroke-width=".26458">Attack</tspan></text>
+  <text x="55.173794" y="56.607143" font-size="10.583px" style="line-height:1.25" xml:space="preserve"><tspan x="55.173794" y="56.607143" font-size="7.0556px" stroke-width=".26458">Decay</tspan></text>
+  <text x="115.66071" y="46.023808" font-size="7.0556px" style="line-height:1.25" xml:space="preserve"><tspan x="115.66071" y="46.023808" font-size="7.0556px" stroke-width=".26458">Sustain</tspan></text>
+  <text x="168.86292" y="44.322918" font-size="10.583px" style="line-height:1.25" xml:space="preserve"><tspan x="168.86292" y="44.322918" font-size="7.0556px" stroke-width=".26458">Release</tspan></text>
+ </g>
+ <rect x="9.8274" y="8.0372" width="193.52" height="88.446" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.0583"/>
+</svg>
