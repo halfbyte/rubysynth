@@ -1,7 +1,10 @@
+require 'state_variable_filter'
+require 'envelope'
+
 class Hihat < Sound
   def initialize(sfreq, preset = {})
     super(sfreq, mode: :monophonic)
-    @filter = StateVariableFilter.new(SFREQ)
+    @filter = StateVariableFilter.new(sfreq)
     @preset = {
       flt_frequency: 10000,
       flt_Q: 2,

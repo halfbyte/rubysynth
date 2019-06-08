@@ -33,8 +33,8 @@ class Adsr
       end
     else # release
       if t <= a # when released in attack phase
-        attack_level = linear(@start_value, 1, a, releases)
-        return linear(attack_level, 0, t - released)
+        attack_level = linear(@start_value, 1, a, released)
+        return linear(attack_level, 0, r, t - released)
       end
       if t > a && t < (a + d) # when released in decay phase
         decay_level = linear(1.0, s, d, released - a)

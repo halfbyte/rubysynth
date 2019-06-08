@@ -28,9 +28,9 @@ class SnareDrum < Sound
 
   end
 
-  def start(t, note: 36, velocity: 127)
-    super(t, note: note, velocity: velocity)
-    @drum.start(t, note: note, velocity: velocity)
+  def start(t, note, velocity)
+    super(t, note, velocity)
+    @drum.start(t, note, velocity)
   end
 
   # create a note off event at time t with note

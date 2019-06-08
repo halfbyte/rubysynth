@@ -1,6 +1,8 @@
 module SequencerDSL
 
   class Pattern
+    NOTES=%w(C C# D D# E F F# G G# A A# B)
+
     attr_reader :sounds, :steps
     def initialize(steps)
       @steps = steps
@@ -22,6 +24,31 @@ module SequencerDSL
       end
       @sounds.push([sound, events])
     end
+
+    def str2note(str)
+      match = str.upcase.strip.match(/([ABCDEFGH]#?)(-?\d)/)
+      return nil unless match
+      octave = match[2].to_i + 2
+      note = NOTES.index(match[1])
+      if note >= 0 && octave > 0 && octave < 10
+        return 12 * octave + note
+      end
+    end
+
+    def note_pattern(sound, pattern)
+      events = []
+      @steps.times do |i|
+        if pattern[i]
+          notes, len = pattern[i]
+          notes.split(',').each do |note|
+            note_num = str2note(note)
+            events << [i, [:start, note_num, 1.0]]
+            events << [i + len, [:stop, note_num]]
+          end
+        end
+      end
+      @sounds.push([sound, events])
+    end
   end
 
   def def_pattern(name, steps, &block)
@@ -32,6 +59,7 @@ module SequencerDSL
   end
 
   class Song
+    attr_reader :events
     def initialize(bpm, patterns)
       @tempo = bpm
       @events = []
@@ -84,6 +112,9 @@ module SequencerDSL
     song = Song.new(bpm, @patterns)
     song.run(block)
     song.play
+    File.open("DEBUG.txt", 'wb') do |f|
+      f.print song.events.inspect
+    end
     song.length
   end
 end

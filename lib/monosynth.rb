@@ -3,10 +3,8 @@ require_relative 'state_variable_filter'
 require_relative 'adsr'
 require_relative 'sound'
 require_relative 'chorus'
-require 'logger'
 
 class Monosynth < Sound
-  LOGGER = Logger.new("logs/monosynth.log")
   def initialize(sfreq, preset={})
     super(sfreq, mode: :monophonic)
     @preset = {

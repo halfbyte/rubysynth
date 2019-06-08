@@ -40,6 +40,10 @@ class Polysynth < Sound
     @active_voices = {}
   end
 
+  def inspect
+    "<Polysynth @#{object_id}>"
+  end
+
   def run(offset)
     t = time(offset)
     events = active_events(t)
@@ -47,11 +51,12 @@ class Polysynth < Sound
     events.each do |event|
       local_started = t - event[:started]
       local_stopped = event[:stopped] && event[:stopped] - event[:started]
-      if @active_voices[event[:note]].nil?
-        @active_voices[event[:note]] = PolyVoice.new(@sampling_frequency, @preset)
+      note_key = "#{event[:note]}:#{event[:started]}"
+      if @active_voices[note_key].nil?
+        @active_voices[note_key] = PolyVoice.new(@sampling_frequency, @preset)
       end
-      if @active_voices[event[:note]]
-        voice_results << @active_voices[event[:note]].run(local_started, local_stopped, frequency(event[:note]), event[:velocity])
+      if @active_voices[note_key]
+        voice_results << @active_voices[note_key].run(local_started, local_stopped, frequency(event[:note]), event[:velocity])
       end
     end
     0.3 * voice_results.inject(0) {|sum, result| sum + result}
