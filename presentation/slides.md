@@ -98,8 +98,7 @@ class: center, middle
 
 # Vibrating air molecules
 
-![fit](images/airwaves.jpg)
-
+<video src="images/air-movie.ogv" autoplay></video>
 ---
 class: center, middle
 
