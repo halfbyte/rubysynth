@@ -99,7 +99,9 @@
       const match = hash.match(/\#(\d+)/)
       var slideshow = remark.create({
         ratio: '16:9',
-        scroll: false,
+        navigation: {
+          scroll: false,
+        },
         highlightLines: true,
         sourceUrl: 'slides.md'
       }, initPlayer);
@@ -107,6 +109,14 @@
       if (match) {
         slideshow.gotoSlide(parseInt(match[1], 10))
       }
+
+      document.body.addEventListener('keydown', (e) => {
+        if (e.key == 'F5') {
+          const player = document.querySelector('.remark-slide-container.remark-visible audio') || document.querySelector('.remark-slide-container.remark-visible video')
+          if (player) { player.play() }
+          e.preventDefault();
+        }
+      })
     </script>
   </body>
 </html>

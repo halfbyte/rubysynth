@@ -24,7 +24,8 @@ class DemoPlayer {
     const buttonText = document.createTextNode(">")
     playButton.appendChild(buttonText)
     this.element.parentNode.insertBefore(wrapper, this.element.nextSibling)
-    playButton.onclick = this.play.bind(this)
+    playButton.addEventListener('click', (e) => this.element.play())
+    this.element.addEventListener('play', this.play.bind(this))
     if (this.playerType === 'scope') {
       this.scope = document.createElement('canvas')
       this.scope.className = "scope"
@@ -86,8 +87,6 @@ class DemoPlayer {
   }
   play() {
     this.context.resume()
-    this.element.play()
-    console.log("play", this.active)
     if (!this.active) {
       this.active = true
       if (this.playerType === 'scope') {
