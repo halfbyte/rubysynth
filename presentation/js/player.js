@@ -21,7 +21,7 @@ class DemoPlayer {
 
 
     const playButton = document.createElement('button')
-    const buttonText = document.createTextNode(">")
+    const buttonText = document.createTextNode("Play ▶")
     playButton.appendChild(buttonText)
     this.element.parentNode.insertBefore(wrapper, this.element.nextSibling)
     playButton.addEventListener('click', (e) => this.element.play())

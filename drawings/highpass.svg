@@ -1,0 +1,15 @@
+<svg width="210mm" height="297mm" version="1.1" viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <marker id="Arrow1Lstart" overflow="visible" orient="auto">
+   <path transform="scale(.8) translate(12.5)" d="m0 0 5-5-17.5 5 17.5 5-5-5z" fill-rule="evenodd" stroke="#000" stroke-width="1pt"/>
+  </marker>
+  <marker id="Arrow1Lend" overflow="visible" orient="auto">
+   <path transform="scale(.8) rotate(180) translate(12.5)" d="m0 0 5-5-17.5 5 17.5 5-5-5z" fill-rule="evenodd" stroke="#000" stroke-width="1pt"/>
+  </marker>
+ </defs>
+ <g>
+  <path d="m7.0871 6.9033v84.761h195.79" fill="none" marker-end="url(#Arrow1Lend)" marker-start="url(#Arrow1Lstart)" stroke="#000" stroke-width=".265"/>
+  <path d="m194.96 15.401h-84.918c-4.3153 0-4.8376-8.5063-9.0798-8.5063-4.391 1e-7 -49.641 79.108-49.641 79.108l143.65-0.0084z" fill="#c4c3e0" stroke="#000" stroke-linecap="round" stroke-width=".6"/>
+  <path d="m101.04 4.2574v83.816" fill="none" stroke="#00ac00" stroke-dasharray="1.8, 0.6" stroke-width=".6"/>
+ </g>
+</svg>

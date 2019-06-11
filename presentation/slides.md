@@ -5,6 +5,14 @@ class: center, middle, title
 
 ## Jan 'half/byte' Krutisch
 ## @halfbyte
+---
+class: center, middle, title
+
+# The musical Ruby
+## A presentation for Euruko 2019
+
+## Jan 'half/byte' Krutisch
+## @halfbyte
 
 ---
 class: center, middle, depfu, contain
@@ -19,7 +27,7 @@ class: center, middle, subtitle
 ---
 ### Don't try to understand the code examples!
 
-Note: This not meant as an insult. I'm just aware that it's a lot of code on very different subjects and it will be next to impossible to understand it during the presentation. Instead, go to [halfbyte/ruby_for_artists](https://github.com/ruby_for_artists) and study the examples there.
+Note: This not meant as an insult. I'm just aware that it's a lot of code on very different subjects and it will be next to impossible to understand it during the presentation. Instead, go to [rubysynth.fun](https://rubysynth.fun) for more info.
 
 I'm providing the code fragments here to give you a sense of how much (or rather: how little) code is necessary and how the code looks in general. More of a teaser or taste bite than actually explaining how a library works.
 
@@ -30,9 +38,8 @@ The reason I have (in contrast to what every one tells you to do) a looong text 
 class: center, middle, subtitle
 # Music
 ---
-class: center, middle
-# Let's start high level
-
+class: fullscreen-video, center
+<video src="images/sonic_pi.mp4"></video>
 ---
 class: center, middle
 # SonicPi
@@ -71,12 +78,19 @@ print samples.pack('e*')
 ```bash
 #!/bin/bash
 # play.sh
-ruby $1 | play -t raw -b 32 -r 44100 -c 1 \
+ruby -Ilib $1 | play -t raw -b 32 -r 44100 -c 1 \
   -e floating-point --endian little -
 ```
 
 ---
 class: center, middle
+```bash
+#!/bin/bash
+# save.sh
+ruby -Ilib $1 | sox -t raw -b 32 -r 44100 -c 1 \
+  -e floating-point --endian little - -t wav -b 16 $2
+```
+
 <audio src="samples/square.wav" data-player="simple"></audio>
 
 ---
@@ -98,14 +112,9 @@ class: center, middle
 
 # Vibrating air molecules
 
-<video src="images/air-movie.ogv" autoplay></video>
+<video src="images/air-movie.ogv"></video>
 ---
-class: center, middle
 
-# The full system
-![fit](images/loudspeaker_to_ear.jpg)
-
----
 class: center, middle, frame-image
 
 # Electrical current > Air movement
@@ -180,26 +189,7 @@ class: center, middle
 # Western notation
 ---
 class: center, middle
-# 1 Octave up = Double Frequency
-# 1 Octave down = Half Frequency
----
-class: center, middle
-# 1 Octave = 12 Halftones
-# C, C#, D, D#, E, F,
-# F#, G, G#, A, A#, B
----
-class: center, middle
-# 1 Octave = 12 Halftones
-# C, D♭, D, E♭, E, F,
-# G♭, G, A♭, A, B♭, B
----
-class: center, middle
-# Tuning / Temperament
-## (in short: it's complicated)
----
-class: center, middle
-# There's a standard for that
-# (MIDI)
+![an image explaining western notation](images/notes.png)
 ---
 class: center, middle
 
@@ -209,13 +199,17 @@ class: center, middle
   </mrow>
 </math>
 
+n = MIDI note (0-127)
+
+0 = very low C
+
+60 = middle C
+
+69 = concert pitch A
+
 ---
 
 class: center, middle
-# n = MIDI note (0-127)
-# 0 = very low C
-# 60 = middle C
-
 ---
 
 class: center, middle
@@ -271,21 +265,39 @@ end
 ---
 class: center, middle
 # Lowpass
-![A lowpass frequency response diagram with resonance](images/filter_sketch.png)
-
-
+![A lowpass frequency response diagram with resonance](images/lowpass.png)
 ---
 class: center, middle
-# A filtered squarewave at 440 Hz
-
+# Lowpass (1000 Hz)
 <audio src="samples/filtered.wav" data-player="fft"></audio>
+---
+class: center, middle
+# Highpass
+![A lowpass frequency response diagram with resonance](images/highpass.png)
+---
+class: center, middle
+# Highpass (2000 Hz)
+<audio src="samples/highpass_filtered.wav" data-player="fft"></audio>
+---
+class: center, middle
+# Bandpass
+![A lowpass frequency response diagram with resonance](images/bandpass.png)
+---
+class: center, middle
+# Bandpass (1200 Hz)
+<audio src="samples/bandpass_filtered.wav" data-player="fft"></audio>
+---
+class: center, middle
+# Band reject / Notch
+![A lowpass frequency response diagram with resonance](images/notch.png)
+
 ---
 class: center, middle
 # Something's still wrong
 ---
 class: center, middle
 # Piano
-TODO: Add Piano sound
+<audio src="samples/piano_long.wav" data-player="fft"></audio>
 ---
 class: center, middle
 # Variance over time
@@ -295,11 +307,11 @@ class: center, middle
 ---
 class: center, middle
 # Not this
-# ✉
+![Icon of an envelope](images/envelope-font-awesome.svg)
 ---
 class: center, middle
 # This!
-<video src="images/adsr.ogg?aa" controls></video>
+<video src="images/adsr.ogv"></video>
 ---
 class: small-code
 ```ruby
@@ -417,27 +429,31 @@ class: center, middle, frame-image
 # Kick drum
 ![photo of a real kickdrum](images/kickdrum.jpg)
 ---
-class: center, middle, frame-image
+class: center, middle
 # Kick drum synthesized
-![diagrams on how to do a kickdrum](images/kickdrum_sketch.png)
+![diagrams on how to do a kickdrum](images/kickdrum.png)
 ---
 
 class: center, middle, frame-image
 # Snare drum
 ![drawing of a snare drum](images/snaredrum.png)
 ---
-class: center, middle, frame-image
+class: center, middle
 # Snare drum synthesized
-![diagrams on how to do a snare drum](images/snare_sketch.png)
+![diagrams on how to do a snare drum](images/snare_drum.png)
 ---
 class: center, middle, frame-image
 # Hihat
 ![photo of a hihat](images/hihat.jpg)
 ---
-class: center, middle, frame-image
+class: center, middle
 # Hihat synthesized
-![diagrams on how to do a hihat](images/hihat_sketch.png)
+![diagrams on how to do a hihat](images/hihat.png)
 ---
+class: center, middle
+<audio src="samples/drums.wav" data-player="scope"></audio>
+---
+
 class: center, middle, subtitle
 # Sound --> Music
 ---
@@ -460,12 +476,16 @@ class: center, middle
 # A bar
 ![](images/sequencer_grid_sketch.png)
 ---
+class: center, middle
+# Step sequencer
+![](images/roland_808.jpg)
 ---
+class: center, middle
 # Tempo
 ## BPM (Beats per minute)
 ## (= Quarter notes per minute)
 ---
-
+class: center, middle
 # Sequencer maths
 ``` ruby
 BPM = 120
@@ -474,12 +494,151 @@ bar_length = beat_length_in_seconds * 4 # = 2s
 sixteenth_note_length = beat_length_in_seconds / 4 # = 0.125s
 
 ```
-
-
 ---
-class: depfu, middle, center
+class: center, middle
+# Notes > Patterns > Songs
+![A screenshot of ableton live](images/notes_patterns_songs.png)
+---
+class: center, middle
+# Let's build a DSL for that
+---
+class: center, middle
+# Drums
+``` ruby
+def_pattern(:drums_full, 16) do
+  drum_pattern kick_drum,   '*---*---*---*---'
+  drum_pattern snare_drum,  '----*-------*---'
+  drum_pattern hihat,       '--*---*---*---*-'
+end
+```
+---
+class: center, middle
+# Notes
+``` ruby
+def_pattern(:bassline, 16) do
+  note_pattern monosynth, [
+    ['C1', 4], P, P, P,
+    P, P, P, P,
+    ['C#1', 6], P, P, P,
+    P, P, P, P
+  ]
+end
+
+```
+---
+class: center, middle
+# A song
+
+``` ruby
+length = song(bpm: 115) do
+  pattern(:drums_full, at: 0, repeat: 1)
+  pattern(:drums_full, at: 2, repeat: 2)
+  pattern(:bassline, at: 0, repeat: 4)
+  pattern(:chord, at: 0, repeat: 4)
+end
+```
+---
+class: center, middle
+# A song
+<audio src="samples/simple_song.wav" data-player="scope"></audio>
+---
+class: center, middle, subtitle
+# Mixing
+---
+class: center, middle
+# Mixer / Mixing Desk / Console
+![Blurry image of a large mixing desk](images/mixing_desk.jpg)
+---
+class: center, middle
+# Channels / Sends / Sum
+TODO: Image describing structure
+---
+class: middle
+# Channels
+- Volume
+- Equalizer
+- Compressor
+- Ducker
+- Insert FX
+---
+class: center, middle
+# Equalizer / EQ
+TODO: Image of EQ curve
+---
+class: center, middle
+# Compressor
+TODO: Compressor animation
+---
+class: center, middle
+# Ducker
+---
+class: center, middle
+# Insert FX
+---
+class: center, middle
+# Waveshaper
+TODO: Waveshaper image
+---
+class: center, middle
+# Waveshaper
+``` ruby
+def simple_waveshaper(input, a)
+  input * (input.abs + a) / (input ** 2 + (a - 1) * input.abs + 1)
+end
+```
+---
+class: center, middle
+# Chorus
+TODO: Chorus animation
+---
+class: center, middle
+# Send FX
+TODO: Image Send FX
+---
+class: center, middle
+# Delay (Echo)
+TODO: Delay image
+---
+class: center, middle
+# Delay (Echo)
+
+``` ruby
+def initialize(sample_rate, time)
+  @buffer = Array.new((sample_rate.to_f * time).floor)
+  @pointer = 0
+end
+
+def run(input, mix, feedback = 0.4)
+  old_pointer = @pointer
+  @pointer = (@pointer + 1) % @buffer.length
+  delayed = (@buffer[@pointer] || 0.0)
+  if block_given?
+    delayed = yield delayed
+  end
+  @buffer[old_pointer] = input + (feedback * delayed)
+  input * (1.0 - mix) + delayed * mix
+end
+```
+---
+class: center, middle
+# Reverb
+![A photo of the Hallgrímskirkja in Rejkjavik](images/hallgrimskirkja.jpg)
+---
+# Sum
+- Compressor
+- Hard Limiter
+---
+class: center, middle
+# Hard limiter
+---
+class: center, middle, subtitle
+# Let's put it all together
+<audio src="samples/full_song.ogg" data-player="scope">
+---
+class: subtitle, middle, center
 # ❤️ Thank you ❤️
-## halfbyte/rubysynth
+## http://rubysynth.fun
+
 ## 🎹 ✏️
 ## @halfbyte
 ## depfu.com
@@ -487,8 +646,14 @@ class: depfu, middle, center
 
 ---
 # Image Sources
+
+(All taken from Wikimedia Commons)
+
 - [DAC chip](https://commons.wikimedia.org/wiki/File:CirrusLogicCS4282-AB.jpg)
 - [Loudspeaker](https://commons.wikimedia.org/wiki/File:Loudspeaker_side_en.svg)
-- [Kick drum](https://commons.wikimedia.org/wiki/File:Bass_drum_Premier_(8639408589).jpg)
-- [Snare drum](https://commons.wikimedia.org/wiki/File:Snare_drum_(line_art)_(PSF_S-860001_(cropped)).png)
+- <a href="https://commons.wikimedia.org/wiki/File:Bass_drum_Premier_(8639408589).jpg">Kick drum</a>
+- <a href="https://commons.wikimedia.org/wiki/File:Snare_drum_(line_art)_(PSF_S-860001_(cropped)).png">Snare drum</a>
 - [Hihat](https://commons.wikimedia.org/wiki/File:Hi-hat.jpg)
+- [Mixing Desk](https://commons.wikimedia.org/wiki/File:Image_of_a_mixing_desk_2014-02-16_00-50.jpg)
+- <a href="https://commons.wikimedia.org/wiki/File:Roland_TR-808_(large).jpg">Roland 808</a>
+- [Hallgrímskirkja](https://commons.wikimedia.org/wiki/File:Interior_of_Hallgr%C3%ADmskirkja_Church.jpg)

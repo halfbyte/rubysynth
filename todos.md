@@ -1,10 +1,11 @@
 # Todos
 
+- Piano sound (windows, record from ableton)
+- Screenshot Ableton Live with pattern and notes in pattern
+- Hard limiter for sum
 
 
 ## Infra
-
-- Sequencer DSL
 
 ## Sound base class
 - Fix monosynth note length bug
@@ -20,5 +21,5 @@
 - filter curve
 - sequencer grid
 - patterns vs. song
-
+- Delay image
 

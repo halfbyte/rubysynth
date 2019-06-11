@@ -10,7 +10,7 @@ samples = SAMPLING_FREQUENCY.times.map do
   period = SAMPLING_FREQUENCY / FREQUENCY.to_f
   output = in_cycle > 0.5 ? -1.0 : 1.0
   in_cycle = (in_cycle + (1.0 / period)) % 1.0
-  output = filter.run(output, 1000.0, 2)
+  output = filter.run(output, 1200.0, 2, type: :bandpass)
   output *= 0.3
 end
 print samples.pack('e*')

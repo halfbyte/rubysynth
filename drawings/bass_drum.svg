@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg9814"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="bass_drum.svg">
+  <defs
+     id="defs9808" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="341.72856"
+     inkscape:cy="792.14622"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     inkscape:window-width="3838"
+     inkscape:window-height="2014"
+     inkscape:window-x="0"
+     inkscape:window-y="41"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata9811">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Boxes"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g10370"
+       transform="translate(21.648832,-3.2072343)"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/kickdrum.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154">
+      <rect
+         y="26.558035"
+         x="15.497024"
+         height="66.712799"
+         width="66.712799"
+         id="rect10359"
+         style="fill:#c4c3e0;fill-opacity:0.25259519;stroke:#000007;stroke-width:0.60000002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+      <rect
+         style="fill:#c4c3e0;fill-opacity:0.25259519;stroke:#000007;stroke-width:0.60000002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+         id="rect10361"
+         width="66.712799"
+         height="66.712799"
+         x="15.497024"
+         y="97.617554" />
+    </g>
+    <g
+       id="g10374"
+       transform="translate(21.648832,-3.3962221)"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/kickdrum.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154">
+      <rect
+         style="fill:#c4c3e0;fill-opacity:0.25259519;stroke:#000007;stroke-width:0.60000002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+         id="rect10364"
+         width="66.712799"
+         height="66.712799"
+         x="85.989586"
+         y="26.747023" />
+      <rect
+         y="97.806541"
+         x="85.989586"
+         height="66.712799"
+         width="66.712799"
+         id="rect10366"
+         style="fill:#c4c3e0;fill-opacity:0.25259519;stroke:#000007;stroke-width:0.60000002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+    </g>
+    <text
+       id="text10386"
+       y="87.327049"
+       x="39.555897"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/kickdrum.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:'Anonymous Pro';-inkscape-font-specification:'Anonymous Pro';stroke-width:0.26458332"
+         y="87.327049"
+         x="39.555897"
+         id="tspan10384"
+         sodipodi:role="line">Sine</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Details">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="39.555897"
+       y="87.327049"
+       id="text10390"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/kickdrum.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"><tspan
+         sodipodi:role="line"
+         id="tspan10388"
+         x="39.555897"
+         y="87.327049"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:'Anonymous Pro';-inkscape-font-specification:'Anonymous Pro';stroke-width:0.26458332">Sine</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.60000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 42.495855,73.161769 c 0,0 10.824416,-32.473247 17.372518,-32.339611 6.548104,0.133633 14.298921,32.205978 22.985179,32.205978 8.68626,0 16.169806,-31.805075 16.169806,-31.805075"
+       id="path10376"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cssc"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/kickdrum.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="109.44688"
+       y="87.594322"
+       id="text10382"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/kickdrum.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"><tspan
+         sodipodi:role="line"
+         id="tspan10380"
+         x="109.44688"
+         y="87.594322"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:'Anonymous Pro';-inkscape-font-specification:'Anonymous Pro';stroke-width:0.26458332">Pitch</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.6;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 115.19317,73.028134 4.27631,-33.275055 14.83345,33.007787 v 0"
+       id="path10378"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/kickdrum.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154" />
+    <text
+       id="text10400"
+       y="158.95528"
+       x="39.288628"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/kickdrum.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:'Anonymous Pro';-inkscape-font-specification:'Anonymous Pro';stroke-width:0.26458332"
+         y="158.95528"
+         x="39.288628"
+         id="tspan10398"
+         sodipodi:role="line">Amp</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path10402"
+       d="m 44.099476,143.85456 4.27631,-33.27506 43.297655,32.33962"
+       style="fill:none;stroke:#000000;stroke-width:0.60000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/kickdrum.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154" />
+  </g>
+</svg>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg3527"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="notch.svg"
+   inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/lowpass.png"
+   inkscape:export-xdpi="154.21001"
+   inkscape:export-ydpi="154.21001">
+  <defs
+     id="defs3521">
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path1176"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1179"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="366.59501"
+     inkscape:cy="1044.0247"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="3838"
+     inkscape:window-height="2014"
+     inkscape:window-x="0"
+     inkscape:window-y="41"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       position="54.806546,205.33557"
+       orientation="0,1"
+       id="guide4072"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="73.610862,290.09673"
+       orientation="0,1"
+       id="guide4074"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="7.0870534,247.95239"
+       orientation="1,0"
+       id="guide4076"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="202.87872,239.73141"
+       orientation="1,0"
+       id="guide4078"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="17.670387,281.59227"
+       orientation="0,1"
+       id="guide4136"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="194.84672,220.64361"
+       orientation="1,0"
+       id="guide4138"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="12.473214,246.34599"
+       orientation="1,0"
+       id="guide4140"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="61.988094,211.00521"
+       orientation="0,1"
+       id="guide4142"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata3524">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-end:url(#Arrow1Lend)"
+       d="M 7.0870534,6.9032707 V 91.664429 H 202.87872"
+       id="path4082"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/notch.png"
+       inkscape:export-xdpi="154.21001"
+       inkscape:export-ydpi="154.21001" />
+    <path
+       style="fill:#c4c3e0;fill-opacity:1;stroke:#000000;stroke-width:0.60000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 106.47825,86.003061 c -0.0866,1.11e-4 -0.17062,-0.0049 -0.25528,-0.0088 h 0.34934 c -0.0315,0.0033 -0.064,0.0087 -0.0941,0.0088 z m 0.0941,-0.0088 c 12.34356,5.3e-4 34.30239,-79.0909902 49.54215,-79.0912804 h 38.732 V 85.994276 Z m -0.34938,1.5e-5 c 14.63309,-5.15e-4 -93.74983,0 -93.74983,0 V 6.9029806 c 0,0 33.731323,-3.606e-4 43.75857,0 13.617033,2.902e-4 35.358167,79.0918104 49.99126,79.0912954 z"
+       id="path4144"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccccczcccz"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/notch.png"
+       inkscape:export-xdpi="154.21001"
+       inkscape:export-ydpi="154.21001" />
+    <path
+       style="display:inline;fill:none;stroke:#00ac00;stroke-width:0.60000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.8, 0.6;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 106.4003,4.2574374 V 88.073658"
+       id="path4146"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/notch.png"
+       inkscape:export-xdpi="154.21001"
+       inkscape:export-ydpi="154.21001"
+       inkscape:label="path4146" />
+  </g>
+</svg>

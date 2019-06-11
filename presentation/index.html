@@ -27,6 +27,9 @@
         background-color: #008;
         color: #fff;
       }
+      .subtitle a:link, .subtitle a:visited {
+        color: #fff;
+      }
 
       .contain {
         background-size: contain;
@@ -69,16 +72,29 @@
         display: block;
         width: 100%;
         background: green;
-        border: 2px solid black;
-        border-radious: 5px;
+        border: 1px solid black;
+        box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+        border-radius: 5px;
         padding: 5px;
+        color: #fff;
       }
       img {
         max-width: 80%;
+        max-height: 30vh;
       }
+
 
       video {
         max-width: 80%;
+      }
+
+      .remark-slide-content.fullscreen-video {
+        padding:0;
+      }
+
+      .fullscreen-video video {
+          max-width: 100%;
+          max-height: 100vh;
       }
 
       math {
