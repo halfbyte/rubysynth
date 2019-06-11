@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="186.6071mm"
+   height="121.7619mm"
+   viewBox="0 0 186.6071 121.7619"
+   version="1.1"
+   id="svg865"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="mixer.svg">
+  <defs
+     id="defs859">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker2120"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path2118"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker2066"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path2064"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker2014"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path2012"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker1974"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path1972"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker1940"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path1938"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path1647"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="173.57649"
+     inkscape:cy="165.8895"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="3838"
+     inkscape:window-height="2014"
+     inkscape:window-x="0"
+     inkscape:window-y="41"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata862">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-9.3518247,-25.177088)">
+    <g
+       id="g1456"
+       transform="translate(1.336348,26.05878)"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154">
+      <rect
+         y="7.0833626"
+         x="8.2915173"
+         height="94.178368"
+         width="20.080656"
+         id="rect1410"
+         style="fill:#c4c3e0;fill-opacity:0.25259519;stroke:#000007;stroke-width:0.55208057;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+      <g
+         transform="translate(0,-17.506154)"
+         id="g1441">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 18.331845,65.67857 v 49.13691"
+           id="path1415"
+           inkscape:connector-curvature="0" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="rect1417"
+           width="13.607142"
+           height="4.9136906"
+           x="11.528275"
+           y="80.41964" />
+      </g>
+      <g
+         transform="translate(0.35796833,-1.7372519)"
+         id="g1425">
+        <circle
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="path1419"
+           cx="17.973877"
+           cy="29.396385"
+           r="4.2094951" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           id="path1421"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+      <g
+         id="g1431"
+         transform="translate(0.35796833,-14.03165)">
+        <circle
+           r="4.2094951"
+           cy="29.396385"
+           cx="17.973877"
+           id="circle1427"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path1429"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         transform="translate(0.35796833,9.6217031)"
+         id="g1437">
+        <circle
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="circle1433"
+           cx="17.973877"
+           cy="29.396385"
+           r="4.2094951" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           id="path1435"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+    </g>
+    <g
+       transform="translate(24.722434,26.05878)"
+       id="g1484"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154">
+      <rect
+         style="fill:#c4c3e0;fill-opacity:0.25259519;stroke:#000007;stroke-width:0.55208057;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+         id="rect1458"
+         width="20.080656"
+         height="94.178368"
+         x="8.2915173"
+         y="7.0833626" />
+      <g
+         id="g1464"
+         transform="translate(0,-17.506154)">
+        <path
+           inkscape:connector-curvature="0"
+           id="path1460"
+           d="m 18.331845,65.67857 v 49.13691"
+           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           y="80.41964"
+           x="11.528275"
+           height="4.9136906"
+           width="13.607142"
+           id="rect1462"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+      </g>
+      <g
+         id="g1470"
+         transform="translate(0.35796833,-1.7372519)">
+        <circle
+           r="4.2094951"
+           cy="29.396385"
+           cx="17.973877"
+           id="circle1466"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path1468"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         transform="translate(0.35796833,-14.03165)"
+         id="g1476">
+        <circle
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="circle1472"
+           cx="17.973877"
+           cy="29.396385"
+           r="4.2094951" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           id="path1474"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+      <g
+         id="g1482"
+         transform="translate(0.35796833,9.6217031)">
+        <circle
+           r="4.2094951"
+           cy="29.396385"
+           cx="17.973877"
+           id="circle1478"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path1480"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       id="g1512"
+       transform="translate(48.108518,26.05878)"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154">
+      <rect
+         y="7.0833626"
+         x="8.2915173"
+         height="94.178368"
+         width="20.080656"
+         id="rect1486"
+         style="fill:#c4c3e0;fill-opacity:0.25259519;stroke:#000007;stroke-width:0.55208057;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+      <g
+         transform="translate(0,-17.506154)"
+         id="g1492">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 18.331845,65.67857 v 49.13691"
+           id="path1488"
+           inkscape:connector-curvature="0" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="rect1490"
+           width="13.607142"
+           height="4.9136906"
+           x="11.528275"
+           y="80.41964" />
+      </g>
+      <g
+         transform="translate(0.35796833,-1.7372519)"
+         id="g1498">
+        <circle
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="circle1494"
+           cx="17.973877"
+           cy="29.396385"
+           r="4.2094951" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           id="path1496"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+      <g
+         id="g1504"
+         transform="translate(0.35796833,-14.03165)">
+        <circle
+           r="4.2094951"
+           cy="29.396385"
+           cx="17.973877"
+           id="circle1500"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path1502"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         transform="translate(0.35796833,9.6217031)"
+         id="g1510">
+        <circle
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="circle1506"
+           cx="17.973877"
+           cy="29.396385"
+           r="4.2094951" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           id="path1508"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+    </g>
+    <g
+       transform="translate(71.494599,26.05878)"
+       id="g1540"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154">
+      <rect
+         style="fill:#c4c3e0;fill-opacity:0.25259519;stroke:#000007;stroke-width:0.55208057;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+         id="rect1514"
+         width="20.080656"
+         height="94.178368"
+         x="8.2915173"
+         y="7.0833626" />
+      <g
+         id="g1520"
+         transform="translate(0,-17.506154)">
+        <path
+           inkscape:connector-curvature="0"
+           id="path1516"
+           d="m 18.331845,65.67857 v 49.13691"
+           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           y="80.41964"
+           x="11.528275"
+           height="4.9136906"
+           width="13.607142"
+           id="rect1518"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+      </g>
+      <g
+         id="g1526"
+         transform="translate(0.35796833,-1.7372519)">
+        <circle
+           r="4.2094951"
+           cy="29.396385"
+           cx="17.973877"
+           id="circle1522"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path1524"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         transform="translate(0.35796833,-14.03165)"
+         id="g1532">
+        <circle
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="circle1528"
+           cx="17.973877"
+           cy="29.396385"
+           r="4.2094951" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           id="path1530"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+      <g
+         id="g1538"
+         transform="translate(0.35796833,9.6217031)">
+        <circle
+           r="4.2094951"
+           cy="29.396385"
+           cx="17.973877"
+           id="circle1534"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path1536"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       id="g1568"
+       transform="translate(167.31072,26.05878)"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154">
+      <rect
+         y="7.0833626"
+         x="8.2915173"
+         height="94.178368"
+         width="20.080656"
+         id="rect1542"
+         style="fill:#c4c3e0;fill-opacity:0.25259519;stroke:#000007;stroke-width:0.55208057;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+      <g
+         transform="translate(0,-17.506154)"
+         id="g1548">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 18.331845,65.67857 v 49.13691"
+           id="path1544"
+           inkscape:connector-curvature="0" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="rect1546"
+           width="13.607142"
+           height="4.9136906"
+           x="11.528275"
+           y="80.41964" />
+      </g>
+      <g
+         transform="translate(0.35796833,-1.7372519)"
+         id="g1554">
+        <circle
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="circle1550"
+           cx="17.973877"
+           cy="29.396385"
+           r="4.2094951" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           id="path1552"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+      <g
+         id="g1560"
+         transform="translate(0.35796833,-14.03165)">
+        <circle
+           r="4.2094951"
+           cy="29.396385"
+           cx="17.973877"
+           id="circle1556"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path1558"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         transform="translate(0.35796833,9.6217031)"
+         id="g1566">
+        <circle
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="circle1562"
+           cx="17.973877"
+           cy="29.396385"
+           r="4.2094951" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           id="path1564"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+    </g>
+    <g
+       id="g1596"
+       transform="translate(132.83296,26.05878)"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154">
+      <rect
+         y="7.0833626"
+         x="8.2915173"
+         height="94.178368"
+         width="20.080656"
+         id="rect1570"
+         style="fill:#c4c3e0;fill-opacity:0.25259519;stroke:#000007;stroke-width:0.55208057;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+      <g
+         transform="translate(0,-17.506154)"
+         id="g1576">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 18.331845,65.67857 v 49.13691"
+           id="path1572"
+           inkscape:connector-curvature="0" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="rect1574"
+           width="13.607142"
+           height="4.9136906"
+           x="11.528275"
+           y="80.41964" />
+      </g>
+      <g
+         transform="translate(0.35796833,-1.7372519)"
+         id="g1582">
+        <circle
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="circle1578"
+           cx="17.973877"
+           cy="29.396385"
+           r="4.2094951" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           id="path1580"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+      <g
+         id="g1588"
+         transform="translate(0.35796833,-14.03165)">
+        <circle
+           r="4.2094951"
+           cy="29.396385"
+           cx="17.973877"
+           id="circle1584"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path1586"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         transform="translate(0.35796833,9.6217031)"
+         id="g1594">
+        <circle
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="circle1590"
+           cx="17.973877"
+           cy="29.396385"
+           r="4.2094951" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           id="path1592"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+    </g>
+    <g
+       id="g1624"
+       transform="translate(109.41143,26.05878)"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154">
+      <rect
+         y="7.0833626"
+         x="8.2915173"
+         height="94.178368"
+         width="20.080656"
+         id="rect1598"
+         style="fill:#c4c3e0;fill-opacity:0.25259519;stroke:#000007;stroke-width:0.55208057;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+      <g
+         transform="translate(0,-17.506154)"
+         id="g1604">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 18.331845,65.67857 v 49.13691"
+           id="path1600"
+           inkscape:connector-curvature="0" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="rect1602"
+           width="13.607142"
+           height="4.9136906"
+           x="11.528275"
+           y="80.41964" />
+      </g>
+      <g
+         transform="translate(0.35796833,-1.7372519)"
+         id="g1610">
+        <circle
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="circle1606"
+           cx="17.973877"
+           cy="29.396385"
+           r="4.2094951" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           id="path1608"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+      <g
+         id="g1616"
+         transform="translate(0.35796833,-14.03165)">
+        <circle
+           r="4.2094951"
+           cy="29.396385"
+           cx="17.973877"
+           id="circle1612"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path1614"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         transform="translate(0.35796833,9.6217031)"
+         id="g1622">
+        <circle
+           style="fill:#ffffff;fill-opacity:1;stroke:#000007;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.80968855"
+           id="circle1618"
+           cx="17.973877"
+           cy="29.396385"
+           r="4.2094951" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 21.381562,31.868628 18.307963,29.463201"
+           id="path1620"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="8.9849358"
+       y="29.195932"
+       id="text1628"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"><tspan
+         sodipodi:role="line"
+         id="tspan1626"
+         x="8.9849358"
+         y="29.195932"
+         style="font-size:5.64444447px;stroke-width:0.26458332">Channels</tspan></text>
+    <text
+       id="text1632"
+       y="29.195932"
+       x="117.04873"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"><tspan
+         style="font-size:5.64444447px;stroke-width:0.26458332"
+         y="29.195932"
+         x="117.04873"
+         sodipodi:role="line"
+         id="tspan1634">Sends</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="174.94801"
+       y="29.195932"
+       id="text1640"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"><tspan
+         id="tspan1638"
+         sodipodi:role="line"
+         x="174.94801"
+         y="29.195932"
+         style="font-size:5.64444447px;stroke-width:0.26458332">Sum</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 19.64431,127.28385 c 0,0 90.738,44.09947 166.50891,-0.26727"
+       id="path1642"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker1940)"
+       d="m 43.030393,127.28385 c 0,0 74.033647,28.33057 143.122827,-0.26727"
+       id="path1926"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker1974)"
+       d="m 66.416477,127.28385 c 0,0 41.694033,16.43707 119.736743,-0.26727"
+       id="path1928"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2014)"
+       d="m 89.668926,127.28385 c 0,0 36.883184,8.55262 96.484294,-0.26727"
+       id="path1930"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 128.0221,127.01658 c 0,0 11.22531,5.07812 58.13112,0"
+       id="path2052"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 151.14091,127.28385 c 0,0 16.1698,3.20723 35.01231,-0.26727"
+       id="path2054"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2066)"
+       d="m 102.23059,41.623966 h 12.56167"
+       id="path2056"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2116"
+       d="m 102.23059,53.383825 h 12.56167"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2120)"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/presentation/images/mixer.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154" />
+  </g>
+</svg>

@@ -550,8 +550,7 @@ class: center, middle
 ![Blurry image of a large mixing desk](images/mixing_desk.jpg)
 ---
 class: center, middle
-# Channels / Sends / Sum
-TODO: Image describing structure
+![A diagram explaining the mixer structure](images/mixer.png)
 ---
 class: middle
 # Channels
@@ -563,14 +562,15 @@ class: middle
 ---
 class: center, middle
 # Equalizer / EQ
-TODO: Image of EQ curve
+![A simple three band EQ filter curve](images/eq.png)
 ---
 class: center, middle
 # Compressor
-TODO: Compressor animation
+<video src="images/compressor.ogv"></video>
 ---
 class: center, middle
-# Ducker
+# Ducker / Sidechain compression
+<video src="images/compressor.ogv"></video>
 ---
 class: center, middle
 # Insert FX
@@ -589,7 +589,9 @@ end
 ---
 class: center, middle
 # Chorus
-TODO: Chorus animation
+<video src="images/chorus.ogv?a"></video>
+???
+The overlay creates interferences
 ---
 class: center, middle
 # Send FX
