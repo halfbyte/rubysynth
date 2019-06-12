@@ -16,7 +16,13 @@ In this example, I've also modulated the filter in a way so that it is a bit mor
 
 A snare drum is, together with the kick drum, the backbone of every rock groove. What a snare drum is, esentially, is a tom, so a midsized drum, that has a so called snare carpet that lies on the bottom drum skin. This leads to the characteristic noisy sound of a snare that is much more than just the sound of the drum, which would sound like this.
 
-To construct a snare sound, we pretty much need two components - A version of our kick drum sound that is just slightly pitched up (as a smaller drum usually creates a higher pitche sounds), like this, and then something to emulate the snares. To me, this actually sounds a lot like white noise and so that's what we're going to use. White noise is surprisingly easy to create. (code)
+To construct a snare sound, we pretty much need two components - A version of our kick drum sound that is just slightly pitched up (as a smaller drum usually creates a higher pitche sounds), like this, and then something to emulate the snares. To me, this actually sounds a lot like white noise and so that's what we're going to use. White noise is surprisingly easy to create:
+
+```ruby
+noise_out = rand * 2.0 - 1.0
+```
+
+On top of that, we're going to emulate the snare wires being a bit more bright in the beginning and then dampening down while they settle by putting a lowpass filter on top with an envelope shaping the sound a little it. Of course I aso put another envelope on the volume.
 
 # Hihat
 

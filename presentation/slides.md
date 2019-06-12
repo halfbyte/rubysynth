@@ -72,7 +72,6 @@ samples = SAMPLING_FREQUENCY.times.map do
   output * 0.5
 end
 print samples.pack('e*')
-
 ```
 
 ```bash
