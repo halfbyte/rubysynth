@@ -1,0 +1,378 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Shaping Sound · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="04_drums.html" />
+    
+    
+    <link rel="prev" href="02_what_is_sound.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="02_what_is_sound.html">
+            
+                <a href="02_what_is_sound.html">
+            
+                    
+                    What is Sound
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="03_shaping_sound.html">
+            
+                <a href="03_shaping_sound.html">
+            
+                    
+                    Shaping Sound
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="04_drums.html">
+            
+                <a href="04_drums.html">
+            
+                    
+                    Making Drums
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="05_sequencer.html">
+            
+                <a href="05_sequencer.html">
+            
+                    
+                    Building a Sequencer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="06_the_mixing_stage.html">
+            
+                <a href="06_the_mixing_stage.html">
+            
+                    
+                    The Mixing stage
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Shaping Sound</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="sculpting-a-sound">sculpting a sound</h1>
+<p>While this does sound like, uh, a tone, it certainly doesn&apos;t sound very pleasant. It&apos;s closer to an alarm sound than music. There are a couple of reasons why that is, let&apos;s tackle them one by one.</p>
+<p>First of all, a raw square wave is a very harsh sound in itself - We can probably improve upon that. What we need to do is to filter it down to something more mellow. The way we do that is by removing frequency content. Okay, time for some fundamentals again that will allow us to understand this a little better. If we want understand what&apos;s going on, it might make sense to try to graph the sound we&apos;re hearing in a different way. The oscilloscope style I&apos;ve been using so far is useful for some things, but it only shows the so called time domain. We can transform this into the &quot;frequency domain&quot; and one way of doing that is the Fast Fourier transform. It&apos;s called fourier to honour Jean-Baptiste Joseph Fourier, a mathematician who lived from 1786 to 1830 and did a lot of ground work in understanding how we can basicially divide every signal (in this case: sound) into a bunch of sinewaves at different frequencies and amplitudes. Here&apos;s how to build our square waves from a bunch of sinewaves and here&apos;s how that looks in the frequency domain. Oh, btw, that lowest frequency sine wave down there to the left? That&apos;s a sinewave at our 440 Hz frequency, also called the fundamental. Because it&apos;s the loudest of the sinewaves, it&apos;s what our brain interprets as the note that is played, even though a lot of other sinewaves are also played that are on completely different frequencies and notes.</p>
+<p>If we want to make this sound less harsh, we can use a so-called filter to remove some of the more higher sine waves, because those are what make it sound harsh in the first place. For that, we&apos;ll need a low pass filter, that leaves the lower sinewaves intact.</p>
+<h2 id="the-state-variable-filter">The state variable filter</h2>
+<p>One rather popular algorhythm to do this is called a state variable filter. The following block diagram shows how it&apos;s internals work. Interestingly, this block diagram can be implemented both in software (as we&apos;ll see) and in electronics as well which is where this has been developed in the first place.</p>
+<p><img src="../presentation/images/StateVarBlock.gif" alt="State Variable Filter block diagram"></p>
+<p>Here&apos;s the main loop of the filter:</p>
+<pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(input, frequency, q, <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:lowpass</span>)</span></span>
+  <span class="hljs-comment"># derived parameters</span>
+  q1 = <span class="hljs-number">1.0</span> / q.to_f
+  f1 = <span class="hljs-number">2</span> * <span class="hljs-symbol">Math:</span><span class="hljs-symbol">:PI</span> * frequency / @sampling_frequency
+
+  <span class="hljs-comment"># calculate filters</span>
+  lowpass = @delay_2 + f1 * @delay_1
+  highpass = input - lowpass - q1 * @delay_1
+  bandpass = f1 * highpass + @delay_1
+  notch = highpass + lowpass
+
+  <span class="hljs-comment"># store delays</span>
+  @delay_1 = bandpass
+  @delay_2 = lowpass
+  <span class="hljs-comment"># [...]</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The cool thing with this filter is that with one run, you&apos;ll get four different filter types, a lowpass, a highpass, a bandpass and a notch or band reject. If you graph the frequency responses of these, they probably look a little like this:</p>
+<p><img src="../presentation/images/lowpass.png" alt="Lowpass state variable filter frequency response"></p>
+<p><img src="../presentation/images/highpass.png" alt="Highpass state variable filter frequency response"></p>
+<p><img src="../presentation/images/bandpass.png" alt="Bandpass state variable filter frequency response"></p>
+<p><img src="../presentation/images/notch.png" alt="Band reject / notch state variable filter frequency response"></p>
+<p>Did you notice the little hump right around the filter frequency? The state variable filter has a second parameter beyond the filter frequency, which is Q. What Q does is that it feeds back a bit of the filter result into the input. This leads to an emphasis around the actual filter frequency. If you crank Q way up, it will start to self-oscillate. This is also often called &quot;Resonance&quot;.</p>
+<p>Often, especially when changing the filter frequency over time, upping Q a bit makes a sound more interesting.</p>
+<p>Okay, so this does sound a lot nicer, doesn&apos;t it, right? But something is not quite right yet. If you compare this sound with something like a piano sound, what&apos;s the most obvious difference, apart from the slightly more complex sound of the piano? It&apos;s the shape of the sound over time. A piano has a relatively sharp attack, then stays on for a bit and then fades out. You could say it has  certain envelope. Which is the name of the next piece of code we&apos;re going to discuss. An envelope shapes a sound in a certain way over time. You can influence any parameter in our sound generation so far with an envelope and you&apos;ll get an interesting result. Let&apos;s start with the most obvious: Making the volume of the sound fade in and out, resulting in less clicks and making it sound more natural.</p>
+<p>There are endless ways of how to construct an envelope but the so called ADSR (Attack, Decay, Sustain, Release) envelope sits right in the sweet spot of being very versatile and simple to parameterize. Here&apos;s what it looks like:</p>
+<video src="../presentation/images/adsr.ogv"></video>
+
+<p>Here&apos;s what the code looks like:</p>
+<pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">linear</span><span class="hljs-params">(start, target, length, time)</span></span>
+  (target - start) / length * time + start
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(t, released)</span></span>
+  <span class="hljs-keyword">if</span> !released
+    <span class="hljs-keyword">if</span> t &lt; <span class="hljs-number">0</span>.<span class="hljs-number">0001</span> <span class="hljs-comment"># initialize start value (slightly hacky, but works)</span>
+      @start_value = @value
+      <span class="hljs-keyword">return</span> @start_value
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">if</span> t &lt;= a <span class="hljs-comment"># attack</span>
+      <span class="hljs-keyword">return</span> @value = linear(@start_value, <span class="hljs-number">1</span>, a, t)
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">if</span> t &gt; a &amp;&amp; t &lt; (a + d) <span class="hljs-comment"># decay</span>
+      <span class="hljs-keyword">return</span> @value = linear(<span class="hljs-number">1.0</span>, s, d, t - a)
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">if</span> t &gt;= a + d <span class="hljs-comment"># sustain</span>
+      <span class="hljs-keyword">return</span> @value = s
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-comment"># release</span>
+    <span class="hljs-keyword">if</span> t &lt;= a <span class="hljs-comment"># when released in attack phase</span>
+      attack_level = linear(@start_value, <span class="hljs-number">1</span>, a, releases)
+      <span class="hljs-keyword">return</span> linear(attack_level, <span class="hljs-number">0</span>, t - released)
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">if</span> t &gt; a &amp;&amp; t &lt; (a + d) <span class="hljs-comment"># when released in decay phase</span>
+      decay_level = linear(<span class="hljs-number">1.0</span>, s, d, released - a)
+      <span class="hljs-keyword">return</span> @value = linear(decay_level, <span class="hljs-number">0</span>, r, t - released)
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">if</span> t &gt;= a + d &amp;&amp; t &lt; released + r <span class="hljs-comment"># normal release</span>
+      <span class="hljs-keyword">return</span> @value = linear(s, <span class="hljs-number">0</span>, r, t - released)
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">if</span> t &gt;= released + r <span class="hljs-comment"># after release</span>
+      <span class="hljs-keyword">return</span> @value = <span class="hljs-number">0</span>.<span class="hljs-number">0</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>And here&apos;s what it sounds like if we shape the volume of the sound with this envelope. Much better, right?</p>
+<p>What else can we do with it? How about we&apos;ll modulate the filter frequency of our low pass filter? This emulates a lot of instruments such as the piano or a guitar where the sound starts relatively bright and then gets more muffled at the end.</p>
+<p>Of course, we could modulate the pitch of the note as well. Sometimes this works quite well with synthesizer sounds, but as we&apos;ll see, it will be invaluable for generating drum sounds.</p>
+<p>One last thing that is very useful in sound design is a thing called an LFO. This stands for Low Frequency Oscillator and is exactly that, but instead of running these through a filter into the speakers, we&apos;ll use the output to modulate our parameters, such as the pitch, the filter frequency or the amplitude or volume.</p>
+<p>If I use an LFO, for example, to modulate the filter, we&apos;re quickly getting into wub wub territory.</p>
+<p>Used a little more subtly, on the pitch of our oscillator, gives us an effect called vibrato, which, for example, on a violin can be created by quickly, rhythmicly vary the position of your fingertip on the string every so slightly.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02_what_is_sound.html" class="navigation navigation-prev " aria-label="Previous page: What is Sound">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="04_drums.html" class="navigation navigation-next " aria-label="Next page: Making Drums">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Shaping Sound","level":"1.3","depth":1,"next":{"title":"Making Drums","level":"1.4","depth":1,"path":"04_drums.md","ref":"04_drums.md","articles":[]},"previous":{"title":"What is Sound","level":"1.2","depth":1,"path":"02_what_is_sound.md","ref":"02_what_is_sound.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"03_shaping_sound.md","mtime":"2019-06-11T15:37:52.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-16T04:27:06.626Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

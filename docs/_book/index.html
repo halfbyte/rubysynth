@@ -1,0 +1,331 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="02_what_is_sound.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="02_what_is_sound.html">
+            
+                <a href="02_what_is_sound.html">
+            
+                    
+                    What is Sound
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="03_shaping_sound.html">
+            
+                <a href="03_shaping_sound.html">
+            
+                    
+                    Shaping Sound
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="04_drums.html">
+            
+                <a href="04_drums.html">
+            
+                    
+                    Making Drums
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="05_sequencer.html">
+            
+                <a href="05_sequencer.html">
+            
+                    
+                    Building a Sequencer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="06_the_mixing_stage.html">
+            
+                <a href="06_the_mixing_stage.html">
+            
+                    
+                    The Mixing stage
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="introduction">Introduction</h1>
+<p>We&apos;ll start this off with a short demonstration of a software called SonicPi, which allows you to live code music:</p>
+<video src="../presentation/images/sonic_pi.ogv" controls></video>
+
+<p>Sonic Pi is a wonderful piece of software. It can teach both the basics of programming and the basics of music making while sounding quite professional. That&apos;s due to the great foundation Sonic Pi is based on: Supercollider is a system specifically built for live coding and has been under continuous development since 1996!</p>
+<p>But today we&apos;re going to leave those comfortable foundations behind and going to try to recreate at least parts of it with pure ruby. The idea here is that we can use an expressive and easy to read language like ruby and show how to implement stuff that is usually written in C or C++, with lots of performance optimizations, which doesn&apos;t necessarily makes for the most readable code.</p>
+<p>We&apos;re going to do this in three parts. At first we&apos;re going to take a look at how to generate typical synthesizer sounds, including some drum sounds. Next, we&apos;re going to figure out how to turn these into music by looking at sequencing (or, in old school terms, arranging). Last but not least we&apos;ll add some effects that will bring the sound to the pro level.</p>
+<p>I&apos;ll show a lot of code in this talk, but don&apos;t concentrate too much on it, though, it&apos;s all available for you to study afterwards. And, unfortunately, since we have a very full todo list for the rest of this talk, I need to glance over a couple of things I would have loved to talk about in detail - But fear not, the content is all there, if only in written form. If you go to ruby-synth.fun, you&apos;ll find a lot of additional material there, including, of course, all the code examples.</p>
+<h2 id="making-noise-with-ruby">Making noise with Ruby</h2>
+<p>Ruby doesn&apos;t have a simple, integrated way of outputting sound directly to your computer&apos;s soundcard. While there may be libraries, I opted to use the power of Unix and leverage a tool called SoX, (short for &quot;Sound eXchange&quot;), which is essentially the swiss army knife of audio file conversion. It&apos;s been around for ages, I even used it back when I still had my AMIGA computer at the end of the 90&apos;s. Originally conceived by Lance Norskog, and then maintained by Chris Bagwell, it has thousands of contributors and is a great example for a long running open source project that does one thing and does it well. By playing around with Ruby&apos;s quirky <code>Array#pack</code> method and SoX&apos;s command line switches, I came up with the following snippet to make ruby output a binary stream of 32 bit, little endian float values:</p>
+<pre><code class="lang-ruby">SAMPLING_FREQUENCY=<span class="hljs-number">44100</span>
+FREQUENCY=<span class="hljs-number">440</span>
+
+in_cycle = <span class="hljs-number">0</span>
+samples = SAMPLING_FREQUENCY.times.map <span class="hljs-keyword">do</span>
+  period = SAMPLING_FREQUENCY / FREQUENCY.to_f
+  output = in_cycle &gt; <span class="hljs-number">0</span>.<span class="hljs-number">5</span> ? -<span class="hljs-number">1.0</span> <span class="hljs-symbol">:</span> <span class="hljs-number">1.0</span>
+  in_cycle = (in_cycle + (<span class="hljs-number">1.0</span> / period)) % <span class="hljs-number">1.0</span>
+  output * <span class="hljs-number">0</span>.<span class="hljs-number">5</span>
+<span class="hljs-keyword">end</span>
+print samples.pack(<span class="hljs-string">&apos;e*&apos;</span>)
+</code></pre>
+<p>we then can use the following bash script that utilizes SoX&apos;s <code>play</code> command to pipe the output of the ruby script to your soundcard:</p>
+<pre><code class="lang-bash"><span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-comment"># play.sh</span>
+ruby -Ilib <span class="hljs-variable">$1</span> | play -t raw -b 32 -r 44100 -c 1 \
+  <span class="hljs-_">-e</span> floating-point --endian little -
+</code></pre>
+<pre><code class="lang-bash">$ ./play.sh examples/square_wave.rb
+</code></pre>
+<p>If, instead of sending the data to our soundcard, we want to save it to a soundfile, to, for example, play the file from a webpage (how very self referential of me, right?), we can use the following snippet and invocation:</p>
+<pre><code class="lang-bash"><span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-comment"># save.sh</span>
+ruby -Ilib <span class="hljs-variable">$1</span> | sox -t raw -b 32 -r 44100 -c 1 \
+  <span class="hljs-_">-e</span> floating-point --endian little - -t wav -b 16 <span class="hljs-variable">$2</span>
+</code></pre>
+<pre><code class="lang-bash">$ ./save.sh examples/square_wave.rb square_wave.wav
+</code></pre>
+<p>If you want to try this out yourself, you need to <a href="https://github.com/halfbyte/rubysynth" target="_blank">clone the repo</a> and install SoX. I&apos;m pretty sure this will work on Windows with either something like Cygwin or WSL, on any unix-ish system like Linux or MacOS, this should work fine. On Linux, SoX should be available from your package manager, on Mac, you can use Homebrew to install it.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="02_what_is_sound.html" class="navigation navigation-next navigation-unique" aria-label="Next page: What is Sound">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"What is Sound","level":"1.2","depth":1,"path":"02_what_is_sound.md","ref":"02_what_is_sound.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-06-11T11:12:58.617Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-16T04:27:06.626Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
