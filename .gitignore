@@ -2,3 +2,7 @@ test.wav
 debug.txt
 logs/*
 DEBUG.txt
+
+_site
+.sass-cache
+.jekyll-metadata
