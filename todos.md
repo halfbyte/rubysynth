@@ -1,8 +1,12 @@
 # Todos
 
-- Piano sound (windows, record from ableton)
-- Screenshot Ableton Live with pattern and notes in pattern
 - Hard limiter for sum
+- Full screen viz (don't break website)
+- No play button player
+
+- Single drum sound example
+- Ducking Sound example
+- Waveshaper / Chorus sound example
 
 
 ## Infra
@@ -14,11 +18,7 @@
 
 ## Images
 
-- Airwaves
-- Kickdrum synth
-- Snare synth
-- Hihat synth
-- filter curve
+- digital vs. analog
 - sequencer grid
 - patterns vs. song
 - Delay image
