@@ -130,7 +130,7 @@ class: center, middle
 ---
 class: center, middle
 # Digital to Analog challenges
-![fit](images/digital_2_analog.jpg)
+![fit](images/digital_analog.png)
 
 <math>
   <mrow>
@@ -572,7 +572,7 @@ class: center, middle
 ---
 class: center, middle
 # Waveshaper
-TODO: Waveshaper image
+![A waveshaper curve](images/waveshaper.png)
 ---
 class: center, middle
 # Waveshaper
@@ -594,7 +594,7 @@ TODO: Image Send FX
 ---
 class: center, middle
 # Delay (Echo)
-TODO: Delay image
+![visualisation of a delay effect](images/delay.png)
 ---
 class: center, middle
 # Delay (Echo)
@@ -620,6 +620,14 @@ end
 class: center, middle
 # Reverb
 ![A photo of the Hallgrímskirkja in Rejkjavik](images/hallgrimskirkja.jpg)
+---
+class: center, middle
+# Reverb
+![A reverb visualisation part one](images/reverb_raw.png)
+---
+class: center, middle
+# Reverb
+![A reverb visualisation part one](images/reverb_diffused.png)
 ---
 # Sum
 - Compressor
