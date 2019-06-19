@@ -1,6 +1,5 @@
 require 'state_variable_filter'
 require 'envelope'
-
 class Hihat < Sound
   def initialize(sfreq, preset = {})
     super(sfreq, mode: :monophonic)

@@ -1,11 +1,13 @@
 ---
-title: Welcome to Ruby Synth
+title: Welcome to RubySynth
 layout: home
 nav_exclude: true
 ---
-# Ruby Synth
+# RubySynth
 
-This is both a talk I've given at Euruko 2019 in Rotterdam, but also an open source project to build a fully functional ruby synthesizer in pure ruby. This Website primarily acts as further reading material for people who watched the talk.
+RubySynth is a collection of DSP code snippets, held together with duct tape (as one does), to generate (electronic) music with pure Ruby.
+
+I've built this for my Talk at Euruko 2019 in Rotterdam called "The musical Ruby". This website primarily acts as additional reading material for people who have seen the talk, either online or at the conference. You probably want to [start here](01_introduction.html)
 
 You can find all source code, including the code for this website at [halfbyte/rubysynth](https://github.com/halfbyte/rubysynth) on GitHub.
 
@@ -33,7 +35,7 @@ If not stated otherwise, the Images and Videos on this website are created by my
 
 ## Licenses
 
-All code here is licensed under the AGPL 3.0 license as documented at https://github.com/halfbyte/rubysynth/LICENSE.
+All code here is licensed under the AGPL 3.0 license as documented at [LICENSE](https://github.com/halfbyte/rubysynth/blob/master/LICENSE) unless stated otherwise.
 
-The entire contents of the "website" folder (and with that, this website you're just reading) is licensed under a [Creative Commons Attribution-ShareAlike Unported license](https://creativecommons.org/licenses/by-sa/3.0/deed.en).
+The entire contents of the "website" folder of the repo (and with that, this website you're just reading) is licensed under a [Creative Commons Attribution-ShareAlike Unported license](https://creativecommons.org/licenses/by-sa/3.0/deed.en). The full license is at [website/LICENSE](https://github.com/halfbyte/rubysynth/blob/master/website/LICENSE)
 

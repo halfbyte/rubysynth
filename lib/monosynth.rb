@@ -16,8 +16,8 @@ class Monosynth < Sound
       flt_decay: 0.05,
       flt_sustain: 0.2,
       flt_release: 0.2,
-      flt_envmod: 3000,
-      flt_frequency: 1000,
+      flt_envmod: 2000,
+      flt_frequency: 500,
       flt_Q: 2,
       osc_waveform: :square,
       lfo_waveform: :sine,
@@ -39,7 +39,6 @@ class Monosynth < Sound
       @preset[:flt_sustain],
       @preset[:flt_release]
     )
-    @chorus = Chorus.new(sfreq, 0.0, 0.5, 7.0)
   end
 
   def run(offset)
@@ -56,8 +55,7 @@ class Monosynth < Sound
       local_stopped = event[:stopped] && event[:stopped] - event[:started]
       osc_out = @filter.run(osc_out, @preset[:flt_frequency] + @flt_env.run(local_started, local_stopped) * @preset[:flt_envmod], @preset[:flt_Q])
       # osc_out = @filter2.run(osc_out, @preset[:flt_frequency] + @flt_env.run(local_started, local_stopped) * @preset[:flt_envmod], @preset[:flt_Q])
-      synth = 0.3 * osc_out * @amp_env.run(local_started, local_stopped)
-      @chorus.run(synth) * 0.5 + synth * 0.5
+      0.3 * osc_out * @amp_env.run(local_started, local_stopped)
     end
   end
 end

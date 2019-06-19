@@ -4,13 +4,18 @@ layout: page
 ---
 # The mixing stage
 
+![An image of a professional mixing desk](images/mixing_desk.jpg)
+
+
 To be able to bring all of these instruments together, we'll need a mixer. A professional mixing desk (often also called a console, interesting, right?), usually consists of a large number of so called channel strips which is where the individual instruments come in. For each channel strip, you can make a huge range of adjustments, of which we'll be looking at a handful.
+
+![The structure of our mixer](images/mixer.png)
 
 ## Volume control
 
 This one's easy. Different instruments come with different loudnesses. A bass drum is much louder than, say, a harp, just as a function of their physical attributes. The same is true for digitally created sounds. A bass sound that uses a high amount of filter resonance will be louder than other sounds, for example. But that's only the first problem. The second problem is that you usually don't want all sounds to have the same volume. A hihat often needs to be a lot quieter than other drum sounds, for example, because otherwise it would just sound wrong. To tackle that, each channel has a large control, usually called a fader, with which you can control the volume of that channel.
 
-Code wise, or rather mathematically, this is just a simple multiplication. We could get fancy here and deal with the fact that volume usually works logarhythmically and it would make sense to somehow scale the multiplication value.
+Code wise, or rather mathematically, this is just a simple multiplication. We could get fancy here and deal with the fact that volume usually works logarithmically and it would make sense to somehow scale the multiplication value.
 
 ## Equalization
 
@@ -26,7 +31,13 @@ An EQ is essentially just a bunch of filters, in our case a lowpass and a highpa
 
 Compression in this case does not mean data compression. Instead, a compressor changes the dynamic range of a instrument, meaning the difference between quiet and loud sounds. There are many reasons why you would want to do this, but the main reason is that using moderate amounts of compression makes a track sounding more loud.
 
-Compression works by (more or less) making louder sounds more quiet. For that, the compressor uses a curve like this. Additionally, a compressor usually has a way to change the attack and decay times, meaning the the loudness reduction does not happen instantly but is fading in after the loudness reaches a certain threshold and if the sound gets quieter again, the compressor takes a while to dial back the signal reduction. This makes it possible to use a compressor not only for actually compressing the dynamic range but also shaping so-called transients, like the attack of a kick drum. If you use a slightly longer attack on the compressor, the signal is not compressed for that time and only ducked down after it, so that the attack of the drum becomes even more pronounced.
+
+Compression works by (more or less) making louder sounds more quiet. For that, the compressor uses a curve like this.
+
+<video src="images/compressor.ogv" controls></video>
+
+Additionally, a compressor usually has a way to change the attack and decay times, meaning the the loudness reduction does not happen instantly but is fading in after the loudness reaches a certain threshold and if the sound gets quieter again, the compressor takes a while to dial back the signal reduction. This makes it possible to use a compressor not only for actually compressing the dynamic range but also shaping so-called transients, like the attack of a kick drum. If you use a slightly longer attack on the compressor, the signal is not compressed for that time and only ducked down after it, so that the attack of the drum becomes even more pronounced.
+
 
 There's a very popular effect specifically in modern dance music that can also be done with the help of a compressor, which is nowadays often abbreviated as "sidechaining" which is weird, because you can sidechain all kinds of effects but if this word is used in isolation, you're probably talking about sidechain compression.
 
@@ -56,13 +67,45 @@ The second effect we're going to take a look at is a chorus effect. The idea beh
 
 the way a chorus achieves this is by running half of the signal through a tiny delay and then slightly modulating the delay time. Especially with synth lines, this does make the result sound a lot fatter.
 
-
+<video src="images/chorus.ogv" controls></video>
 
 ## Send effects
 
 Send effects send a portion of the channel strip signal to another channel that is specialized in a specific effect. Two things very often used as send effects are Reverb and Delay, both effects to create the illusion of space. Since you probably, for consistency reasons, want these to sound similar for every channel, it makes sense to simply instantiate them once and then use from every channel.
 
+### Delay
+
 A delay, in it's simplest form from a code perspective is just a ring buffer, where the length of the buffer is equal to the desired delay time. What you probably need to add to that to get to the specific echo sound is adding some feedback where the output signal is mixed back into the input, thus creating these recurring echoes that get quieter and quiter as time progresses. If you want to get fancy, you can add a filter to that feedback, shaping the frequency spectrum of the feedback loop.
+
+Here's my very simple delay class:
+
+``` ruby
+class Delay
+  # time is given in seconds
+  def initialize(sample_rate, time)
+    @buffer = Array.new((sample_rate.to_f * time).floor)
+    @pointer = 0
+  end
+
+  # input value, mix (0 = no delay, 1 = only delay),
+  # feedback (0 = zero feedback, 1 = full feedback (not advised))
+  # you can supply an additional block to filter the delay signal, for example
+  # with Eq. parameter is the delay signal value,
+  # block needs to return the filtered signal value
+  def run(input, mix, feedback = 0.4)
+    old_pointer = @pointer
+    @pointer = (@pointer + 1) % @buffer.length
+    delayed = (@buffer[@pointer] || 0.0)
+    if block_given?
+      delayed = yield delayed
+    end
+    @buffer[old_pointer] = input + (feedback * delayed)
+    input * (1.0 - mix) + delayed * mix
+  end
+end
+```
+
+### Reverb
 
 A reverb is essentially trying to simulate the response a room gives if you make some sound in it. It could be a small room or it could be a cathedral. The reverberation in a real room is created by the sound bouncing off the walls in all kinds of fuzzy ways. Essentially what you have is a huge collection of tiny echoes all adding up and crossfeeding, returning back a muddy but also really really pleasant (usually) version of the original sound. Also: The bigger the room, the longer the reverb.
 

@@ -14,7 +14,7 @@ class MixerChannel < Sound
     @insert_effects = insert_effects
     @sends = sends
     @preset = {
-      volume: 1.0,
+      volume: 0.2,
       eq_low_freq: 880,
       eq_high_freq: 5000,
       eq_low_gain: 1.0,

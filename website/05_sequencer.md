@@ -82,8 +82,8 @@ end
 
 So, you can start a pattern at a certain position (specified in bars this time) and you can repeat them as many times as you want. Together with setting the tempo, this code can now schdule all notes to all the instruments.
 
-The code to make this all work is a bit too long to list it all here, so please, by all means take a look at lib/sequencer_dsl.rb.
+The code to make this all work is a bit too long to list it all here, so please, by all means take a look at [lib/sequencer_dsl.rb](https://github.com/halfbyte/rubysynth/blob/master/lib/sequencer_dsl.rb).
 
-Additonally, take a look at lib/sound.rb which is the base class for every sound generator and among other things completely handles interpreting the scheduled events into a coherent view usable by the generator to use during rendering.
+Additonally, take a look at [lib/sound.rb](https://github.com/halfbyte/rubysynth/blob/master/lib/sound.rb) which is the base class for every sound generator and among other things completely handles interpreting the scheduled events into a coherent view usable by the generator to render the actual sounds.
 
 

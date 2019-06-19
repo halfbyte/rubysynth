@@ -15,7 +15,6 @@ class KickDrum < Sound
       drum_vol: 0.5,
       base_frequency: 50,
       pitch_mod: 200
-
     }.merge(preset)
     @oscillator = Oscillator.new(@sampling_frequency)
     @pitch_env = Envelope.new(@preset[:pitch_attack], @preset[:pitch_decay])

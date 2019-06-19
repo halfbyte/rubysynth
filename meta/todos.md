@@ -4,10 +4,10 @@
 - Full screen viz (don't break website)
 - No play button player
 
-- Single drum sound example
+- Individual drum sound
 - Ducking Sound example
 - Waveshaper / Chorus sound example
-
+- Maybe vibrato example for docs?
 
 ## Infra
 

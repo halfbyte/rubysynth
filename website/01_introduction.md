@@ -59,5 +59,13 @@ ruby -Ilib $1 | sox -t raw -b 32 -r 44100 -c 1 \
 $ ./save.sh examples/square_wave.rb square_wave.wav
 ```
 
-If you want to try this out yourself, you need to [clone the repo](https://github.com/halfbyte/rubysynth) and install SoX. I'm pretty sure this will work on Windows with either something like Cygwin or WSL, on any unix-ish system like Linux or MacOS, this should work fine. On Linux, SoX should be available from your package manager, on Mac, you can use Homebrew to install it.
+## Try it yourself
+
+1. Check out the repo [halfbyte/rubysynth](https://github.com/halfbyte/rubysynth)
+1. Install SoX (Available on Homebrew, all linux package managers and Chocolatey)
+1. `./bin/play.sh examples/square_wave.rb` or `./bin/play.sh examples/square_wave.rb square_wave.wav`
+
+I've developed and tested all of this on Linux, it should run fine on MacOS.
+
+I'll try to provide Windows .bat files as well later on.
 

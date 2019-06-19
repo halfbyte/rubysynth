@@ -2,15 +2,13 @@
 title: What is sound?
 layout: page
 ---
-# Even more low level than you thought...
-
-Let's see, what do you think what would be the easiest wavefor to generate using code? If your answer is "A sine wave", you completely underestimate the underlying challenge, so let's take a step back and figure out what we actually want to do.
+# What is sound?
 
 If we want to generate a tone, that, later, will be used in a musical context, we'll need to generate a tone at a stable frequency. to do that we'll need to understand how digital sound works. We'll need to understand how sound works.
 
 I'll explain this in the reverse signal path, so let's start with the question of what sound itself is.
 
-## What is sound
+## Physics
 
 Sound, fundamentally, is air particles being moved in a way that can be detected by your ear. Usually we talk about sound waves, which means that the particles are being moved back and forth in a wave function.
 
