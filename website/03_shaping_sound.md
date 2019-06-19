@@ -50,7 +50,7 @@ it feeds back a bit of the filter result into the input. This leads to an emphas
 
 Often, especially when changing the filter frequency over time, upping Q a bit makes a sound more interesting.
 
-<audio src="samples/filtered.wav" data-player="simple"></audio>
+<audio src="samples/filtered.wav" data-player="fft"></audio>
 
 ### Highpass
 
@@ -58,7 +58,7 @@ A highpass filter only lets through the higher frequencies:
 
 ![Highpass state variable filter frequency response](images/highpass.png)
 
-<audio src="samples/highpass_filtered.wav" data-player="simple"></audio>
+<audio src="samples/highpass_filtered.wav" data-player="fft"></audio>
 
 ### Bandpass
 
@@ -66,7 +66,7 @@ A bandpass cuts off both high and low frequencies and leaves you with a small ba
 
 ![Bandpass state variable filter frequency response](images/bandpass.png)
 
-<audio src="samples/bandpass_filtered.wav" data-player="simple"></audio>
+<audio src="samples/bandpass_filtered.wav" data-player="fft"></audio>
 
 ### Band Reject / Notch
 
@@ -76,7 +76,7 @@ Sometimes it can be useful to only cut out a very specific frequency band around
 
 Okay, so this does sound a lot nicer, especially with a lowpass, doesn't it, right? But something is not quite right yet. If you compare this sound with something like a piano sound, what's the most obvious difference, apart from the slightly more complex sound of the piano?
 
-<audio src="samples/piano_long.wav" data-player="scope"></audio>
+<audio src="samples/piano_long.wav" data-player="fft"></audio>
 
 It's the shape of the sound over time. A piano has a relatively sharp attack, then stays on for a bit and then fades out. You could say it has  certain envelope. Which is the name of the next piece of code we're going to discuss. An envelope shapes a sound in a certain way over time. You can influence any parameter in our sound generation so far with an envelope and you'll get an interesting result. Let's start with the most obvious: Making the volume of the sound fade in and out, resulting in less clicks and making it sound more natural.
 

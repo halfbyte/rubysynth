@@ -64,12 +64,20 @@ nav_order: 25
 
       canvas.scope {
         background: #000;
+        width: 600px;
+        height: 200px;
       }
+      canvas.scope-full {
+        background: transparent;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        z-index: 1;
+      }
+
       .player {
-        width: 200px;
-        display: inline-block;
-      }
-      .player-fft {
         width: 600px;
         display: inline-block;
       }

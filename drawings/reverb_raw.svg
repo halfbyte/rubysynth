@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg928"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="reverb_raw.svg">
+  <defs
+     id="defs922">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1486"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path1483"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="4.0380456"
+     inkscape:cx="396.60275"
+     inkscape:cy="923.95407"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="3838"
+     inkscape:window-height="2014"
+     inkscape:window-x="0"
+     inkscape:window-y="41"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       position="43.845237,290.28572"
+       orientation="0,1"
+       id="guide1473"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="65.011903,209.5878"
+       orientation="0,1"
+       id="guide1475"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="7.1815475,247.38542"
+       orientation="1,0"
+       id="guide1477"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="203.0677,249.84227"
+       orientation="1,0"
+       id="guide1479"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata925">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-end:url(#Arrow1Lend)"
+       d="M 7.4425297,6.8233661 V 87.305338 H 202.80449"
+       id="path1481"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/website/images/reverb_raw.png"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154" />
+    <path
+       style="fill:none;stroke:#00a400;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 27.119963,87.412201 V 18.337055"
+       id="path1797"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/website/images/reverb_raw.png" />
+    <g
+       id="g1984"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/website/images/reverb_raw.png">
+      <path
+         style="fill:none;stroke:#b24400;stroke-width:1.57673144;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 32.896874,87.412201 V 44.480581"
+         id="path1835"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1941"
+         d="M 35.583301,87.412201 V 51.753592"
+         style="fill:none;stroke:#b24400;stroke-width:1.43698192;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#b24400;stroke-width:1.50280583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 38.269728,87.412201 V 48.411938"
+         id="path1943"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="g1989"
+       transform="translate(-0.34034583)"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/website/images/reverb_raw.png">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1945"
+         d="M 42.594222,87.412201 V 62.040643"
+         style="fill:none;stroke:#b24400;stroke-width:1.21211171;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#b24400;stroke-width:1.10467935;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 45.280649,87.412201 V 66.338818"
+         id="path1947"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1949"
+         d="M 47.967076,87.412201 V 64.363981"
+         style="fill:none;stroke:#b24400;stroke-width:1.15528142;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       id="g1994"
+       transform="translate(-0.54822235)"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/website/images/reverb_raw.png">
+      <path
+         style="fill:none;stroke:#b24400;stroke-width:0.968512;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 52.160525,87.412201 V 71.213809"
+         id="path1951"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1953"
+         d="M 54.846952,87.412201 V 73.957966"
+         style="fill:none;stroke:#b24400;stroke-width:0.88267052;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#b24400;stroke-width:0.92310297;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 57.533379,87.412201 V 72.697138"
+         id="path1955"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="g1999"
+       transform="translate(-0.42779204)"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/website/images/reverb_raw.png">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1957"
+         d="M 61.399215,87.412201 V 76.783232"
+         style="fill:none;stroke:#b24400;stroke-width:0.78453916;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#b24400;stroke-width:0.71500361;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 64.085642,87.412201 V 78.583877"
+         id="path1959"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1961"
+         d="M 66.772069,87.412201 V 77.756554"
+         style="fill:none;stroke:#b24400;stroke-width:0.74775577;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       id="g2004"
+       transform="translate(0.08528226)"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/website/images/reverb_raw.png">
+      <path
+         style="fill:none;stroke:#b24400;stroke-width:0.55853319;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 70.244769,87.412201 V 82.025042"
+         id="path1963"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1965"
+         d="M 72.931196,87.412201 V 82.937676"
+         style="fill:none;stroke:#b24400;stroke-width:0.50902903;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#b24400;stroke-width:0.53234613;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 75.617623,87.412201 V 82.518358"
+         id="path1967"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="g2009"
+       transform="translate(-0.05549564)"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/website/images/reverb_raw.png">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1969"
+         d="M 79.745549,87.412201 V 83.925198"
+         style="fill:none;stroke:#b24400;stroke-width:0.44936088;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#b24400;stroke-width:0.4095329;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 82.431976,87.412201 V 84.515928"
+         id="path1971"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1973"
+         d="M 85.118403,87.412201 V 84.244512"
+         style="fill:none;stroke:#b24400;stroke-width:0.42829239;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       id="g2014"
+       inkscape:export-xdpi="154"
+       inkscape:export-ydpi="154"
+       inkscape:export-filename="/home/jan/Dokumente/projects/rubysynth/website/images/reverb_raw.png">
+      <path
+         style="fill:none;stroke:#b24400;stroke-width:0.31540391;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 89.049761,87.412201 V 85.694309"
+         id="path1975"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1977"
+         d="M 91.736188,87.412201 V 85.985335"
+         style="fill:none;stroke:#b24400;stroke-width:0.28744885;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#b24400;stroke-width:0.30061606;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 94.422615,87.412201 v -1.56058"
+         id="path1979"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>

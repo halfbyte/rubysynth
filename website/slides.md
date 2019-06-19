@@ -90,7 +90,7 @@ ruby -Ilib $1 | sox -t raw -b 32 -r 44100 -c 1 \
   -e floating-point --endian little - -t wav -b 16 $2
 ```
 
-<audio src="samples/square.wav" data-player="simple"></audio>
+<audio src="samples/square.wav" data-player="scope-full"></audio>
 
 ---
 class: center, middle
@@ -168,7 +168,7 @@ print samples.pack('e*')
 class: center, middle
 # A squarewave at 440 Hz
 
-<audio src="samples/square.wav" data-player="scope"></audio>
+<audio src="samples/square.wav" data-player="scope-full"></audio>
 
 ---
 class: center, middle
@@ -210,7 +210,7 @@ n = MIDI note (0-127)
 class: center, middle
 # A squarewave at 440 Hz
 
-<audio src="samples/square.wav" data-player="fft"></audio>
+<audio src="samples/square.wav" data-player="fft-full"></audio>
 ---
 class: center, middle
 # Yes I know it sounds horrible
@@ -264,7 +264,7 @@ class: center, middle
 ---
 class: center, middle
 # Lowpass (1000 Hz)
-<audio src="samples/filtered.wav" data-player="fft"></audio>
+<audio src="samples/filtered.wav" data-player="fft-full"></audio>
 ---
 class: center, middle
 # Highpass
@@ -272,7 +272,7 @@ class: center, middle
 ---
 class: center, middle
 # Highpass (2000 Hz)
-<audio src="samples/highpass_filtered.wav" data-player="fft"></audio>
+<audio src="samples/highpass_filtered.wav" data-player="fft-full"></audio>
 ---
 class: center, middle
 # Bandpass
@@ -280,7 +280,7 @@ class: center, middle
 ---
 class: center, middle
 # Bandpass (1200 Hz)
-<audio src="samples/bandpass_filtered.wav" data-player="fft"></audio>
+<audio src="samples/bandpass_filtered.wav" data-player="fft-full"></audio>
 ---
 class: center, middle
 # Band reject / Notch
@@ -292,7 +292,7 @@ class: center, middle
 ---
 class: center, middle
 # Piano
-<audio src="samples/piano_long.wav" data-player="fft"></audio>
+<audio src="samples/piano_long.wav" data-player="fft-full"></audio>
 ---
 class: center, middle
 # Variance over time
@@ -365,7 +365,7 @@ output *= 0.3 * env.run(t, stopped)
 
 class: center, middle
 # Volume / Amplitude
-<audio src="samples/amp_env.wav" data-player="scope"></audio>
+<audio src="samples/amp_env.wav" data-player="scope-full"></audio>
 ---
 class: center, middle
 # Filter Frequency
@@ -379,7 +379,7 @@ output = filter.run(output, 500.0 + (8000.0 * filter_env.run(t, stopped)), 1)
 ---
 class: center, middle
 # Filter Frequency
-<audio src="samples/filter_env.wav" data-player="fft"></audio>
+<audio src="samples/filter_env.wav" data-player="fft-full"></audio>
 ---
 class: center, middle
 # Pitch
@@ -393,7 +393,7 @@ period = SAMPLING_FREQUENCY / (FREQUENCY.to_f * ((0.2 * pitch_env.run(t, stopped
 ---
 class: center, middle
 # Pitch
-<audio src="samples/pitch_env.wav" data-player="fft"></audio>
+<audio src="samples/pitch_env.wav" data-player="fft-full"></audio>
 ---
 class: center, middle
 # LFO
@@ -414,7 +414,7 @@ output = filter.run(
 ---
 class: center, middle
 # LFO on Filter
-<audio src="samples/lfo_wub.wav" data-player="scope"></audio>
+<audio src="samples/lfo_wub.wav" data-player="scope-full"></audio>
 
 ---
 class: center, middle, subtitle
@@ -446,7 +446,7 @@ class: center, middle
 ![diagrams on how to do a hihat](images/hihat.png)
 ---
 class: center, middle
-<audio src="samples/drums.wav" data-player="scope"></audio>
+<audio src="samples/drums.wav" data-player="scope-full"></audio>
 ---
 
 class: center, middle, subtitle
@@ -535,7 +535,7 @@ end
 ---
 class: center, middle
 # A song
-<audio src="samples/simple_song.wav" data-player="scope"></audio>
+<audio src="samples/simple_song.wav" data-player="scope-full"></audio>
 ---
 class: center, middle, subtitle
 # Mixing
@@ -630,7 +630,7 @@ class: center, middle
 ---
 class: center, middle, subtitle
 # Let's put it all together
-<audio src="samples/full_song.ogg" data-player="scope">
+<audio src="samples/full_song.ogg" data-player="scope-full">
 ---
 class: subtitle, middle, center
 # ❤️ Thank you ❤️
