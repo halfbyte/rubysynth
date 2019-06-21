@@ -48,9 +48,10 @@ class Monosynth < Sound
     if events.empty?
       0.0
     else
-      event = events.last
+      note = events.keys.last
+      event = events[note]
       # lfo_out = (@lfo.run(@preset[:lfo_frequency], waveform: @preset[:lfo_waveform]) + 1) / 8 + 0.5
-      osc_out = @oscillator.run(frequency(event[:note]), waveform: @preset[:osc_waveform])
+      osc_out = @oscillator.run(frequency(note), waveform: @preset[:osc_waveform])
       local_started = t - event[:started]
       local_stopped = event[:stopped] && event[:stopped] - event[:started]
       osc_out = @filter.run(osc_out, @preset[:flt_frequency] + @flt_env.run(local_started, local_stopped) * @preset[:flt_envmod], @preset[:flt_Q])

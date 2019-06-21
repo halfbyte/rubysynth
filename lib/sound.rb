@@ -13,25 +13,38 @@ class Sound
     []
   end
 
+  # this + start time makes it possible to delete events from list
+  def duration(t=0)
+    nil
+  end
+
+  # this + end time makes it possible to delete events from list
+  def release(t=0)
+    nil
+  end
+
+
   def initialize(sfreq, mode: :polyphonic)
     @mode = mode
     @sampling_frequency = sfreq
     @parameters = {}
     @events = []
+    @active_events = {}
     initialize_live_params
+    @prepared = false
+    @sample_duration = 1.0 / @sampling_frequency.to_f
   end
 
   # create a note on event at time t with note and velocity
-  def start(t, note=36, velocity=1.0)
+  def start(t, note = 36, velocity = 1.0)
     @events << [t, :start, note, velocity]
-    @events.sort_by! { |item| item.first }
   end
 
   # create a note off event at time t with note
-  def stop(t, note=36)
+  def stop(t, note = 36)
     @events << [t, :stop, note, 0]
-    @events.sort_by! { |item| item.first }
   end
+
 
   # returns active events at time t
   def active_events(t)
@@ -94,39 +107,52 @@ class Sound
   end
 
   private
+  def prepare
+    return if @prepared
+    @events.sort_by! { |item| item.first }
+    @prepared = true
+  end
+
+  def filter_done_events(t)
+    return if duration(t).nil? && release(t).nil? # sound subclass needs to implement this to work
+    @active_events.reject! do |note, event|
+      # one shots with duration
+      duration(t) && event[:started] + duration(t) <= t ||
+      # stopped with release time
+      release(t) && event[:stopped] && event[:stopped] + release(t) <= t
+    end
+  end
 
   # returns correct events for a monophonic synth with proper not priority.
 
   def active_monophonic_events(t)
-
-    active = []
-    @events.each_with_index do |event|
-      if event.first <= t
-        if event[1] == :start
-          active.map! {|e| e[:stopped] = event.first if e[:stopped].nil?; e }
-          active << { started: event.first, note: event[2], velocity: event[3] }
-        elsif event[1] == :stop
-          active.map! {|e| e[:stopped] = event.first if e[:stopped].nil?; e }
-        end
-      end
+    active_polyphonic_events(t)
+    non_stopped = @active_events.select { |note, event| event[:stopped].nil? }
+    unless non_stopped.empty?
+      return Hash[[non_stopped.sort_by{|note, event| event[:started] }.last]]
     end
-    active
+    stopped = @active_events.sort_by{|note, event| event[:stopped]}.last
+    if stopped
+      Hash[[stopped]]
+    else
+      {}
+    end
   end
 
-  #
-
   def active_polyphonic_events(t)
-    active = []
+    prepare
     @events.each_with_index do |event|
-      if event.first <= t
-        if event[1] == :start
-          active.map! {|e| e[:stopped] = event.first if e[:note] == event[2] && e[:stopped].nil?; e }
-          active << { started: event.first, note: event[2], velocity: event[3] }
-        elsif event[1] == :stop
-          active.map! {|e| e[:stopped] = event.first if e[:note] == event[2] && e[:stopped].nil?; e }
-        end
+      # let's look at the smallest interval possible
+      # pp [t.to_f, t.to_f + (@sample_duration * 2)]
+      next if event.first.to_f < t.to_f
+      next if event.first.to_f > t.to_f + (@sample_duration * 2)
+      if event[1] == :start
+        @active_events[event[2]] = {started: event[0], velocity: event[3]}
+      elsif event[1] == :stop
+        @active_events[event[2]][:stopped] = event[0] if @active_events[event[2]]
       end
     end
-    active
+    filter_done_events(t)
+    @active_events
   end
 end

@@ -1,3 +1,5 @@
+require 'ruby-prof'
+
 require 'kick_drum'
 require 'monosynth'
 require 'polysynth'
@@ -47,9 +49,14 @@ length = song(bpm: 115) do
   pattern(:chord, at: 0, repeat: 4)
 end
 
+# RubyProf.start
 output = []
 (length * SRATE).times do |i|
   output << 0.3 * (kick_drum.run(i) + hihat.run(i) + snare_drum.run(i) + monosynth.run(i) + polysynth.run(i))
 end
-
+# result = RubyProf.stop
+# printer = RubyProf::GraphHtmlPrinter.new(result)
+# File.open('prof.html', 'wb') do |file|
+#   printer.print(file)
+# end
 print output.pack('e*')

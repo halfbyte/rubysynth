@@ -1,13 +1,9 @@
-require_relative 'lib/polysynth'
-require_relative 'lib/mixer_channel'
-require_relative 'lib/send_channel'
-require_relative 'lib/chorus'
-require_relative 'lib/g_verb'
+require 'ruby_synth'
 SFREQ = 44100
 
-poly = Polysynth.new(SFREQ)
-channel = MixerChannel.new(SFREQ, poly, insert_effects: [Chorus.new(SFREQ)], sends: [0.4], preset: {
-  volume: 0.5, eq_high_gain: 1.5, eq_low_gain: 0.8, eq_mid_gain: 1.5, comp_threshold: -80.0,
+poly = Polysynth.new(SFREQ, {amp_env_release: 0.2})
+channel = MixerChannel.new(SFREQ, poly, insert_effects: [Chorus.new(SFREQ)], sends: [0.0], preset: {
+  volume: 0.5, comp_threshold: 0.0,
   duck: 0.8
 })
 
@@ -31,11 +27,6 @@ poly.start(2, 48 + 7 + 5)
 poly.stop(4, 48 + 5)
 poly.stop(4, 48 + 3 + 5)
 poly.stop(4, 48 + 7 + 5)
-
-channel.set(:eq_low_gain, 4, 1.0, type: :linear)
-channel.set(:eq_mid_gain, 4, 1.0, type: :linear)
-channel.set(:eq_high_gain, 4, 1.0, type: :linear)
-
 channel.duck(0)
 channel.duck(0.5)
 channel.duck(1)
@@ -44,9 +35,11 @@ channel.duck(2)
 channel.duck(2.5)
 channel.duck(3)
 channel.duck(3.5)
+channel.duck(4.0)
+channel.duck(4.5)
 
-out = (4 * SFREQ).times.map { |i|
-  out = channel.run(i) + send1.run(i, channel.send(0))
+out = (5 * SFREQ).times.map { |i|
+  out = Limiter.new.run(channel.run(i) * 0.6)
 }
 
 print out.pack('e*')

@@ -4,7 +4,7 @@ require_relative 'oscillator'
 
 class KickDrum < Sound
   def initialize(sfreq, preset = {})
-    super(sfreq, mode: :monophonic)
+    super(sfreq, mode: :polyphonic)
     @preset = {
       pitch_attack: 0.001,
       pitch_decay: 0.05,
@@ -21,6 +21,9 @@ class KickDrum < Sound
     @amp_env = Envelope.new(@preset[:amp_attack], @preset[:amp_decay])
   end
 
+  def duration(_)
+    @preset[:amp_attack] + @preset[:amp_decay]
+  end
 
   def run(offset)
     t = time(offset)
@@ -28,7 +31,7 @@ class KickDrum < Sound
     if events.empty?
       0.0
     else
-      event = events.last
+      event = events[events.keys.last]
       local_started = t - event[:started]
       osc_out = @oscillator.run(@preset[:base_frequency].to_f + @pitch_env.run(local_started) * @preset[:pitch_mod].to_f, waveform: :sine)
       osc_out = osc_out * 1.0 * @amp_env.run(local_started)

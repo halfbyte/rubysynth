@@ -33,6 +33,8 @@ delay_send = SendChannel.new(SRATE, insert_effects: [
   Delay.new(SRATE, time: 15.0 / TEMPO.to_f * 3, mix: 0.4, feedback: 0.4)
 ], sends: [0.2])
 
+sum_compressor = Compressor.new(SRATE)
+sum_limiter = Limiter.new
 
 def_pattern(:drums_full, 16) do
   drum_pattern kick_drum,   '*---*---*---*---'
@@ -67,7 +69,7 @@ length = song(bpm: TEMPO) do
 end
 
 output = (length * SRATE).times.map do |i|
-  kick_drum_channel.run(i) + snare_drum_channel.run(i) + hihat_channel.run(i) +
+  sum_limiter.run(sum_compressor.run((kick_drum_channel.run(i) + snare_drum_channel.run(i) + hihat_channel.run(i) +
   monosynth_channel.run(i) + polysynth_channel.run(i) +
   delay_send.run(i,
     kick_drum_channel.send(1) + snare_drum_channel.send(1) + hihat_channel.send(1) +
@@ -77,7 +79,7 @@ output = (length * SRATE).times.map do |i|
     kick_drum_channel.send(0) + snare_drum_channel.send(0) + hihat_channel.send(0) +
     monosynth_channel.send(0) + polysynth_channel.send(0) +
     delay_send.send(0)
-  )
+  ))))
 end
 
 print output.pack('e*')

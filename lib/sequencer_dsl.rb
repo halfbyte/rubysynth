@@ -108,7 +108,7 @@ module SequencerDSL
   end
 
 
-  def song(bpm: 200, &block)
+  def song(bpm: 120, &block)
     song = Song.new(bpm, @patterns)
     song.run(block)
     song.play

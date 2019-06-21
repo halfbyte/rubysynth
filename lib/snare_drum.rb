@@ -5,7 +5,7 @@ require_relative 'state_variable_filter'
 
 class SnareDrum < Sound
   def initialize(sfreq, preset = {})
-    super(sfreq, mode: :monophonic)
+    super(sfreq, mode: :polyphonic)
     @preset = {
       flt_frequency: 4000,
       flt_envmod: 6000,
@@ -28,17 +28,20 @@ class SnareDrum < Sound
 
   end
 
-  def start(t, note=36, velocity=1.0)
+  def start(t, note = 36, velocity = 1.0)
     super(t, note, velocity)
     @drum.start(t, note, velocity)
   end
 
   # create a note off event at time t with note
-  def stop(t, note=36)
-    super(t, note: note, )
-    @drum.stop(t, note: note)
+  def stop(t, note = 36)
+    super(t, note)
+    @drum.stop(t, note)
   end
 
+  def duration(t)
+    [@preset[:noise_amp_attack] + @preset[:noise_amp_decay], @drum.duration(t)].max
+  end
 
   def run(offset)
     drum_out = @drum.run(offset)
@@ -48,7 +51,7 @@ class SnareDrum < Sound
     if events.empty?
       0.0
     else
-      event = events.last
+      event = events[events.keys.last]
       # lfo_out = (@lfo.run(@preset[:lfo_frequency], waveform: @preset[:lfo_waveform]) + 1) / 8 + 0.5
       noise_out = rand * 2.0 - 1.0
       local_started = t - event[:started]

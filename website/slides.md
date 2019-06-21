@@ -427,6 +427,7 @@ class: center, middle, frame-image
 class: center, middle
 # Kick drum synthesized
 ![diagrams on how to do a kickdrum](images/kickdrum.png)
+<audio src="samples/kick_drum.wav" data-player="scope-full"></audio>
 ---
 
 class: center, middle, frame-image
@@ -436,6 +437,7 @@ class: center, middle, frame-image
 class: center, middle
 # Snare drum synthesized
 ![diagrams on how to do a snare drum](images/snare_drum.png)
+<audio src="samples/snare_drum.wav" data-player="scope-full"></audio>
 ---
 class: center, middle, frame-image
 # Hihat
@@ -444,8 +446,10 @@ class: center, middle, frame-image
 class: center, middle
 # Hihat synthesized
 ![diagrams on how to do a hihat](images/hihat.png)
+<audio src="samples/hihat.wav" data-player="scope-full"></audio>
 ---
 class: center, middle
+# Drum beats go like...
 <audio src="samples/drums.wav" data-player="scope-full"></audio>
 ---
 
@@ -469,7 +473,7 @@ class: center, middle
 ---
 class: center, middle
 # A bar
-![](images/sequencer_grid_sketch.png)
+![](images/beats_and_bars.png)
 ---
 class: center, middle
 # Step sequencer
@@ -493,6 +497,10 @@ sixteenth_note_length = beat_length_in_seconds / 4 # = 0.125s
 class: center, middle
 # Notes > Patterns > Songs
 ![A screenshot of ableton live](images/notes_patterns_songs.png)
+---
+class: center, middle
+# Notes > Patterns > Songs
+![An image showing patterns and songs](images/pattern_song.png)
 ---
 class: center, middle
 # Let's build a DSL for that
@@ -565,7 +573,7 @@ class: center, middle
 ---
 class: center, middle
 # Ducker / Sidechain compression
-<video src="images/compressor.ogv"></video>
+<audio src="samples/ducking.wav" data-player="scope-full"></audio>
 ---
 class: center, middle
 # Insert FX
@@ -581,12 +589,17 @@ def simple_waveshaper(input, a)
   input * (input.abs + a) / (input ** 2 + (a - 1) * input.abs + 1)
 end
 ```
+<audio src="samples/waveshaper.wav" data-player="scope-full"></audio>
 ---
 class: center, middle
 # Chorus
 <video src="images/chorus.ogv?a"></video>
 ???
 The overlay creates interferences
+---
+class: center, middle
+# Chorus
+<audio src="samples/chorus.wav" data-player="scope-full"></audio>
 ---
 class: center, middle
 # Send FX

@@ -44,19 +44,23 @@ class Polysynth < Sound
     "<Polysynth @#{object_id}>"
   end
 
+  def release(t)
+    get(:flt_env_release, t)
+  end
+
   def run(offset)
     t = time(offset)
     events = active_events(t)
     voice_results = []
-    events.each do |event|
+    events.each do |note, event|
       local_started = t - event[:started]
       local_stopped = event[:stopped] && event[:stopped] - event[:started]
-      note_key = "#{event[:note]}:#{event[:started]}"
+      note_key = "#{note}:#{event[:started]}"
       if @active_voices[note_key].nil?
         @active_voices[note_key] = PolyVoice.new(@sampling_frequency, @preset)
       end
       if @active_voices[note_key]
-        voice_results << @active_voices[note_key].run(local_started, local_stopped, frequency(event[:note]), event[:velocity])
+        voice_results << @active_voices[note_key].run(local_started, local_stopped, frequency(note), event[:velocity])
       end
     end
     0.3 * voice_results.inject(0) {|sum, result| sum + result}

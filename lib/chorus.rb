@@ -10,7 +10,7 @@ end
 
 class Chorus
   attr_writer :phase, :rate, :delay_time, :mix
-  def initialize(sample_rate, phase=0.0, rate=0.5, delay_time = 7.0, mix = 0.5)
+  def initialize(sample_rate, phase: 0.0, rate: 0.5, delay_time: 7.0, mix: 0.5)
     @sample_rate = sample_rate
     @rate = rate
     @delay_time = delay_time
