@@ -20,6 +20,9 @@ background-image: url(images/depfu-left-blue.png)
 ---
 class: contain
 background-image: url(images/depfu_example.png)
+---
+class: center, middle, contain
+background-image: url(images/depfu_mike.png)
 
 ---
 class: center, middle, subtitle
@@ -40,6 +43,8 @@ class: center, middle, subtitle
 ---
 class: fullscreen-video, center
 <video src="images/sonic_pi.mp4"></video>
+???
+**00:01**
 ---
 class: center, middle
 # SonicPi
@@ -48,7 +53,8 @@ class: center, middle
 ---
 class: center, middle
 # Let's dig deeper
-
+???
+**00:03**
 ---
 class: center, middle
 # Pure Ruby
@@ -105,6 +111,8 @@ class: center, middle
 class: center, middle
 
 # What is sound
+???
+**00:04**
 
 ---
 class: center, middle
@@ -173,6 +181,8 @@ class: center, middle
 ---
 class: center, middle
 # Why 440 Hz?
+???
+**00:06**
 
 ---
 
@@ -217,6 +227,8 @@ class: center, middle
 ---
 class: center, middle, subtitle
 # Sculpting a sound
+???
+**00:08**
 ---
 class: center, middle
 # Subtractive Synthesis
@@ -394,31 +406,12 @@ period = SAMPLING_FREQUENCY / (FREQUENCY.to_f * ((0.2 * pitch_env.run(t, stopped
 class: center, middle
 # Pitch
 <audio src="samples/pitch_env.wav" data-player="fft-full"></audio>
----
-class: center, middle
-# LFO
-## (Low Frequency Oscillator)
----
-class: center, middle
-# LFO on Filter
-``` ruby
-lfo = Oscillator.new(SAMPLING_FREQUENCY)
-lfo_freq = 4
-# [...]
-output = filter.run(
-  output,
-  500.0 + ((lfo.run(lfo_freq, waveform: :sawtooth) + 1) * 2000.0),
-  2
-)
-```
----
-class: center, middle
-# LFO on Filter
-<audio src="samples/lfo_wub.wav" data-player="scope-full"></audio>
 
 ---
 class: center, middle, subtitle
 # Drums
+???
+**00:13**
 ---
 class: center, middle, frame-image
 # Kick drum
@@ -458,6 +451,8 @@ class: center, middle, subtitle
 ---
 class: center, middle
 # Sequencing sounds
+???
+**00:18**
 ---
 class: center, middle
 # Beats, bars and s\*\*t
@@ -547,6 +542,8 @@ class: center, middle
 ---
 class: center, middle, subtitle
 # Mixing
+???
+**00:23**
 ---
 class: center, middle
 # Mixer / Mixing Desk / Console
@@ -560,7 +557,6 @@ class: middle
 - Volume
 - Equalizer
 - Compressor
-- Ducker
 - Insert FX
 ---
 class: center, middle
@@ -570,10 +566,6 @@ class: center, middle
 class: center, middle
 # Compressor
 <video src="images/compressor.ogv"></video>
----
-class: center, middle
-# Ducker / Sidechain compression
-<audio src="samples/ducking.wav" data-player="scope-full"></audio>
 ---
 class: center, middle
 # Insert FX
@@ -603,7 +595,6 @@ class: center, middle
 ---
 class: center, middle
 # Send FX
-TODO: Image Send FX
 ---
 class: center, middle
 # Delay (Echo)
@@ -631,6 +622,11 @@ end
 ```
 ---
 class: center, middle
+# Delay (Echo)
+
+<audio src="samples/delay.wav" data-player="scope-full"></audio>
+---
+class: center, middle
 # Reverb
 ![A photo of the Hallgrímskirkja in Rejkjavik](images/hallgrimskirkja.jpg)
 ---
@@ -640,7 +636,9 @@ class: center, middle
 ---
 class: center, middle
 # Reverb
-![A reverb visualisation part one](images/reverb_diffused.png)
+![A reverb visualisation part two](images/reverb_diffused.png)
+
+<audio src="samples/reverb.wav" data-player="scope-full"></audio>
 ---
 # Sum
 - Compressor
@@ -652,6 +650,8 @@ class: center, middle
 class: center, middle, subtitle
 # Let's put it all together
 <audio src="samples/full_song.ogg" data-player="scope-full">
+???
+**00:28**
 ---
 class: subtitle, middle, center
 # ❤️ Thank you ❤️

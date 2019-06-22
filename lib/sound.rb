@@ -26,23 +26,23 @@ class Sound
 
   def initialize(sfreq, mode: :polyphonic)
     @mode = mode
-    @sampling_frequency = sfreq
+    @sampling_frequency = sfreq.to_f
     @parameters = {}
     @events = []
     @active_events = {}
     initialize_live_params
     @prepared = false
-    @sample_duration = 1.0 / @sampling_frequency.to_f
+    @sample_duration = 1.0 / @sampling_frequency
   end
 
   # create a note on event at time t with note and velocity
   def start(t, note = 36, velocity = 1.0)
-    @events << [t, :start, note, velocity]
+    @events << [t.to_f, :start, note, velocity]
   end
 
   # create a note off event at time t with note
   def stop(t, note = 36)
-    @events << [t, :stop, note, 0]
+    @events << [t.to_f, :stop, note, 0]
   end
 
 
@@ -56,7 +56,7 @@ class Sound
   end
 
   def time(offset)
-    offset.to_f / @sampling_frequency.to_f
+    offset.to_f / @sampling_frequency
   end
 
   # sets a parameter to a specific value at a given time.
@@ -140,12 +140,13 @@ class Sound
   end
 
   def active_polyphonic_events(t)
+    t = t.to_f
     prepare
     @events.each_with_index do |event|
       # let's look at the smallest interval possible
       # pp [t.to_f, t.to_f + (@sample_duration * 2)]
-      next if event.first.to_f < t.to_f
-      next if event.first.to_f > t.to_f + (@sample_duration * 2)
+      next if event.first < t
+      break if event.first > t + (@sample_duration * 2)
       if event[1] == :start
         @active_events[event[2]] = {started: event[0], velocity: event[3]}
       elsif event[1] == :stop

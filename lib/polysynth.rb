@@ -3,8 +3,9 @@ require_relative 'adsr'
 require_relative 'sound'
 require_relative 'state_variable_filter'
 class PolyVoice
-  def initialize(sfreq, preset)
+  def initialize(sfreq, parent, preset)
     @sampling_frequency = sfreq
+    @parent = parent
     @preset = preset
     @oscillator = Oscillator.new(sfreq)
     @filter = StateVariableFilter.new(sfreq)
@@ -14,7 +15,7 @@ class PolyVoice
 
   def run(started, stopped, frequency, velocity)
     osc_out = @oscillator.run(frequency, waveform: @preset[:osc_waveform])
-    osc_out = @filter.run(osc_out, @preset[:flt_frequency] + @flt_env.run(started, stopped) * @preset[:flt_envmod], @preset[:flt_Q])
+    osc_out = @filter.run(osc_out, @parent.get(:flt_frequency, started) + @flt_env.run(started, stopped) * @parent.get(:flt_envmod, started), @preset[:flt_Q])
     osc_out = osc_out * @amp_env.run(started, stopped) * velocity
   end
 
@@ -22,7 +23,6 @@ end
 
 class Polysynth < Sound
   def initialize(sfreq, preset = {})
-    super(sfreq, mode: :polyphonic)
     @preset = {
       osc_waveform: :sawtooth,
       amp_env_attack: 0.2,
@@ -37,7 +37,12 @@ class Polysynth < Sound
       flt_envmod: 2000,
       flt_Q: 3
     }.merge(preset)
+    super(sfreq, mode: :polyphonic)
     @active_voices = {}
+  end
+
+  def live_params
+    [:flt_frequency, :flt_envmod]
   end
 
   def inspect
@@ -54,10 +59,11 @@ class Polysynth < Sound
     voice_results = []
     events.each do |note, event|
       local_started = t - event[:started]
+      next if local_started < 0
       local_stopped = event[:stopped] && event[:stopped] - event[:started]
       note_key = "#{note}:#{event[:started]}"
       if @active_voices[note_key].nil?
-        @active_voices[note_key] = PolyVoice.new(@sampling_frequency, @preset)
+        @active_voices[note_key] = PolyVoice.new(@sampling_frequency, self, @preset)
       end
       if @active_voices[note_key]
         voice_results << @active_voices[note_key].run(local_started, local_stopped, frequency(note), event[:velocity])

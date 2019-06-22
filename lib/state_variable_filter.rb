@@ -6,9 +6,9 @@
 class StateVariableFilter
 
   def initialize(sfreq)
-    @sampling_frequency = sfreq
-    @delay_1 = 0
-    @delay_2 = 0
+    @sampling_frequency = sfreq.to_f
+    @delay_1 = 0.0
+    @delay_2 = 0.0
   end
 
   # run the filter from input value
@@ -18,7 +18,7 @@ class StateVariableFilter
   def run(input, frequency, q, type: :lowpass)
     # derived parameters
     q1 = 1.0 / q.to_f
-    f1 = 2 * Math::PI * frequency / @sampling_frequency
+    f1 = 2.0 * Math::PI * frequency.to_f / @sampling_frequency
 
     # calculate filters
     lowpass = @delay_2 + f1 * @delay_1

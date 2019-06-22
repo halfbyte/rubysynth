@@ -8,16 +8,16 @@ class Monosynth < Sound
   def initialize(sfreq, preset={})
     super(sfreq, mode: :monophonic)
     @preset = {
-      amp_attack: 0.02,
-      amp_decay: 0.1,
+      amp_attack: 0.001,
+      amp_decay: 0.2,
       amp_sustain: 0.8,
       amp_release: 0.2,
-      flt_attack: 0.01,
+      flt_attack: 0.001,
       flt_decay: 0.05,
-      flt_sustain: 0.2,
+      flt_sustain: 0.0,
       flt_release: 0.2,
-      flt_envmod: 2000,
-      flt_frequency: 500,
+      flt_envmod: 1000,
+      flt_frequency: 2000,
       flt_Q: 2,
       osc_waveform: :square,
       lfo_waveform: :sine,

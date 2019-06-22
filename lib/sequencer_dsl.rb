@@ -59,7 +59,7 @@ module SequencerDSL
   end
 
   class Song
-    attr_reader :events
+    attr_reader :events, :per_bar, :per_beat
     def initialize(bpm, patterns)
       @tempo = bpm
       @events = []
@@ -112,9 +112,25 @@ module SequencerDSL
     song = Song.new(bpm, @patterns)
     song.run(block)
     song.play
-    File.open("DEBUG.txt", 'wb') do |f|
-      f.print song.events.inspect
+    # File.open("DEBUG.txt", 'wb') do |f|
+    #   f.print song.events.inspect
+    # end
+    song
+  end
+  # start & length in bars
+  def render(sfreq, start=0, len=nil)
+    start_time = start * @per_bar
+    end_time = len ? start_time + len * @per_bar : length
+    start_sample = (sfreq * start_time).floor
+    end_sample = (sfreq * end_time).ceil
+    sample = start_sample
+    sample_len = end_sample - start_sample
+    output = Array.new(sample_len)
+    loop do
+      output[sample - start_sample] = yield sample
+      break if sample > end_sample
+      sample += 1
     end
-    song.length
+    output
   end
 end

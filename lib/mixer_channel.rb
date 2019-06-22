@@ -49,7 +49,7 @@ class MixerChannel < Sound
   end
 
   def send(index)
-    @output * (@sends[index] || 1.0)
+    @output * (@sends[index] || 0.0)
   end
 
   def update_live_params(t)
