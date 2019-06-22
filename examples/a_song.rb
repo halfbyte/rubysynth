@@ -283,7 +283,7 @@ end
 #   pattern(:tom_long_high, at: 2, repeat: 1)
 # end
 
-16.times do |i|
+32.times do |i|
   lead_channel.duck(i * my_song.per_beat + (my_song.per_bar * 18))
 end
 
