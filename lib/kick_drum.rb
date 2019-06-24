@@ -1,8 +1,20 @@
-require_relative 'envelope'
-require_relative 'sound'
-require_relative 'oscillator'
+require 'envelope'
+require 'sound'
+require 'oscillator'
 
+##
+# A simple kick drum generator
 class KickDrum < Sound
+
+  ##
+  # === Structure
+  # Pitch Env > Sine wave OSC >
+  #
+  # === parameter:
+  # - pitch_attack, pitch_decay - Pitch envelope params in s
+  # - amp_attack, amp_decay - Amp envelope params in s
+  # - base_frequency - base frequency in Hz
+  # - pitch_mod - frequency modulation amount in Hz
   def initialize(sfreq, preset = {})
     super(sfreq, mode: :polyphonic)
     @preset = {
@@ -10,9 +22,6 @@ class KickDrum < Sound
       pitch_decay: 0.05,
       amp_attack: 0.001,
       amp_decay: 0.1,
-      Q: 3,
-      noise_vol: 0.5,
-      drum_vol: 0.5,
       base_frequency: 50,
       pitch_mod: 200
     }.merge(preset)
@@ -21,10 +30,11 @@ class KickDrum < Sound
     @amp_env = Envelope.new(@preset[:amp_attack], @preset[:amp_decay])
   end
 
-  def duration(_)
+  def duration(_) # :nodoc:
     @preset[:amp_attack] + @preset[:amp_decay]
   end
-
+  ##
+  # Run generator
   def run(offset)
     t = time(offset)
     events = active_events(t)

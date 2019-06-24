@@ -1,14 +1,28 @@
-require_relative 'eq'
-require_relative 'compressor'
-require_relative 'envelope'
+##
+# Emulation of a mixer channel on a mixing desk
+# has a built in EQ, compressor and ducker, can run an arbitrary
+# number of insert effects and send channels
 class MixerChannel < Sound
+  ##
+  # These params can be automated
   LIVE_PARAMS = [:volume, :eq_low_gain, :eq_high_gain, :eq_mid_gain]
-  attr_accessor :preset
+  attr_accessor :preset # :nodoc:
 
-  def live_params
+  def live_params # :nodoc:
     LIVE_PARAMS
   end
 
+  ##
+  # - source - Source sound generator
+  # - insert_effects - Array of effects instances
+  # - sends - Array of send values
+  # === Parameters
+  # - volume - channel volume
+  # - eq_low_freq, eq_high_freq - shelving frequencies for equalizer
+  # - eq_low_gain, eq_mid_gain, eq_high_gain - Equalizer gains per band
+  # - comp_threshold, comp_ratio, comp_attack, comp_release - Compressor params
+  # - duck - Duck amount (0-1)
+  # - duck attack, duck_release - Ducker envelope params in s
   def initialize(srate, source, insert_effects: [], sends: [], preset: {})
     @source = source
     @insert_effects = insert_effects
@@ -37,27 +51,21 @@ class MixerChannel < Sound
     update_live_params(0)
   end
 
+  ##
+  # Schedule ducking at time t (in seconds)
   def duck(t)
     @ducks << t
     @ducks.sort
   end
 
-  def current_duck(t)
-    past = @ducks.select {|duck| duck < t}
-    return past.last unless past.empty?
-    nil
-  end
-
+  ##
+  # returns send portion of output signal for send index
   def send(index)
     @output * (@sends[index] || 0.0)
   end
 
-  def update_live_params(t)
-    @eq.lg = get(:eq_low_gain, t)
-    @eq.mg = get(:eq_low_gain, t)
-    @eq.hg = get(:eq_low_gain, t)
-  end
-
+  ##
+  # runs channel
   def run(offset)
     t = time(offset)
     update_live_params(t)
@@ -74,5 +82,19 @@ class MixerChannel < Sound
     end
     out = @compressor.run(out)
     @output = out * @preset[:volume]
+  end
+
+  private
+
+  def update_live_params(t)
+    @eq.low_gain = get(:eq_low_gain, t)
+    @eq.mid_gain = get(:eq_low_gain, t)
+    @eq.high_gain = get(:eq_low_gain, t)
+  end
+
+  def current_duck(t)
+    past = @ducks.select {|duck| duck < t}
+    return past.last unless past.empty?
+    nil
   end
 end

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Eq - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Eq">
+  <h1 id="class-Eq" class="class">
+    class Eq
+  </h1>
+
+  <section class="description">
+    
+<p>Simple 3 band Equalizer with variable shelving frequencies</p>
+
+<p>Source: <a href="http://www.musicdsp.org/en/latest/Filters/236-3-band-equaliser.html">www.musicdsp.org/en/latest/Filters/236-3-band-equaliser.html</a></p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(sample_rate=44100, lowfreq: 880, highfreq: 5000)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create new Equalizer instance</p>
+
+<p>lowfreq and highfreq are the shelving frequencies in Hz</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/eq.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">sample_rate</span>=<span class="ruby-value">44100</span>, <span class="ruby-value">lowfreq:</span> <span class="ruby-value">880</span>, <span class="ruby-value">highfreq:</span> <span class="ruby-value">5000</span>)
+
+  <span class="ruby-comment"># Poles Lowpass</span>
+  <span class="ruby-ivar">@f1p0</span> = <span class="ruby-value">0.0</span>
+  <span class="ruby-ivar">@f1p1</span> = <span class="ruby-value">0.0</span>
+  <span class="ruby-ivar">@f1p2</span> = <span class="ruby-value">0.0</span>
+  <span class="ruby-ivar">@f1p3</span> = <span class="ruby-value">0.0</span>
+
+  <span class="ruby-comment"># Poles Highpass</span>
+  <span class="ruby-ivar">@f2p0</span> = <span class="ruby-value">0.0</span>
+  <span class="ruby-ivar">@f2p1</span> = <span class="ruby-value">0.0</span>
+  <span class="ruby-ivar">@f2p2</span> = <span class="ruby-value">0.0</span>
+  <span class="ruby-ivar">@f2p3</span> = <span class="ruby-value">0.0</span>
+
+  <span class="ruby-comment"># Sample history buffer</span>
+
+  <span class="ruby-ivar">@sdm1</span> = <span class="ruby-value">0.0</span> <span class="ruby-comment"># Sample data minus 1</span>
+  <span class="ruby-ivar">@sdm2</span> = <span class="ruby-value">0.0</span> <span class="ruby-comment">#                   2</span>
+  <span class="ruby-ivar">@sdm3</span> = <span class="ruby-value">0.0</span> <span class="ruby-comment">#                   3</span>
+
+  <span class="ruby-comment"># Gain Controls</span>
+  <span class="ruby-comment"># Set Low/Mid/High gains to unity</span>
+
+  <span class="ruby-ivar">@low_gain</span>  = <span class="ruby-value">1.0</span>       <span class="ruby-comment"># low  gain</span>
+  <span class="ruby-ivar">@mid_gain</span>  = <span class="ruby-value">1.0</span>       <span class="ruby-comment"># mid  gain</span>
+  <span class="ruby-ivar">@high_gain</span> = <span class="ruby-value">1.0</span>       <span class="ruby-comment"># high gain</span>
+
+  <span class="ruby-comment"># Calculate filter cutoff frequencies</span>
+
+  <span class="ruby-ivar">@lf</span> = <span class="ruby-value">2</span> <span class="ruby-operator">*</span> <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sin</span>(<span class="ruby-constant">Math</span><span class="ruby-operator">::</span><span class="ruby-constant">PI</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">lowfreq</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">sample_rate</span>.<span class="ruby-identifier">to_f</span>))
+  <span class="ruby-ivar">@hf</span> = <span class="ruby-value">2</span> <span class="ruby-operator">*</span> <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sin</span>(<span class="ruby-constant">Math</span><span class="ruby-operator">::</span><span class="ruby-constant">PI</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">highfreq</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">sample_rate</span>.<span class="ruby-identifier">to_f</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(sample)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>run equalizer</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File lib/eq.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run</span>(<span class="ruby-identifier">sample</span>)
+  <span class="ruby-comment"># Filter #1 (lowpass)</span>
+
+  <span class="ruby-ivar">@f1p0</span>  <span class="ruby-operator">+=</span> (<span class="ruby-ivar">@lf</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">sample</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@f1p0</span>)) <span class="ruby-operator">+</span> <span class="ruby-constant">VSA</span>;
+  <span class="ruby-ivar">@f1p1</span>  <span class="ruby-operator">+=</span> (<span class="ruby-ivar">@lf</span> <span class="ruby-operator">*</span> (<span class="ruby-ivar">@f1p0</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@f1p1</span>));
+  <span class="ruby-ivar">@f1p2</span>  <span class="ruby-operator">+=</span> (<span class="ruby-ivar">@lf</span> <span class="ruby-operator">*</span> (<span class="ruby-ivar">@f1p1</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@f1p2</span>));
+  <span class="ruby-ivar">@f1p3</span>  <span class="ruby-operator">+=</span> (<span class="ruby-ivar">@lf</span> <span class="ruby-operator">*</span> (<span class="ruby-ivar">@f1p2</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@f1p3</span>));
+
+  <span class="ruby-identifier">l</span> = <span class="ruby-ivar">@f1p3</span>;
+
+  <span class="ruby-comment"># Filter #2 (highpass)</span>
+
+  <span class="ruby-ivar">@f2p0</span>  <span class="ruby-operator">+=</span> (<span class="ruby-ivar">@hf</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">sample</span>   <span class="ruby-operator">-</span> <span class="ruby-ivar">@f2p0</span>)) <span class="ruby-operator">+</span> <span class="ruby-constant">VSA</span>;
+  <span class="ruby-ivar">@f2p1</span>  <span class="ruby-operator">+=</span> (<span class="ruby-ivar">@hf</span> <span class="ruby-operator">*</span> (<span class="ruby-ivar">@f2p0</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@f2p1</span>));
+  <span class="ruby-ivar">@f2p2</span>  <span class="ruby-operator">+=</span> (<span class="ruby-ivar">@hf</span> <span class="ruby-operator">*</span> (<span class="ruby-ivar">@f2p1</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@f2p2</span>));
+  <span class="ruby-ivar">@f2p3</span>  <span class="ruby-operator">+=</span> (<span class="ruby-ivar">@hf</span> <span class="ruby-operator">*</span> (<span class="ruby-ivar">@f2p2</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@f2p3</span>));
+
+  <span class="ruby-identifier">h</span> = <span class="ruby-ivar">@sdm3</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@f2p3</span>;
+
+  <span class="ruby-comment"># Calculate midrange (signal - (low + high))</span>
+
+  <span class="ruby-identifier">m</span> = <span class="ruby-ivar">@sdm3</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">h</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">l</span>);
+
+  <span class="ruby-comment"># Scale, Combine and store</span>
+
+  <span class="ruby-identifier">l</span> <span class="ruby-operator">*=</span> <span class="ruby-ivar">@low_gain</span>
+  <span class="ruby-identifier">m</span> <span class="ruby-operator">*=</span> <span class="ruby-ivar">@mid_gain</span>
+  <span class="ruby-identifier">h</span> <span class="ruby-operator">*=</span> <span class="ruby-ivar">@high_gain</span>
+
+  <span class="ruby-comment"># Shuffle history buffer</span>
+
+  <span class="ruby-ivar">@sdm3</span>   = <span class="ruby-ivar">@sdm2</span>;
+  <span class="ruby-ivar">@sdm2</span>   = <span class="ruby-ivar">@sdm1</span>;
+  <span class="ruby-ivar">@sdm1</span>   = <span class="ruby-identifier">sample</span>;
+
+  <span class="ruby-comment"># Return result</span>
+
+  <span class="ruby-identifier">l</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">h</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

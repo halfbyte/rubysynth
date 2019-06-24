@@ -1,12 +1,17 @@
+##
+# Simple 3 band Equalizer with variable shelving frequencies
+#
 # Source: http://www.musicdsp.org/en/latest/Filters/236-3-band-equaliser.html
-# This is a simple three band EQ with variable shelving frequencies
-
 class Eq
-  VSA = 1.0 / 4294967295.0 # very small amount (Denormal fix)
+  VSA = 1.0 / 4294967295.0 # very small amount (Denormal fix) :nodoc:
 
-  attr_accessor :lg, :mg, :hg # Low Gain, Mid Gain, High Gain
+  attr_accessor :low_gain, :mid_gain, :high_gain # :nodoc: Low Gain, Mid Gain, High Gain
 
-  def initialize(sample_rate=41000, lowfreq: 880, highfreq: 5000)
+  ##
+  # Create new Equalizer instance
+  #
+  # lowfreq and highfreq are the shelving frequencies in Hz
+  def initialize(sample_rate=44100, lowfreq: 880, highfreq: 5000)
 
     # Poles Lowpass
     @f1p0 = 0.0
@@ -29,9 +34,9 @@ class Eq
     # Gain Controls
     # Set Low/Mid/High gains to unity
 
-    @lg = 1.0       # low  gain
-    @mg = 1.0       # mid  gain
-    @hg = 1.0       # high gain
+    @low_gain  = 1.0       # low  gain
+    @mid_gain  = 1.0       # mid  gain
+    @high_gain = 1.0       # high gain
 
     # Calculate filter cutoff frequencies
 
@@ -39,7 +44,8 @@ class Eq
     @hf = 2 * Math.sin(Math::PI * (highfreq.to_f / sample_rate.to_f))
   end
 
-  # processes one sample
+  ##
+  # run equalizer
   def run(sample)
     # Filter #1 (lowpass)
 
@@ -63,12 +69,11 @@ class Eq
 
     m = @sdm3 - (h + l);
 
-
     # Scale, Combine and store
 
-    l *= @lg
-    m *= @mg
-    h *= @hg
+    l *= @low_gain
+    m *= @mid_gain
+    h *= @high_gain
 
     # Shuffle history buffer
 

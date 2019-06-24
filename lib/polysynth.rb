@@ -1,12 +1,8 @@
-require_relative 'oscillator'
-require_relative 'adsr'
-require_relative 'sound'
-require_relative 'state_variable_filter'
-class PolyVoice
+class PolyVoice # :nodoc:
   def initialize(sfreq, parent, preset)
     @sampling_frequency = sfreq
     @parent = parent
-    @preset = preset
+    @preset = presete
     @oscillator = Oscillator.new(sfreq)
     @filter = StateVariableFilter.new(sfreq)
     @amp_env = Adsr.new(@preset[:amp_env_attack], @preset[:amp_env_decay], @preset[:amp_env_sustain], @preset[:amp_env_release])
@@ -21,7 +17,19 @@ class PolyVoice
 
 end
 
+##
+# A simple polyphonic synthesizer
+#
+# OSC > Filter > Amp
+#
+
 class Polysynth < Sound
+  # === Parameters
+  # - amp_attack, _decay, _sustain, _release - Amp Envelope params
+  # - flt_attack, _decay, _sustain, _release - Filter Envelope params
+  # - flt_envmod - filter envelope modulation amount in Hz
+  # - flt_frequency, flt_Q - filter params
+  # - osc_waveform - waveform to generate (see Oscillator class)
   def initialize(sfreq, preset = {})
     @preset = {
       osc_waveform: :sawtooth,
@@ -41,18 +49,16 @@ class Polysynth < Sound
     @active_voices = {}
   end
 
-  def live_params
+  def live_params # :nodoc:
     [:flt_frequency, :flt_envmod]
   end
 
-  def inspect
-    "<Polysynth @#{object_id}>"
-  end
-
-  def release(t)
+  def release(t) # :nodoc:
     get(:flt_env_release, t)
   end
 
+  ##
+  # run sound generator
   def run(offset)
     t = time(offset)
     events = active_events(t)
@@ -71,8 +77,4 @@ class Polysynth < Sound
     end
     0.3 * voice_results.inject(0) {|sum, result| sum + result}
   end
-
-
-
-
 end

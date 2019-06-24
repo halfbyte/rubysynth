@@ -1,3 +1,6 @@
+##
+# Special case of the kick drum that allows to run it from a note pattern to
+# create percussive sounds
 class TunedDrum < KickDrum
   def run(offset)
     t = time(offset)

@@ -1,17 +1,51 @@
+##
+# A module that implements a sequencer DSL
+# === Usage
+#
+#  include SequencerDSL
+#  def_pattern(:pattern_name, 16) do
+#    drum_pattern kickdrum, '*---*---*---*---'
+#  end
+#
+#  my_song = song(bpm: 125) do
+#    pattern(:pattern_name, at: 0, repeat: 4)
+#  end
+#
+#  output = my_song.render(44100) do |sample|
+#    kickdrum.run(sample)
+#  end
+#  print output.pack('e*')
+#
 module SequencerDSL
 
-  class Pattern
-    NOTES=%w(C C# D D# E F F# G G# A A# B)
+  P = nil # :nodoc:
 
-    attr_reader :sounds, :steps
-    def initialize(steps)
+  ##
+  # The Pattern class is instantiated by the def_pattern helper
+  class Pattern
+    NOTES=%w(C C# D D# E F F# G G# A A# B) # :nodoc:
+
+    attr_reader :sounds, :steps # :nodoc:
+    def initialize(steps) # :nodoc:
       @steps = steps
       @sounds = []
     end
 
-    def run(block)
+    def run(block) # :nodoc:
       instance_eval(&block)
     end
+
+    ##
+    # Define a drum pattern
+    # - sound is the sound generator object
+    # - pattern is a pattern in the form of a string
+    # === Defining patterns
+    #
+    #   drum_pattern bass_drum, '*---*---*---!---'
+    #
+    # - <tt>*</tt> represents a normal drum hit (velocity: 0.5)
+    # - <tt>!</tt> represents an accented drum hit (velocity 1.0)
+    # - <tt>-</tt> represents a pause (no hit)
 
     def drum_pattern(sound, pattern)
       events = []
@@ -25,7 +59,7 @@ module SequencerDSL
       @sounds.push([sound, events])
     end
 
-    def str2note(str)
+    def str2note(str) # :nodoc:
       match = str.upcase.strip.match(/([ABCDEFGH]#?)(-?\d)/)
       return nil unless match
       octave = match[2].to_i + 2
@@ -35,6 +69,25 @@ module SequencerDSL
       end
     end
 
+    ##
+    # Define a note pattern
+    # [sound]   sound generator base class
+    # [pattern] a note pattern
+    #
+    # === Defining a note pattern
+    #
+    #  note_pattern monosynth, [
+    #    ['C4, D#4, G4', 2], P, P, P,
+    #    P, P, P, P,
+    #    P, P, P, P,
+    #    P, P, P, P
+    #  ]
+    #
+    # - <tt>P</tt> is a pause
+    # - a note step in the pattern is an array containing the note and the
+    #   length of the note in steps
+    # - a note is a note name as a string, which consists of the note and the
+    #   octave. To play chords, concatenate notes with commas
     def note_pattern(sound, pattern)
       events = []
       @steps.times do |i|
@@ -51,6 +104,8 @@ module SequencerDSL
     end
   end
 
+  ##
+  # Define a note pattern
   def def_pattern(name, steps, &block)
     @patterns ||= {}
     p = Pattern.new(steps)
@@ -58,9 +113,11 @@ module SequencerDSL
     @patterns[name] = p
   end
 
+  ##
+  # A
   class Song
-    attr_reader :events, :per_bar, :per_beat
-    def initialize(bpm, patterns)
+    attr_reader :events, :per_bar, :per_beat # :nodoc:
+    def initialize(bpm, patterns) # :nodoc:
       @tempo = bpm
       @events = []
       @per_beat = 60.0 / @tempo.to_f
@@ -70,9 +127,17 @@ module SequencerDSL
       @latest_time = 0
     end
 
-    def run(block)
+    def run(block) # :nodoc:
       instance_eval(&block)
     end
+
+    ##
+    # inserts a pattern into the song
+    # [name] pattern needs to be defined by <tt>def_pattern</tt>
+    # [at] Position in bars to insert the pattern to
+    # [repeat] number of times the pattern should repeat
+    # [length] if you want to only use part of the pattern
+    #
 
     def pattern(name, at: 0, repeat: 1, length: nil)
       p = @patterns[name]
@@ -95,10 +160,15 @@ module SequencerDSL
       end
     end
 
+    ##
+    # Returns the length of the song in seconds plus 2 seconds to allow for
+    # reverb tails etc.
     def length
       (@latest_time + 2.0).ceil
     end
 
+    ##
+    # Sends all scheduled events to the instruments
     def play
       @events.each do |event|
         instrument, data = event
@@ -107,6 +177,9 @@ module SequencerDSL
     end
   end
 
+  ##
+  # Define a song in the given tempo (in BPM)
+  # using the Song#pattern method
 
   def song(bpm: 120, &block)
     song = Song.new(bpm, @patterns)
@@ -117,7 +190,12 @@ module SequencerDSL
     # end
     song
   end
+  ##
+  # render the song
+  # the actual rendering needs to be done
+  # manually in the block passed
   # start & length in bars
+  # block gets an offset in samples it should render
   def render(sfreq, start=0, len=nil)
     start_time = start * @per_bar
     end_time = len ? start_time + len * @per_bar : length

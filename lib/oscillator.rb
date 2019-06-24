@@ -1,16 +1,18 @@
+##
 # simple  oscillator
 # can currently do squarewave, sawtooth and sine
 # this oscillator is not bandwidth limited and will thus alias like there's no tomorrow
-
 class Oscillator
+  ##
+  # Create new oscillator
   def initialize(sampling_frequency)
     @sampling_frequency = sampling_frequency.to_f
     @in_cycle = 0
   end
 
-  # frequency (can be altered at any time)
-  # pulse_width (only in effect when creating a square wave)
-  # waveform: :square (default), :sawtooth, :sine
+  # [frequency] Oscillator frequency in Hz (can be altered at any time)
+  # [pulse_width] pulse width, only in effect when creating a square wave
+  # [waveform] can be: :square (default), :sawtooth, :sine
   def run(frequency, pulse_width: 0.5, waveform: :square)
     period = @sampling_frequency / frequency.to_f
     output = 0

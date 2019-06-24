@@ -8,7 +8,7 @@ class: center, middle, title
 ---
 class: center, middle, title
 
-# The musical Ruby
+# A ruby shanty
 ## A presentation for Euruko 2019
 
 ## Jan 'half/byte' Krutisch
@@ -30,7 +30,7 @@ class: center, middle, subtitle
 ---
 ### Don't try to understand the code examples!
 
-Note: This not meant as an insult. I'm just aware that it's a lot of code on very different subjects and it will be next to impossible to understand it during the presentation. Instead, go to [rubysynth.fun](https://rubysynth.fun) for more info.
+Note: This not meant as an insult. I'm just aware that it's a lot of code on very different subjects and it will be next to impossible to understand it during the presentation. Instead, go to [rubysynth.fun](https://ruby-synth.fun) for more info.
 
 I'm providing the code fragments here to give you a sense of how much (or rather: how little) code is necessary and how the code looks in general. More of a teaser or taste bite than actually explaining how a library works.
 

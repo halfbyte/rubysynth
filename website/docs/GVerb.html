@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GVerb - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GVerb">
+  <h1 id="class-GVerb" class="class">
+    class GVerb
+  </h1>
+
+  <section class="description">
+    
+<p><a href="GVerb.html"><code>GVerb</code></a> is a relatively simple reverb implementation</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(srate, max_room_size: 120.0, room_size: 50.0, rev_time: 2.0, damping: 0.3, spread: 15.0, input_bandwidth: 1.5, early_level: 0.8, tail_level: 0.5, mix: 0.2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create new <a href="GVerb.html"><code>GVerb</code></a> instance</p>
+
+<p>max_room_size is the maximum room size you&#39;ll use</p>
+
+<p>room_size is the current room size</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/g_verb.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">srate</span>, <span class="ruby-value">max_room_size:</span> <span class="ruby-value">120.0</span>, <span class="ruby-value">room_size:</span> <span class="ruby-value">50.0</span>, <span class="ruby-value">rev_time:</span> <span class="ruby-value">2.0</span>, <span class="ruby-value">damping:</span> <span class="ruby-value">0.3</span>, <span class="ruby-value">spread:</span> <span class="ruby-value">15.0</span>, <span class="ruby-value">input_bandwidth:</span> <span class="ruby-value">1.5</span>, <span class="ruby-value">early_level:</span> <span class="ruby-value">0.8</span>, <span class="ruby-value">tail_level:</span> <span class="ruby-value">0.5</span>, <span class="ruby-value">mix:</span> <span class="ruby-value">0.2</span>)
+  <span class="ruby-ivar">@rate</span> = <span class="ruby-identifier">srate</span>
+  <span class="ruby-ivar">@damping</span> = <span class="ruby-identifier">damping</span>
+  <span class="ruby-ivar">@max_room_size</span> = <span class="ruby-identifier">max_room_size</span>
+  <span class="ruby-ivar">@room_size</span> = <span class="ruby-identifier">room_size</span>
+  <span class="ruby-ivar">@rev_time</span> = <span class="ruby-identifier">rev_time</span>
+  <span class="ruby-ivar">@early_level</span> = <span class="ruby-identifier">early_level</span>
+  <span class="ruby-ivar">@tail_level</span> = <span class="ruby-identifier">tail_level</span>
+  <span class="ruby-ivar">@mix</span> = <span class="ruby-identifier">mix</span>
+  <span class="ruby-ivar">@max_delay</span> = <span class="ruby-ivar">@rate</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@max_room_size</span> <span class="ruby-operator">/</span> <span class="ruby-value">340.0</span>
+  <span class="ruby-ivar">@largest_delay</span> = <span class="ruby-ivar">@rate</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@room_size</span> <span class="ruby-operator">/</span> <span class="ruby-value">340.0</span>
+  <span class="ruby-ivar">@input_bandwidth</span> = <span class="ruby-identifier">input_bandwidth</span>;
+  <span class="ruby-ivar">@input_damper</span> = <span class="ruby-constant">Damper</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@input_bandwidth</span>)
+
+
+  <span class="ruby-ivar">@fdndels</span> = <span class="ruby-constant">FDNORDER</span>.<span class="ruby-identifier">times</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">FixedDelay</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@max_delay</span> <span class="ruby-operator">+</span> <span class="ruby-value">1000</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@fdngains</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">FDNORDER</span>)
+  <span class="ruby-ivar">@fdnlens</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">FDNORDER</span>)
+
+  <span class="ruby-ivar">@fdndamps</span> = <span class="ruby-constant">FDNORDER</span>.<span class="ruby-identifier">times</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Damper</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@damping</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ga</span> = <span class="ruby-value">60.0</span>;
+  <span class="ruby-identifier">gt</span> = <span class="ruby-ivar">@rev_time</span>;
+  <span class="ruby-identifier">ga</span> = <span class="ruby-value">10.0</span> <span class="ruby-operator">**</span> (<span class="ruby-operator">-</span><span class="ruby-identifier">ga</span> <span class="ruby-operator">/</span> <span class="ruby-value">20.0</span>)
+  <span class="ruby-identifier">n</span> = <span class="ruby-ivar">@rate</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">gt</span>
+  <span class="ruby-ivar">@alpha</span> = <span class="ruby-identifier">ga</span> <span class="ruby-operator">**</span> (<span class="ruby-value">1.0</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">gb</span> = <span class="ruby-value">0.0</span>;
+  <span class="ruby-constant">FDNORDER</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">gb</span> = <span class="ruby-value">1.000000</span><span class="ruby-operator">*</span><span class="ruby-ivar">@largest_delay</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+    <span class="ruby-identifier">gb</span> = <span class="ruby-value">0.816490</span><span class="ruby-operator">*</span><span class="ruby-ivar">@largest_delay</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>)
+    <span class="ruby-identifier">gb</span> = <span class="ruby-value">0.707100</span><span class="ruby-operator">*</span><span class="ruby-ivar">@largest_delay</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>)
+    <span class="ruby-identifier">gb</span> = <span class="ruby-value">0.632450</span><span class="ruby-operator">*</span><span class="ruby-ivar">@largest_delay</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>)
+
+    <span class="ruby-ivar">@fdnlens</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">nearest_prime</span>(<span class="ruby-identifier">gb</span>, <span class="ruby-value">0.5</span>);
+    <span class="ruby-ivar">@fdnlens</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">gb</span>.<span class="ruby-identifier">round</span>;
+    <span class="ruby-ivar">@fdngains</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-operator">-</span>(<span class="ruby-ivar">@alpha</span> <span class="ruby-operator">**</span> <span class="ruby-ivar">@fdnlens</span>[<span class="ruby-identifier">i</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@d</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">FDNORDER</span>)
+  <span class="ruby-ivar">@u</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">FDNORDER</span>)
+  <span class="ruby-ivar">@f</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">FDNORDER</span>)
+
+  <span class="ruby-comment"># DIFFUSER SECTION</span>
+
+  <span class="ruby-identifier">diffscale</span> = <span class="ruby-ivar">@fdnlens</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">to_f</span><span class="ruby-operator">/</span>(<span class="ruby-value">210</span><span class="ruby-value">+159</span><span class="ruby-value">+562</span><span class="ruby-value">+410</span>);
+  <span class="ruby-identifier">spread1</span> = <span class="ruby-identifier">spread</span>.<span class="ruby-identifier">to_f</span>
+  <span class="ruby-identifier">spread2</span> = <span class="ruby-value">3.0</span><span class="ruby-operator">*</span><span class="ruby-identifier">spread</span>
+
+  <span class="ruby-identifier">b</span> = <span class="ruby-value">210</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-value">0.125541</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">spread1</span><span class="ruby-operator">*</span><span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-value">210</span><span class="ruby-value">+159</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>
+  <span class="ruby-identifier">cc</span> = <span class="ruby-identifier">c</span><span class="ruby-operator">-</span><span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-value">0.854046</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">spread2</span><span class="ruby-operator">*</span><span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-value">210</span><span class="ruby-value">+159</span><span class="ruby-value">+562</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>
+  <span class="ruby-identifier">dd</span> = <span class="ruby-identifier">d</span><span class="ruby-operator">-</span><span class="ruby-identifier">c</span>
+  <span class="ruby-identifier">e</span> = <span class="ruby-value">1341</span><span class="ruby-operator">-</span><span class="ruby-identifier">d</span>
+
+  <span class="ruby-ivar">@ldifs</span> = [
+    <span class="ruby-constant">Diffuser</span>.<span class="ruby-identifier">new</span>((<span class="ruby-identifier">diffscale</span><span class="ruby-operator">*</span><span class="ruby-identifier">b</span>),<span class="ruby-value">0.75</span>),
+    <span class="ruby-constant">Diffuser</span>.<span class="ruby-identifier">new</span>((<span class="ruby-identifier">diffscale</span><span class="ruby-operator">*</span><span class="ruby-identifier">cc</span>),<span class="ruby-value">0.75</span>),
+    <span class="ruby-constant">Diffuser</span>.<span class="ruby-identifier">new</span>((<span class="ruby-identifier">diffscale</span><span class="ruby-operator">*</span><span class="ruby-identifier">dd</span>),<span class="ruby-value">0.625</span>),
+    <span class="ruby-constant">Diffuser</span>.<span class="ruby-identifier">new</span>((<span class="ruby-identifier">diffscale</span><span class="ruby-operator">*</span><span class="ruby-identifier">e</span>),<span class="ruby-value">0.625</span>)
+  ]
+
+  <span class="ruby-identifier">b</span> = <span class="ruby-value">210</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-value">-0.568366</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">spread1</span><span class="ruby-operator">*</span><span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-value">210</span><span class="ruby-value">+159</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>
+  <span class="ruby-identifier">cc</span> = <span class="ruby-identifier">c</span><span class="ruby-operator">-</span><span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-value">-0.126815</span>;
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">spread2</span><span class="ruby-operator">*</span><span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-value">210</span><span class="ruby-value">+159</span><span class="ruby-value">+562</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>
+  <span class="ruby-identifier">dd</span> = <span class="ruby-identifier">d</span><span class="ruby-operator">-</span><span class="ruby-identifier">c</span>
+  <span class="ruby-identifier">e</span> = <span class="ruby-value">1341</span><span class="ruby-operator">-</span><span class="ruby-identifier">d</span>
+
+  <span class="ruby-ivar">@rdifs</span> = [
+    <span class="ruby-constant">Diffuser</span>.<span class="ruby-identifier">new</span>((<span class="ruby-identifier">diffscale</span><span class="ruby-operator">*</span><span class="ruby-identifier">b</span>),<span class="ruby-value">0.75</span>),
+    <span class="ruby-constant">Diffuser</span>.<span class="ruby-identifier">new</span>((<span class="ruby-identifier">diffscale</span><span class="ruby-operator">*</span><span class="ruby-identifier">cc</span>),<span class="ruby-value">0.75</span>),
+    <span class="ruby-constant">Diffuser</span>.<span class="ruby-identifier">new</span>((<span class="ruby-identifier">diffscale</span><span class="ruby-operator">*</span><span class="ruby-identifier">dd</span>),<span class="ruby-value">0.625</span>),
+    <span class="ruby-constant">Diffuser</span>.<span class="ruby-identifier">new</span>((<span class="ruby-identifier">diffscale</span><span class="ruby-operator">*</span><span class="ruby-identifier">e</span>),<span class="ruby-value">0.625</span>)
+  ]
+
+
+  <span class="ruby-comment"># Tapped delay section */</span>
+
+  <span class="ruby-ivar">@tapdelay</span> = <span class="ruby-constant">FixedDelay</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">44000</span>)
+  <span class="ruby-ivar">@taps</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">FDNORDER</span>)
+  <span class="ruby-ivar">@tapgains</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">FDNORDER</span>)
+
+  <span class="ruby-ivar">@taps</span>[<span class="ruby-value">0</span>] = <span class="ruby-value">5</span><span class="ruby-value">+0.410</span><span class="ruby-operator">*</span><span class="ruby-ivar">@largest_delay</span>
+  <span class="ruby-ivar">@taps</span>[<span class="ruby-value">1</span>] = <span class="ruby-value">5</span><span class="ruby-value">+0.300</span><span class="ruby-operator">*</span><span class="ruby-ivar">@largest_delay</span>
+  <span class="ruby-ivar">@taps</span>[<span class="ruby-value">2</span>] = <span class="ruby-value">5</span><span class="ruby-value">+0.155</span><span class="ruby-operator">*</span><span class="ruby-ivar">@largest_delay</span>
+  <span class="ruby-ivar">@taps</span>[<span class="ruby-value">3</span>] = <span class="ruby-value">5</span><span class="ruby-value">+0.000</span><span class="ruby-operator">*</span><span class="ruby-ivar">@largest_delay</span>
+
+  <span class="ruby-constant">FDNORDER</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@tapgains</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@alpha</span> <span class="ruby-operator">**</span> <span class="ruby-ivar">@taps</span>[<span class="ruby-identifier">i</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(x)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>runs a value through the reverb, returns the reverberated signal mixed with the original.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File lib/g_verb.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run</span>(<span class="ruby-identifier">x</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">nan?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">100000.0</span>
+    <span class="ruby-identifier">x</span> = <span class="ruby-value">0.0</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">z</span> = <span class="ruby-ivar">@input_damper</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">x</span>)
+  <span class="ruby-identifier">z</span> = <span class="ruby-ivar">@ldifs</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">run</span>(<span class="ruby-identifier">z</span>)
+  <span class="ruby-constant">FDNORDER</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@u</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@tapgains</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">*</span> <span class="ruby-ivar">@tapdelay</span>.<span class="ruby-identifier">read</span>(<span class="ruby-ivar">@taps</span>[<span class="ruby-identifier">i</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@tapdelay</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">z</span>)
+
+  <span class="ruby-constant">FDNORDER</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@fdndamps</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">run</span>(<span class="ruby-ivar">@fdngains</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">*</span> <span class="ruby-ivar">@fdndels</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">read</span>(<span class="ruby-ivar">@fdnlens</span>[<span class="ruby-identifier">i</span>]))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">sum</span> = <span class="ruby-value">0.0</span>
+  <span class="ruby-identifier">sign</span> = <span class="ruby-value">1.0</span>
+  <span class="ruby-constant">FDNORDER</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">sum</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">sign</span> <span class="ruby-operator">*</span> (<span class="ruby-ivar">@tail_level</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">+</span> <span class="ruby-ivar">@early_level</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@u</span>[<span class="ruby-identifier">i</span>])
+    <span class="ruby-identifier">sign</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">sign</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">sum</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">x</span><span class="ruby-operator">*</span> <span class="ruby-ivar">@early_level</span>
+
+  <span class="ruby-identifier">lsum</span> = <span class="ruby-identifier">sum</span>
+  <span class="ruby-comment"># rsum = sum</span>
+
+  <span class="ruby-ivar">@f</span> = <span class="ruby-identifier">fdn_matrix</span>(<span class="ruby-ivar">@d</span>)
+
+  <span class="ruby-constant">FDNORDER</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@fdndels</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">write</span>(<span class="ruby-ivar">@u</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">+</span> <span class="ruby-ivar">@f</span>[<span class="ruby-identifier">i</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">lsum</span> = <span class="ruby-ivar">@ldifs</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">run</span>(<span class="ruby-identifier">lsum</span>)
+  <span class="ruby-identifier">lsum</span> = <span class="ruby-ivar">@ldifs</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">run</span>(<span class="ruby-identifier">lsum</span>)
+  <span class="ruby-identifier">lsum</span> = <span class="ruby-ivar">@ldifs</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">run</span>(<span class="ruby-identifier">lsum</span>)
+
+  <span class="ruby-comment"># rsum = @rdifs[1].run(rsum)</span>
+  <span class="ruby-comment"># rsum = @rdifs[2].run(rsum)</span>
+  <span class="ruby-comment"># rsum = @rdifs[3].run(rsum)</span>
+
+  <span class="ruby-identifier">lsum</span> = <span class="ruby-identifier">x</span> <span class="ruby-operator">*</span> (<span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@mix</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">lsum</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@mix</span>
+  <span class="ruby-comment"># rsum = x * (1.0 - mix) + rsum * mix</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">lsum</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

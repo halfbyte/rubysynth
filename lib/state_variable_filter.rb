@@ -5,6 +5,8 @@
 
 class StateVariableFilter
 
+  ##
+  # Create new filter instance
   def initialize(sfreq)
     @sampling_frequency = sfreq.to_f
     @delay_1 = 0.0
@@ -12,9 +14,9 @@ class StateVariableFilter
   end
 
   # run the filter from input value
-  # frequency is cutoff freq in Hz
-  # q is resonance, from 0 to ...
-  # type can be :lowpass, :highpass, :bandpass and :notch
+  # [frequency] cutoff freq in Hz
+  # [q] resonance, from 0 to ...
+  # [type] can be :lowpass, :highpass, :bandpass and :notch
   def run(input, frequency, q, type: :lowpass)
     # derived parameters
     q1 = 1.0 / q.to_f

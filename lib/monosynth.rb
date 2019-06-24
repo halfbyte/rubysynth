@@ -1,10 +1,13 @@
-require_relative 'oscillator'
-require_relative 'state_variable_filter'
-require_relative 'adsr'
-require_relative 'sound'
-require_relative 'chorus'
-
+##
+# A monosynth sound generator
 class Monosynth < Sound
+  ##
+  # === Parameters
+  # - amp_attack, _decay, _sustain, _release - Amp Envelope params
+  # - flt_attack, _decay, _sustain, _release - Filter Envelope params
+  # - flt_envmod - filter envelope modulation amount in Hz
+  # - flt_frequency, flt_Q - filter params
+  # - osc_waveform - waveform to generate (see Oscillator class)
   def initialize(sfreq, preset={})
     super(sfreq, mode: :monophonic)
     @preset = {
@@ -41,6 +44,9 @@ class Monosynth < Sound
     )
   end
 
+
+  ##
+  # run generator
   def run(offset)
     # time in seconds
     t = time(offset)

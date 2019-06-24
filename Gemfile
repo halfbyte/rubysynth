@@ -23,3 +23,4 @@ gem "just-the-docs", "~> 0.2.5"
 
 gem 'minitest'
 
+gem "rdoc"

@@ -1,6 +1,20 @@
 require 'state_variable_filter'
 require 'envelope'
+
+##
+# Simple Hihat generator
+# Nois > Filter > Amp
 class Hihat < Sound
+  ##
+  # === parameters
+  # flt_frequency - center frequency of the bandpass filter
+  #
+  # flt_Q - Q (resonance) value of the bandpass filter
+  #
+  # amp_attack - attack time in seconds
+  #
+  # amp_decay - decay time in seconds
+  #
   def initialize(sfreq, preset = {})
     super(sfreq, mode: :polyphonic)
     @filter = StateVariableFilter.new(sfreq)
@@ -13,10 +27,11 @@ class Hihat < Sound
     @amp_env = Envelope.new(@preset[:amp_attack], @preset[:amp_decay])
   end
 
-  def duration(_)
+  def duration(_) # :nodoc:
     @preset[:amp_attack] + @preset[:amp_decay]
   end
 
+  # Run the generator (offset is given in samples)
   def run(offset)
     # time in seconds
     t = time(offset)

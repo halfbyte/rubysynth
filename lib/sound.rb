@@ -1,28 +1,42 @@
+##
+# Base class for all sound generators and the mixer channels
+# Handles events (note on / off) and automation
+# Has two modes, polyphonic and monophonic
 class Sound
+  # Mode, either :monophonic or :polyphonic
   attr_accessor :mode
 
+  # run the generator at offset (samples from song start)
   def run(offset)
     raise "Base Class, should not be called"
   end
 
-  def frequency(note)
-    (2.0 ** ((note.to_f - 69.0) / 12.0)) * 440.0
-  end
-
-  def live_params
+  def live_params # :nodoc:
     []
   end
 
   # this + start time makes it possible to delete events from list
+  #
+  # define this in your generator implementation if your generator has fixed
+  # note lengths not dependent on the note off event
+  # (for example one shot drum hits)
   def duration(t=0)
     nil
   end
 
   # this + end time makes it possible to delete events from list
+  #
+  # define this in your generator implementation if your generator is dependent
+  # on note off events
   def release(t=0)
     nil
   end
 
+  ##
+  # create new sound generator instance
+  #
+  # <tt>super(sfreq, mode: $mode)</tt> should be called from the sound generator
+  # implementation initializer.
 
   def initialize(sfreq, mode: :polyphonic)
     @mode = mode
@@ -36,16 +50,21 @@ class Sound
   end
 
   # create a note on event at time t with note and velocity
+  # [t] time in seconds from song start
+  # [note] MIDI note
+  # [velocity] velocity of note from 0 to 1.0
   def start(t, note = 36, velocity = 1.0)
     @events << [t.to_f, :start, note, velocity]
   end
 
   # create a note off event at time t with note
+  # [t] time in seconds from song start
+  # [note] MIDI note
   def stop(t, note = 36)
     @events << [t.to_f, :stop, note, 0]
   end
 
-
+  ##
   # returns active events at time t
   def active_events(t)
     if mode == :polyphonic
@@ -55,9 +74,6 @@ class Sound
     end
   end
 
-  def time(offset)
-    offset.to_f / @sampling_frequency
-  end
 
   # sets a parameter to a specific value at a given time.
   # you can interpolate linearly between two points by setting to value A
@@ -66,6 +82,10 @@ class Sound
   #
   # Note: this does no sanity checking, so please make sure you set events
   # in the correct order etc.
+  # [parameter] parameter name
+  # [time] time in seconds from song start
+  # [value] value of the parameter you want to get to
+  # [type] either :set or :linear
 
   def set(parameter, time, value, type: :set)
     @parameters[parameter] ||= []
@@ -74,7 +94,8 @@ class Sound
   end
 
   # get the exact parameter value including interpolation
-
+  # [parameter] parameter name
+  # [time] time of from where you want the value
   def get(parameter, time)
     return nil if @parameters[parameter].nil?
     return nil if @parameters[parameter].first.first > time
@@ -94,11 +115,7 @@ class Sound
     end
   end
 
-  # no idea why this exists.
-
-  def automate(parameter, type, time, value)
-    set(parameter, time, value, type: type)
-  end
+  private
 
   def initialize_live_params
     live_params.each do |p|
@@ -106,7 +123,14 @@ class Sound
     end
   end
 
-  private
+  def time(offset)
+    offset.to_f / @sampling_frequency
+  end
+
+  def frequency(note)
+    (2.0 ** ((note.to_f - 69.0) / 12.0)) * 440.0
+  end
+
   def prepare
     return if @prepared
     @events.sort_by! { |item| item.first }

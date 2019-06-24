@@ -3,11 +3,14 @@
 # Straight port from c++
 
 class MoogFilter
+  ##
+  # create new instance
   def initialize
     @in1 = @in2 = @in3 = @in4 = 0
     @out1 = @out2 = @out3 = @out4 = 0
   end
 
+  ##
   # runs the filter on the input value
   # fc is the cutoff frequency (not in Hz but from 0..1)
   # res is the resonance from 0..4

@@ -21,7 +21,7 @@
 
 require 'prime'
 
-class FixedDelay
+class FixedDelay # :nodoc:
   def initialize(size)
     @size = size
     @buf = Array.new(size)
@@ -40,7 +40,7 @@ class FixedDelay
   end
 end
 
-class Damper
+class Damper # :nodoc:
   def initialize(damping)
     @damping = damping
     @delay = 0.0
@@ -53,7 +53,7 @@ class Damper
   end
 end
 
-class Diffuser
+class Diffuser # :nodoc:
   def initialize(size, coeff)
     @size = size.floor
     @coeff = coeff
@@ -70,10 +70,19 @@ class Diffuser
     y
   end
 end
-
+##
+# GVerb is a relatively simple reverb implementation
 class GVerb
-  FDNORDER = 4
+  FDNORDER = 4 # :nodoc:
 
+
+  ##
+  # Create new GVerb instance
+  #
+  # max_room_size is the maximum room size you'll use
+  #
+  # room_size is the current room size
+  #
   def initialize(srate, max_room_size: 120.0, room_size: 50.0, rev_time: 2.0, damping: 0.3, spread: 15.0, input_bandwidth: 1.5, early_level: 0.8, tail_level: 0.5, mix: 0.2)
     @rate = srate
     @damping = damping
@@ -180,8 +189,9 @@ class GVerb
   end
 
 
+  ##
   # runs a value through the reverb, returns the reverberated signal
-  # mixed with the original. Mix Parameter: (0=no reverb, 1=only reverb)
+  # mixed with the original.
   def run(x)
     if x.nan? || x.abs > 100000.0
       x = 0.0

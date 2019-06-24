@@ -1,4 +1,4 @@
-class OnePoleLP
+class OnePoleLP # :nodoc:
   def initialize
     @outputs = 0.0
   end
@@ -8,8 +8,22 @@ class OnePoleLP
   end
 end
 
+##
+# A simple chorus
 class Chorus
-  attr_writer :phase, :rate, :delay_time, :mix
+  ##
+  attr_writer :phase, :rate, :delay_time, :mix # :nodoc:
+  ##
+  # Create new Chorus instance
+  #
+  # phase allows you to shift the phase of the delayed signal additionally
+  #
+  # rate is the LFO rate in Hz
+  #
+  # delay_time is the maximum delay time in ms
+  #
+  # mix is the ratio between original and delayed signal. 1.0 would mean only
+  # delayed signal (which wouldn't make any sense)
   def initialize(sample_rate, phase: 0.0, rate: 0.5, delay_time: 7.0, mix: 0.5)
     @sample_rate = sample_rate
     @rate = rate
@@ -31,6 +45,8 @@ class Chorus
     @output = 0.0
   end
 
+  ##
+  # run the chorus
   def run(input)
     # Get delay time
     offset = (next_lfo() * 0.3 + 0.4) * @delay_time * @sample_rate * 0.001
@@ -59,6 +75,8 @@ class Chorus
     @write_ptr = 0 if @write_ptr >= @delay_line_length
     return (@output * @mix) + (input * (1.0-@mix))
   end
+
+  private
 
   def next_lfo()
     if @lfo_phase >= 1.0
