@@ -1,3 +1,4 @@
+require 'adsr'
 ##
 # A monosynth sound generator
 class Monosynth < Sound
@@ -60,7 +61,9 @@ class Monosynth < Sound
       osc_out = @oscillator.run(frequency(note), waveform: @preset[:osc_waveform])
       local_started = t - event[:started]
       local_stopped = event[:stopped] && event[:stopped] - event[:started]
-      osc_out = @filter.run(osc_out, @preset[:flt_frequency] + @flt_env.run(local_started, local_stopped) * @preset[:flt_envmod], @preset[:flt_Q])
+      env = @flt_env.run(local_started, local_stopped)
+      STDERR.puts env.inspect
+      osc_out = @filter.run(osc_out, @preset[:flt_frequency] + env * @preset[:flt_envmod], @preset[:flt_Q])
       # osc_out = @filter2.run(osc_out, @preset[:flt_frequency] + @flt_env.run(local_started, local_stopped) * @preset[:flt_envmod], @preset[:flt_Q])
       0.3 * osc_out * @amp_env.run(local_started, local_stopped)
     end

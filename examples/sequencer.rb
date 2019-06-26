@@ -42,7 +42,7 @@ def_pattern(:chord, 16) do
 end
 
 
-length = song(bpm: 115) do
+song = song(bpm: 115) do
   pattern(:drums_full, at: 0, repeat: 1)
   pattern(:drums_full, at: 2, repeat: 2)
   pattern(:bassline, at: 0, repeat: 4)
@@ -50,9 +50,8 @@ length = song(bpm: 115) do
 end
 
 RubyProf.start
-output = []
-(length * SRATE).times do |i|
-  output << 0.3 * (kick_drum.run(i) + hihat.run(i) + snare_drum.run(i) + monosynth.run(i) + polysynth.run(i))
+output = song.render(SRATE) do |i|
+  0.3 * (kick_drum.run(i) + hihat.run(i) + snare_drum.run(i) + monosynth.run(i) + polysynth.run(i))
 end
 result = RubyProf.stop
 printer = RubyProf::FlatPrinter.new(result)

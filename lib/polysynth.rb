@@ -2,7 +2,7 @@ class PolyVoice # :nodoc:
   def initialize(sfreq, parent, preset)
     @sampling_frequency = sfreq
     @parent = parent
-    @preset = presete
+    @preset = preset
     @oscillator = Oscillator.new(sfreq)
     @filter = StateVariableFilter.new(sfreq)
     @amp_env = Adsr.new(@preset[:amp_env_attack], @preset[:amp_env_decay], @preset[:amp_env_sustain], @preset[:amp_env_release])

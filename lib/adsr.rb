@@ -45,12 +45,12 @@ class Adsr
         return @start_value
       end
       if t <= attack # attack
-        return @value = linear(@start_value, 1, a, t)
+        return @value = linear(@start_value, 1, attack, t)
       end
       if t > attack && t < attack_decay # decay
         return @value = linear(1.0, sustain, decay, t - attack)
       end
-      if t >= attack + decay # sustain
+      if t >= attack_decay # sustain
         return @value = sustain
       end
     else # release

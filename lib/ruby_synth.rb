@@ -1,5 +1,5 @@
-require 'sound'
 require 'adsr'
+require 'sound'
 require 'chorus'
 require 'compressor'
 require 'delay'
