@@ -15,7 +15,7 @@ You can find all source code, including the code for this website at [halfbyte/r
 
 Thank you to Sam Aaron for [SonicPi](https://sonic-pi.net/)
 
-Thank you to Lance Norskog for creating [SoX](sox.sourceforge.net/) and Chris Bagwell for maintaining it for more that 20 years now.
+Thank you to Lance Norskog for creating [SoX](http://sox.sourceforge.net/) and Chris Bagwell for maintaining it for more that 20 years now.
 
 Thank you to the amazing [MusicDSP mailing list](http://musicdsp.org) of where most of the more complicated DSP code has found it's way into this project.
 
