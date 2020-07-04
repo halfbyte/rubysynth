@@ -29,6 +29,8 @@ theme: just-the-docs
 source: website
 timezone: Berlin
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
+
+# WHAT THE F
+compress_html:
+  ignore:
+    envs: all

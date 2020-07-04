@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ast (2.4.1)
     colorator (1.1.0)
     concurrent-ruby (1.1.6)
     em-websocket (0.5.1)
@@ -14,6 +15,9 @@ GEM
     http_parser.rb (0.6.0)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
+    io-console (0.5.6)
+    irb (1.2.4)
+      reline (>= 0.0.1)
     jekyll (4.1.1)
       addressable (~> 2.4)
       colorator (~> 1.0)
@@ -48,6 +52,11 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
+    opal (1.0.3)
+      ast (>= 2.3.0)
+      parser (~> 2.6)
+    parser (2.7.1.4)
+      ast (~> 2.4.1)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (4.0.5)
@@ -55,12 +64,14 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    reline (0.1.4)
+      io-console (~> 0.5)
     rexml (3.2.4)
     rouge (3.20.0)
     safe_yaml (1.0.5)
     sassc (2.4.0)
       ffi (~> 1.9)
-    synth_blocks (1.0.0)
+    synth_blocks (1.0.1)
       wavefile (~> 1.1)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
@@ -71,8 +82,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  irb
   jekyll (~> 4.0)
   just-the-docs (~> 0.3)
+  opal
   rake (~> 13.0)
   synth_blocks (~> 1.0)
   tzinfo-data

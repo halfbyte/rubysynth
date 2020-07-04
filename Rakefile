@@ -8,3 +8,9 @@ file 'website/samples/waveshaper.wav' => ['examples/waveshaper_demo.rb'] do |t|
   sh "bundle exec ruby #{t.prerequisites.first} #{t.name}"
 end
 
+
+task :compile_opal => ['website/js/opal.js']
+
+file 'website/js/opal.js' => ['examples/opal_loader.rb'] do |t|
+  sh "bundle exec opal -g synth_blocks --compile #{t.prerequisites.first} >#{t.name}"
+end

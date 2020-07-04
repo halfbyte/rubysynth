@@ -12,3 +12,5 @@ gem "wdm", "~> 0.1.0" if Gem.win_platform?
 gem "just-the-docs", "~> 0.3"
 gem 'synth_blocks', '~> 1.0'
 gem 'rake', '~> 13.0'
+gem 'opal'
+gem 'irb'
