@@ -1,14 +1,14 @@
-require 'ruby_synth'
+require 'synth_blocks'
 SRATE = 44100
 
-snare = SnareDrum.new(SRATE)
-reverb = GVerb.new(SRATE)
+snare = SynthBlocks::Drum::SnareDrum.new(SRATE)
+reverb = SynthBlocks::Fx::GVerb.new(SRATE)
 snare.start(0)
 
 out = (SRATE * 2).times.map do |i|
   reverb.run(snare.run(i))
 end
 
-print out.pack('e*')
+SynthBlocks::Core::WaveWriter.write_if_name_given(out)
 
 

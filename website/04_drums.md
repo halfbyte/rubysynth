@@ -1,6 +1,7 @@
 ---
 title: Drum sounds
 layout: page
+nav_order: 4
 ---
 # Drum Sounds
 

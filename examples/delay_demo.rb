@@ -1,13 +1,17 @@
-require 'ruby_synth'
+require 'synth_blocks'
+
+#
+# Demo of the Delay/Echo effect
+#
+
 SRATE = 44100
 
-snare = SnareDrum.new(SRATE)
-delay = Delay.new(SRATE, time: 0.3)
+snare = SynthBlocks::Drum::SnareDrum.new(SRATE)
+delay = SynthBlocks::Fx::Delay.new(SRATE, time: 0.3)
 snare.start(0)
 
 out = (SRATE * 2).times.map do |i|
   delay.run(snare.run(i))
 end
 
-print out.pack('e*')
-
+SynthBlocks::Core::WaveWriter.write_if_name_given(out)

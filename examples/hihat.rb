@@ -1,9 +1,14 @@
-require 'ruby_synth'
+require 'synth_blocks'
+
+#
+# Demo of the High Hat drum sound
+#
 
 SRATE = 44100
-hat = Hihat.new(SRATE)
+hat = SynthBlocks::Drum::Hihat.new(SRATE)
 
 hat.start(0.0)
 
-print SRATE.times.map {|i| 0.5 * hat.run(i) }.pack('e*')
+out = SRATE.times.map {|i| 0.5 * hat.run(i) }
 
+SynthBlocks::Core::WaveWriter.write_if_name_given(out)

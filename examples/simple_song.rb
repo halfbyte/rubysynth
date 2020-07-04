@@ -1,19 +1,14 @@
-require 'kick_drum'
-require 'monosynth'
-require 'polysynth'
-require 'snare_drum'
-require 'hihat'
-require 'sequencer_dsl'
-include SequencerDSL
+require 'synth_blocks'
+include SynthBlocks::Sequencer::SequencerDSL
 
 SRATE = 44100
 P = nil # pause
 
-kick_drum = KickDrum.new(SRATE)
-snare_drum = SnareDrum.new(SRATE)
-hihat = Hihat.new(SRATE)
-monosynth = Monosynth.new(SRATE)
-polysynth = Polysynth.new(SRATE)
+kick_drum = SynthBlocks::Drum::KickDrum.new(SRATE)
+snare_drum = SynthBlocks::Drum::SnareDrum.new(SRATE)
+hihat = SynthBlocks::Drum::Hihat.new(SRATE)
+monosynth = SynthBlocks::Synth::Monosynth.new(SRATE)
+polysynth = SynthBlocks::Synth::Polysynth.new(SRATE)
 
 def_pattern(:drums_full, 16) do
   drum_pattern kick_drum,   '*---*---*---*---'
@@ -40,16 +35,16 @@ def_pattern(:chord, 16) do
 end
 
 
-length = song(bpm: 115) do
+
+my_song = song(bpm: 115) do
   pattern(:drums_full, at: 0, repeat: 1)
   pattern(:drums_full, at: 2, repeat: 2)
   pattern(:bassline, at: 0, repeat: 4)
   pattern(:chord, at: 0, repeat: 4)
 end
 
-output = []
-(length * SRATE).times do |i|
-  output << 0.3 * (kick_drum.run(i) + hihat.run(i) + snare_drum.run(i) + monosynth.run(i) + polysynth.run(i))
+out = my_song.render(SRATE) do |i|
+  0.3 * (kick_drum.run(i) + hihat.run(i) + snare_drum.run(i) + monosynth.run(i) + polysynth.run(i))
 end
 
-print output.pack('e*')
+SynthBlocks::Core::WaveWriter.write_if_name_given(out)

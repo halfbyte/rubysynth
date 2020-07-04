@@ -1,6 +1,7 @@
 ---
 title: Shaping sounds
 layout: page
+nav_order: 3
 ---
 # sculpting a sound
 

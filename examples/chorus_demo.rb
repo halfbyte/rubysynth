@@ -1,10 +1,12 @@
-require 'ruby_synth'
+require 'synth_blocks'
 SRATE = 44100
 
-mono = Monosynth.new(SRATE, {osc_waveform: :sawtooth})
-chorus = Chorus.new(SRATE, {delay_time: 12})
+#
+# Example of the Chorus effect
+#
 
-
+mono = SynthBlocks::Synth::Monosynth.new(SRATE, {osc_waveform: :sawtooth})
+chorus = SynthBlocks::Fx::Chorus.new(SRATE, delay_time: 12)
 
 mono.start(0, 36)
 mono.stop(1, 36)
@@ -20,4 +22,4 @@ out = (SRATE * 4).times.map do |i|
   end
 end
 
-print out.pack('e*')
+SynthBlocks::Core::WaveWriter.write_if_name_given(out)

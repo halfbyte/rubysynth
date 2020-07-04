@@ -1,25 +1,10 @@
-require "rake/testtask"
-require 'rdoc/task'
 
-Rake::TestTask.new do |t|
-  t.libs << "lib"
-  t.libs << "test"
-  t.test_files = FileList['test/*_test.rb']
+desc "update examples"
+task :update_examples => FileList['website/samples/*.wav']
+
+# For now, explicitly list files, so that we don't need to autogen all long running demos each time
+
+file 'website/samples/waveshaper.wav' => ['examples/waveshaper_demo.rb'] do |t|
+  sh "bundle exec ruby #{t.prerequisites.first} #{t.name}"
 end
 
-
-
-RDoc::Task.new do |rdoc|
-  rdoc.main = "README.md"
-  rdoc.rdoc_files.include("README.md", "lib/*.rb")
-  rdoc.rdoc_dir = "website/docs"
-end
-
-RDoc::Task.new :rdoc_coverage do |rdoc|
-  rdoc.main = "README.md"
-  rdoc.rdoc_files.include("README.md", "lib/*.rb")
-  rdoc.rdoc_dir = "website/docs"
-  rdoc.options << '-C'
-end
-
-task :default => [:test]

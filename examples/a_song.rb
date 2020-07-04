@@ -1,24 +1,29 @@
-require 'ruby_synth'
-include SequencerDSL
+require 'synth_blocks'
+
+#
+# A full demo song. Please note that this song unfortunately can take several hours to render.
+#
+
+include SynthBlocks::Sequencer::SequencerDSL
 
 SRATE = 44100
 TEMPO = 125
 P = nil # pause
 
-kick_drum = KickDrum.new(SRATE)
-kick_drum_channel = MixerChannel.new(SRATE, kick_drum, insert_effects: [Waveshaper.new(4)], preset: {
+kick_drum = SynthBlocks::Drum::KickDrum.new(SRATE)
+kick_drum_channel = SynthBlocks::Mixer::MixerChannel.new(SRATE, kick_drum, insert_effects: [SynthBlocks::Fx::Waveshaper.new(4)], preset: {
   volume: 0.2
 })
-tom = TunedDrum.new(SRATE, {
+tom = SynthBlocks::Drum::TunedDrum.new(SRATE, {
   pitch_mod: 200.0,
   pitch_decay: 0.01,
   amp_decay: 0.2
 })
-tom_channel = MixerChannel.new(SRATE, tom, sends: [0.5], insert_effects: [Waveshaper.new(3)], preset: {
+tom_channel = SynthBlocks::Mixer::MixerChannel.new(SRATE, tom, sends: [0.5], insert_effects: [SynthBlocks::Fx::Waveshaper.new(3)], preset: {
   volume: 0.05
 })
-snare_drum = SnareDrum.new(SRATE)
-snare_drum_channel = MixerChannel.new(SRATE, snare_drum, sends: [0.4], preset: {
+snare_drum = SynthBlocks::Drum::SnareDrum.new(SRATE)
+snare_drum_channel = SynthBlocks::Mixer::MixerChannel.new(SRATE, snare_drum, sends: [0.4], preset: {
   volume: 0.15
 })
 
@@ -26,16 +31,16 @@ hat_channel_params = {
   volume: 0.05
 }
 
-hihat = Hihat.new(SRATE, {
+hihat = SynthBlocks::Drum::Hihat.new(SRATE, {
   amp_decay: 0.05
 })
-hihat_channel = MixerChannel.new(SRATE, hihat, preset: hat_channel_params)
-open_hihat = Hihat.new(SRATE, {
+hihat_channel = SynthBlocks::Mixer::MixerChannel.new(SRATE, hihat, preset: hat_channel_params)
+open_hihat = SynthBlocks::Drum::Hihat.new(SRATE, {
   amp_decay: 0.125
 })
-open_hihat_channel = MixerChannel.new(SRATE, hihat, preset: hat_channel_params)
+open_hihat_channel = SynthBlocks::Mixer::MixerChannel.new(SRATE, hihat, preset: hat_channel_params)
 
-bass = Monosynth.new(SRATE, {
+bass = SynthBlocks::Synth::Monosynth.new(SRATE, {
   amp_attack: 0.0001,
   amp_decay: 0.1,
   amp_sustain: 0.8,
@@ -51,13 +56,13 @@ bass = Monosynth.new(SRATE, {
   lfo_waveform: :sine,
   lfo_frequency: 2
 })
-bass_channel = MixerChannel.new(SRATE, bass, insert_effects: [Waveshaper.new(2)], preset: {
+bass_channel = SynthBlocks::Mixer::MixerChannel.new(SRATE, bass, insert_effects: [SynthBlocks::Fx::Waveshaper.new(2)], preset: {
   volume: 0.08,
   eq_low_gain: 1.2,
   eq_mid_gain: 0.4,
   eq_high_gain: 0.4
 })
-lead = Monosynth.new(SRATE, {
+lead = SynthBlocks::Synth::Monosynth.new(SRATE, {
   amp_attack: 0.001,
   amp_decay: 0.2,
   amp_sustain: 0.8,
@@ -75,12 +80,12 @@ lead = Monosynth.new(SRATE, {
 
 })
 
-lead_channel = MixerChannel.new(SRATE, lead, sends: [0.5, 0.5], insert_effects: [Chorus.new(SRATE)], preset: {
+lead_channel = SynthBlocks::Mixer::MixerChannel.new(SRATE, lead, sends: [0.5, 0.5], insert_effects: [SynthBlocks::Fx::Chorus.new(SRATE)], preset: {
   volume: 0.05,
   duck: 0.8
 })
 
-polysynth = Polysynth.new(SRATE, {
+polysynth = SynthBlocks::Synth::Polysynth.new(SRATE, {
   amp_env_attack: 0.001,
   amp_env_release: 0.1,
   flt_env_attack: 0.001,
@@ -91,20 +96,20 @@ polysynth = Polysynth.new(SRATE, {
   flt_Q: 1,
   osc_waveform: :square
 })
-polysynth_channel = MixerChannel.new(SRATE, polysynth, insert_effects: [], sends: [0.4, 0.5], preset: {
+polysynth_channel = SynthBlocks::Mixer::MixerChannel.new(SRATE, polysynth, insert_effects: [], sends: [0.4, 0.5], preset: {
   volume: 0.15, eq_low_gain: 0.4, eq_mid_gain: 1.4
 })
 
-reverb_send = SendChannel.new(SRATE, insert_effects: [
-  GVerb.new(SRATE, max_room_size: 120.0, room_size: 80.0, rev_time: 2.0, damping:0.3, spread: 15.0, input_bandwidth: 1.5, early_level:0.8, tail_level: 0.5, mix: 1.0)
+reverb_send = SynthBlocks::Mixer::SendChannel.new(SRATE, insert_effects: [
+  SynthBlocks::Fx::GVerb.new(SRATE, max_room_size: 120.0, room_size: 80.0, rev_time: 2.0, damping:0.3, spread: 15.0, input_bandwidth: 1.5, early_level:0.8, tail_level: 0.5, mix: 1.0)
 ], sends: [])
 
-delay_send = SendChannel.new(SRATE, insert_effects: [
-  Delay.new(SRATE, time: 15.0 / TEMPO.to_f * 3, mix: 0.4, feedback: 0.4)
+delay_send = SynthBlocks::Mixer::SendChannel.new(SRATE, insert_effects: [
+  SynthBlocks::Fx::Delay.new(SRATE, time: 15.0 / TEMPO.to_f * 3, mix: 0.4, feedback: 0.4)
 ], sends: [0.2])
 
-sum_compressor = Compressor.new(SRATE)
-sum_limiter = Limiter.new
+sum_compressor = SynthBlocks::Fx::Compressor.new(SRATE)
+sum_limiter = SynthBlocks::Fx::Limiter.new
 
 def_pattern(:drums_full, 16) do
   drum_pattern kick_drum,   '*---*---*---*---'

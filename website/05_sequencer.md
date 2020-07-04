@@ -1,6 +1,7 @@
 ---
 title: Building a sequencer
 layout: page
+nav_order: 5
 ---
 # Sequencing basics
 

@@ -1,6 +1,7 @@
 ---
 title: What is sound?
 layout: page
+nav_order: 2
 ---
 # What is sound?
 

@@ -11,18 +11,11 @@
 
 ```
 
-- Ruby Synth is a collection of primitives to make electronic music with pure ruby.
-- Ruby Synth is the backing project for my EuRuKo 2019 talk "The musical Ruby".
-- Ruby Synth also contains a ton of additional writing to supplement the very dense 30 minute talk. You can read that additional material at [ruby-synth.fun](https://ruby-synth.fun).
+This Repo holds all the data for both [rubysynth.fun](https://rubysynth.fun) and the presentation about it I gave at Euruko 2019 and a couple of other places.
 
-Eventually I'll try to turn the primitives into a proper gem and better tests, but that will depend on your interest and if I can give this talk a couple of more times.
+The low level code now lives in it's own [project](https://github.com/halfbyte/ruby_synth_blocks) and [gem](https://rubygems.org/gems/synth_blocks).
 
-## Contributing or just playing around
-
-- You'll need to install SoX
-- You'll need Ruby 2.6.3 (it's an arbitrary choice and you could modify `.ruby-version` to make it run on older rubies, I don't use any 2.6 specific code)
-- Most code is somewhat documented but I haven't yet built proper docs for it.
-
+The sound examples used in the presentation and on the website are generated with the code in [examples/](examples/).
 
 ## Licenses
 

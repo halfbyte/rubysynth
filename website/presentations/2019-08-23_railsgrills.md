@@ -1,15 +1,15 @@
 class: center, middle, title
 
-# Ruby patterns for contempory dance music
-## A presentation for RubyConfOnlineBY 2020
+# The musical Ruby
+## A presentation for Railsgrills 3.1
 
 ## Jan 'half/byte' Krutisch
 ## @halfbyte
 ---
 class: center, middle, title
 
-# Ruby patterns for contempory dance music
-## A presentation for RubyConfOnlineBY 2020
+# The musical Ruby
+## A presentation for Railsgrills 3.1
 
 ## Jan 'half/byte' Krutisch
 ## @halfbyte
@@ -36,14 +36,13 @@ I'm providing the code fragments here to give you a sense of how much (or rather
 
 The reason I have (in contrast to what every one tells you to do) a looong text on one slide is that I want to warn people who click through these slides later on.
 
-(here I used to have a joke that does not work at all for online conferences. sorry.)
+(If you're sitting in the audience and you made it this far, please clap your hands twice.)
 ---
 class: center, middle, subtitle
 # Music
 ---
 class: fullscreen-video, center
-<video src="images/sonic_pi.mp4"></video>
-???
+<video src="/images/sonic_pi.mp4"></video> ???
 **00:01**
 ---
 class: center, middle
@@ -96,7 +95,7 @@ ruby -Ilib $1 | sox -t raw -b 32 -r 44100 -c 1 \
   -e floating-point --endian little - -t wav -b 16 $2
 ```
 
-<audio src="samples/square.wav" data-player="scope-full"></audio>
+<audio src="/samples/square.wav" data-player="scope-full"></audio>
 
 ---
 class: center, middle
@@ -119,14 +118,14 @@ class: center, middle
 
 # Vibrating air molecules
 
-<video src="images/air-movie.ogv"></video>
+<video src="/images/air-movie.ogv"></video>
 ---
 
 class: center, middle, frame-image
 
 # Electrical current > Air movement
 ## Loudspeaker
-![schematics of a loudspeaker](images/loudspeaker.svg)
+![schematics of a loudspeaker](/images/loudspeaker.svg)
 
 
 ---
@@ -134,11 +133,11 @@ class: center, middle
 
 # Digital Data > Electrical current
 ## Digital to Analog Converter (DAC)
-![photo of a DAC chip](images/dac.jpg)
+![photo of a DAC chip](/images/dac.jpg)
 ---
 class: center, middle
 # Digital to Analog challenges
-![fit](images/digital_analog.png)
+![fit](/images/digital_analog.png)
 
 <math>
   <mrow>
@@ -176,7 +175,7 @@ print samples.pack('e*')
 class: center, middle
 # A squarewave at 440 Hz
 
-<audio src="samples/square.wav" data-player="scope-full"></audio>
+<audio src="/samples/square.wav" data-player="scope-full"></audio>
 
 ---
 class: center, middle
@@ -198,7 +197,7 @@ class: center, middle
 # Western notation
 ---
 class: center, middle
-![an image explaining western notation](images/notes.png)
+![an image explaining western notation](/images/notes.png)
 ---
 class: center, middle
 
@@ -220,7 +219,7 @@ n = MIDI note (0-127)
 class: center, middle
 # A squarewave at 440 Hz
 
-<audio src="samples/square.wav" data-player="fft-full"></audio>
+<audio src="/samples/square.wav" data-player="fft-full"></audio>
 ---
 class: center, middle
 # Yes I know it sounds horrible
@@ -246,7 +245,7 @@ class: center, middle
 ---
 class: center, middle
 # State Variable Filter
-![](images/StateVarBlock.gif)
+![](/images/StateVarBlock.gif)
 
 ---
 
@@ -272,31 +271,31 @@ end
 ---
 class: center, middle
 # Lowpass
-![A lowpass frequency response diagram with resonance](images/lowpass.png)
+![A lowpass frequency response diagram with resonance](/images/lowpass.png)
 ---
 class: center, middle
 # Lowpass (1000 Hz)
-<audio src="samples/filtered.wav" data-player="fft-full"></audio>
+<audio src="/samples/filtered.wav" data-player="fft-full"></audio>
 ---
 class: center, middle
 # Highpass
-![A lowpass frequency response diagram with resonance](images/highpass.png)
+![A lowpass frequency response diagram with resonance](/images/highpass.png)
 ---
 class: center, middle
 # Highpass (2000 Hz)
-<audio src="samples/highpass_filtered.wav" data-player="fft-full"></audio>
+<audio src="/samples/highpass_filtered.wav" data-player="fft-full"></audio>
 ---
 class: center, middle
 # Bandpass
-![A lowpass frequency response diagram with resonance](images/bandpass.png)
+![A lowpass frequency response diagram with resonance](/images/bandpass.png)
 ---
 class: center, middle
 # Bandpass (1200 Hz)
-<audio src="samples/bandpass_filtered.wav" data-player="fft-full"></audio>
+<audio src="/samples/bandpass_filtered.wav" data-player="fft-full"></audio>
 ---
 class: center, middle
 # Band reject / Notch
-![A lowpass frequency response diagram with resonance](images/notch.png)
+![A lowpass frequency response diagram with resonance](/images/notch.png)
 
 ---
 class: center, middle
@@ -304,7 +303,7 @@ class: center, middle
 ---
 class: center, middle
 # Piano
-<audio src="samples/piano_long.wav" data-player="fft-full"></audio>
+<audio src="/samples/piano_long.wav" data-player="fft-full"></audio>
 ---
 class: center, middle
 # Variance over time
@@ -314,11 +313,11 @@ class: center, middle
 ---
 class: center, middle
 # Not this
-![Icon of an envelope](images/envelope-font-awesome.svg)
+![Icon of an envelope](/images/envelope-font-awesome.svg)
 ---
 class: center, middle
 # This!
-<video src="images/adsr.ogv"></video>
+<video src="/images/adsr.ogv"></video>
 ---
 class: small-code
 ```ruby
@@ -377,7 +376,7 @@ output *= 0.3 * env.run(t, stopped)
 
 class: center, middle
 # Volume / Amplitude
-<audio src="samples/amp_env.wav" data-player="scope-full"></audio>
+<audio src="/samples/amp_env.wav" data-player="scope-full"></audio>
 ---
 class: center, middle
 # Filter Frequency
@@ -391,7 +390,7 @@ output = filter.run(output, 500.0 + (8000.0 * filter_env.run(t, stopped)), 1)
 ---
 class: center, middle
 # Filter Frequency
-<audio src="samples/filter_env.wav" data-player="fft-full"></audio>
+<audio src="/samples/filter_env.wav" data-player="fft-full"></audio>
 ---
 class: center, middle
 # Pitch
@@ -405,7 +404,7 @@ period = SAMPLING_FREQUENCY / (FREQUENCY.to_f * ((0.2 * pitch_env.run(t, stopped
 ---
 class: center, middle
 # Pitch
-<audio src="samples/pitch_env.wav" data-player="fft-full"></audio>
+<audio src="/samples/pitch_env.wav" data-player="fft-full"></audio>
 
 ---
 class: center, middle, subtitle
@@ -415,35 +414,35 @@ class: center, middle, subtitle
 ---
 class: center, middle, frame-image
 # Kick drum
-![photo of a real kickdrum](images/kickdrum.jpg)
+![photo of a real kickdrum](/images/kickdrum.jpg)
 ---
 class: center, middle
 # Kick drum synthesized
-![diagrams on how to do a kickdrum](images/kickdrum.png)
-<audio src="samples/kick_drum.wav" data-player="scope-full"></audio>
+![diagrams on how to do a kickdrum](/images/kickdrum.png)
+<audio src="/samples/kick_drum.wav" data-player="scope-full"></audio>
 ---
 
 class: center, middle, frame-image
 # Snare drum
-![drawing of a snare drum](images/snaredrum.png)
+![drawing of a snare drum](/images/snaredrum.png)
 ---
 class: center, middle
 # Snare drum synthesized
-![diagrams on how to do a snare drum](images/snare_drum.png)
-<audio src="samples/snare_drum.wav" data-player="scope-full"></audio>
+![diagrams on how to do a snare drum](/images/snare_drum.png)
+<audio src="/samples/snare_drum.wav" data-player="scope-full"></audio>
 ---
 class: center, middle, frame-image
 # Hihat
-![photo of a hihat](images/hihat.jpg)
+![photo of a hihat](/images/hihat.jpg)
 ---
 class: center, middle
 # Hihat synthesized
-![diagrams on how to do a hihat](images/hihat.png)
-<audio src="samples/hihat.wav" data-player="scope-full"></audio>
+![diagrams on how to do a hihat](/images/hihat.png)
+<audio src="/samples/hihat.wav" data-player="scope-full"></audio>
 ---
 class: center, middle
 # Drum beats go like...
-<audio src="samples/drums.wav" data-player="scope-full"></audio>
+<audio src="/samples/drums.wav" data-player="scope-full"></audio>
 ---
 
 class: center, middle, subtitle
@@ -468,11 +467,11 @@ class: center, middle
 ---
 class: center, middle
 # A bar
-![](images/beats_and_bars.png)
+![](/images/beats_and_bars.png)
 ---
 class: center, middle
 # Step sequencer
-![](images/roland_808.jpg)
+![](/images/roland_808.jpg)
 ---
 class: center, middle
 # Tempo
@@ -491,11 +490,11 @@ sixteenth_note_length = beat_length_in_seconds / 4 # = 0.125s
 ---
 class: center, middle
 # Notes > Patterns > Songs
-![A screenshot of ableton live](images/notes_patterns_songs.png)
+![A screenshot of ableton live](/images/notes_patterns_songs.png)
 ---
 class: center, middle
 # Notes > Patterns > Songs
-![An image showing patterns and songs](images/pattern_song.png)
+![An image showing patterns and songs](/images/pattern_song.png)
 ---
 class: center, middle
 # Let's build a DSL for that
@@ -538,7 +537,7 @@ end
 ---
 class: center, middle
 # A song
-<audio src="samples/simple_song.wav" data-player="scope-full"></audio>
+<audio src="/samples/simple_song.wav" data-player="scope-full"></audio>
 ---
 class: center, middle, subtitle
 # Mixing
@@ -547,10 +546,10 @@ class: center, middle, subtitle
 ---
 class: center, middle
 # Mixer / Mixing Desk / Console
-![Blurry image of a large mixing desk](images/mixing_desk.jpg)
+![Blurry image of a large mixing desk](/images/mixing_desk.jpg)
 ---
 class: center, middle
-![A diagram explaining the mixer structure](images/mixer.png)
+![A diagram explaining the mixer structure](/images/mixer.png)
 ---
 class: middle
 # Channels
@@ -561,18 +560,18 @@ class: middle
 ---
 class: center, middle
 # Equalizer / EQ
-![A simple three band EQ filter curve](images/eq.png)
+![A simple three band EQ filter curve](/images/eq.png)
 ---
 class: center, middle
 # Compressor
-<video src="images/compressor.ogv"></video>
+<video src="/images/compressor.ogv"></video>
 ---
 class: center, middle
 # Insert FX
 ---
 class: center, middle
 # Waveshaper
-![A waveshaper curve](images/waveshaper.png)
+![A waveshaper curve](/images/waveshaper.png)
 ---
 class: center, middle
 # Waveshaper
@@ -581,24 +580,24 @@ def simple_waveshaper(input, a)
   input * (input.abs + a) / (input ** 2 + (a - 1) * input.abs + 1)
 end
 ```
-<audio src="samples/waveshaper.wav" data-player="scope-full"></audio>
+<audio src="/samples/waveshaper.wav" data-player="scope-full"></audio>
 ---
 class: center, middle
 # Chorus
-<video src="images/chorus.ogv?a"></video>
+<video src="/images/chorus.ogv?a"></video>
 ???
 The overlay creates interferences
 ---
 class: center, middle
 # Chorus
-<audio src="samples/chorus.wav" data-player="scope-full"></audio>
+<audio src="/samples/chorus.wav" data-player="scope-full"></audio>
 ---
 class: center, middle
 # Send FX
 ---
 class: center, middle
 # Delay (Echo)
-![visualisation of a delay effect](images/delay.png)
+![visualisation of a delay effect](/images/delay.png)
 ---
 class: center, middle
 # Delay (Echo)
@@ -624,21 +623,21 @@ end
 class: center, middle
 # Delay (Echo)
 
-<audio src="samples/delay.wav" data-player="scope-full"></audio>
+<audio src="/samples/delay.wav" data-player="scope-full"></audio>
 ---
 class: center, middle
 # Reverb
-![A photo of the Hallgrímskirkja in Rejkjavik](images/hallgrimskirkja.jpg)
+![A photo of the Hallgrímskirkja in Rejkjavik](/images/hallgrimskirkja.jpg)
 ---
 class: center, middle
 # Reverb
-![A reverb visualisation part one](images/reverb_raw.png)
+![A reverb visualisation part one](/images/reverb_raw.png)
 ---
 class: center, middle
 # Reverb
-![A reverb visualisation part two](images/reverb_diffused.png)
+![A reverb visualisation part two](/images/reverb_diffused.png)
 
-<audio src="samples/reverb.wav" data-player="scope-full"></audio>
+<audio src="/samples/reverb.wav" data-player="scope-full"></audio>
 ---
 # Sum
 - Compressor
@@ -649,7 +648,7 @@ class: center, middle
 ---
 class: center, middle, subtitle
 # Let's put it all together
-<audio src="samples/full_song.ogg" data-player="scope-full">
+<audio src="/samples/full_song.ogg" data-player="scope-full">
 ???
 **00:28**
 ---

@@ -1,6 +1,7 @@
 ---
 title: Building a mixer
 layout: page
+nav_order: 6
 ---
 # The mixing stage
 

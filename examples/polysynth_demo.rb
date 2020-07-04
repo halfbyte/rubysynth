@@ -1,7 +1,12 @@
-require 'ruby_synth'
+require 'synth_blocks'
+
+#
+# Simple Demo of the PolySynth
+#
+
 SRATE = 44100
 
-polysynth = Polysynth.new(SRATE, {
+polysynth = SynthBlocks::Synth::Polysynth.new(SRATE, {
   amp_env_attack: 0.001,
   amp_env_release: 0.1,
   flt_env_attack: 0.001,
@@ -23,6 +28,6 @@ polysynth.stop(0.125, 60 + 4)
 polysynth.stop(0.125, 60 + 7)
 polysynth.stop(0.125, 60 - 12)
 
-print SRATE.times.map{ |i| 0.6 * polysynth.run(i) }.pack('e*')
+out = SRATE.times.map{ |i| 0.6 * polysynth.run(i) }
 
-
+SynthBlocks::Core::WaveWriter.write_if_name_given(out)

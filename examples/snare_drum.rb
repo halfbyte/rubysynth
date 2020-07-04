@@ -1,8 +1,14 @@
-require 'ruby_synth'
+require 'synth_blocks'
+
+#
+# Let's generate a snare drum sound
+#
 
 SRATE = 44100
-kick = SnareDrum.new(SRATE)
+drum = SynthBlocks::Drum::SnareDrum.new(SRATE)
 
-kick.start(0.0)
+drum.start(0.0)
 
-print SRATE.times.map {|i| 0.5 * kick.run(i) }.pack('e*')
+out = SRATE.times.map {|i| 0.5 * drum.run(i) }
+
+SynthBlocks::Core::WaveWriter.write_if_name_given(out)
