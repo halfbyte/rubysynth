@@ -1,3 +1,5 @@
 # Todos
-- Maybe vibrato example for docs?
+- Exchange the Depfu example
+- Better SonicPi video fur sure
+
 

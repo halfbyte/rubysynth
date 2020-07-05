@@ -21,10 +21,6 @@ background-image: url(/images/depfu-left-blue.png)
 class: contain
 background-image: url(/images/depfu_example.png)
 ---
-class: center, middle, contain
-background-image: url(/images/depfu_mike.png)
-
----
 class: center, middle, subtitle
 # A warning
 ---
@@ -58,46 +54,25 @@ class: center, middle
 ---
 class: center, middle
 # Pure Ruby
-# (+ SoX)
 ---
-# SoX
-## Lance Norskog
-## Chris Bagwell
-## (and many others)
-(It started in 1991. yeah.)
----
+class: center
 ```ruby
 SAMPLING_FREQUENCY=44100
 FREQUENCY=440
 
 in_cycle = 0
-samples = SAMPLING_FREQUENCY.times.map do
+out = SAMPLING_FREQUENCY.times.map do
   period = SAMPLING_FREQUENCY / FREQUENCY.to_f
   output = in_cycle > 0.5 ? -1.0 : 1.0
   in_cycle = (in_cycle + (1.0 / period)) % 1.0
   output * 0.5
 end
-print samples.pack('e*')
-```
-
-```bash
-#!/bin/bash
-# play.sh
-ruby -Ilib $1 | play -t raw -b 32 -r 44100 -c 1 \
-  -e floating-point --endian little -
-```
-
----
-class: center, middle
-```bash
-#!/bin/bash
-# save.sh
-ruby -Ilib $1 | sox -t raw -b 32 -r 44100 -c 1 \
-  -e floating-point --endian little - -t wav -b 16 $2
+WaveWriter.write_if_name_given(out)
 ```
 
 <audio src="/samples/square.wav" data-player="scope-full"></audio>
-
+???
+This allows me to play this sound from the browser
 ---
 class: center, middle
 # But how does it work?
@@ -119,14 +94,14 @@ class: center, middle
 
 # Vibrating air molecules
 
-<video src="/images/air-movie.ogv"></video>
+<video src="/images/air-movie.ogv" controls></video>
 ---
 
 class: center, middle, frame-image
 
 # Electrical current > Air movement
 ## Loudspeaker
-![schematics of a loudspeaker}(/images/loudspeaker.svg)
+![schematics of a loudspeaker](/images/loudspeaker.svg)
 
 
 ---
@@ -198,7 +173,7 @@ class: center, middle
 # Western notation
 ---
 class: center, middle
-![an image explaining western notation}(/images/notes.png)
+![an image explaining western notation](/images/notes.png)
 ---
 class: center, middle
 
@@ -246,7 +221,7 @@ class: center, middle
 ---
 class: center, middle
 # State Variable Filter
-![}(/images/StateVarBlock.gif)
+![](/images/StateVarBlock.gif)
 
 ---
 
@@ -272,7 +247,7 @@ end
 ---
 class: center, middle
 # Lowpass
-![A lowpass frequency response diagram with resonance}(/images/lowpass.png)
+![A lowpass frequency response diagram with resonance](/images/lowpass.png)
 ---
 class: center, middle
 # Lowpass (1000 Hz)
@@ -280,7 +255,7 @@ class: center, middle
 ---
 class: center, middle
 # Highpass
-![A lowpass frequency response diagram with resonance}(/images/highpass.png)
+![A lowpass frequency response diagram with resonance](/images/highpass.png)
 ---
 class: center, middle
 # Highpass (2000 Hz)
@@ -288,7 +263,7 @@ class: center, middle
 ---
 class: center, middle
 # Bandpass
-![A lowpass frequency response diagram with resonance}(/images/bandpass.png)
+![A lowpass frequency response diagram with resonance](/images/bandpass.png)
 ---
 class: center, middle
 # Bandpass (1200 Hz)
@@ -296,7 +271,7 @@ class: center, middle
 ---
 class: center, middle
 # Band reject / Notch
-![A lowpass frequency response diagram with resonance}(/images/notch.png)
+![A lowpass frequency response diagram with resonance](/images/notch.png)
 
 ---
 class: center, middle
@@ -314,7 +289,7 @@ class: center, middle
 ---
 class: center, middle
 # Not this
-![Icon of an envelope}(/images/envelope-font-awesome.svg)
+![Icon of an envelope](/images/envelope-font-awesome.svg)
 ---
 class: center, middle
 # This!
@@ -415,30 +390,30 @@ class: center, middle, subtitle
 ---
 class: center, middle, frame-image
 # Kick drum
-![photo of a real kickdrum}(/images/kickdrum.jpg)
+![photo of a real kickdrum](/images/kickdrum.jpg)
 ---
 class: center, middle
 # Kick drum synthesized
-![diagrams on how to do a kickdrum}(/images/kickdrum.png)
+![diagrams on how to do a kickdrum](/images/kickdrum.png)
 <audio src="/samples/kick_drum.wav" data-player="scope-full"></audio>
 ---
 
 class: center, middle, frame-image
 # Snare drum
-![drawing of a snare drum}(/images/snaredrum.png)
+![drawing of a snare drum](/images/snaredrum.png)
 ---
 class: center, middle
 # Snare drum synthesized
-![diagrams on how to do a snare drum}(/images/snare_drum.png)
+![diagrams on how to do a snare drum](/images/snare_drum.png)
 <audio src="/samples/snare_drum.wav" data-player="scope-full"></audio>
 ---
 class: center, middle, frame-image
 # Hihat
-![photo of a hihat}(/images/hihat.jpg)
+![photo of a hihat](/images/hihat.jpg)
 ---
 class: center, middle
 # Hihat synthesized
-![diagrams on how to do a hihat}(/images/hihat.png)
+![diagrams on how to do a hihat](/images/hihat.png)
 <audio src="/samples/hihat.wav" data-player="scope-full"></audio>
 ---
 class: center, middle
@@ -468,11 +443,11 @@ class: center, middle
 ---
 class: center, middle
 # A bar
-![}(/images/beats_and_bars.png)
+![](/images/beats_and_bars.png)
 ---
 class: center, middle
 # Step sequencer
-![}(/images/roland_808.jpg)
+![](/images/roland_808.jpg)
 ---
 class: center, middle
 # Tempo
@@ -491,11 +466,11 @@ sixteenth_note_length = beat_length_in_seconds / 4 # = 0.125s
 ---
 class: center, middle
 # Notes > Patterns > Songs
-![A screenshot of ableton live}(/images/notes_patterns_songs.png)
+![A screenshot of ableton live](/images/notes_patterns_songs.png)
 ---
 class: center, middle
 # Notes > Patterns > Songs
-![An image showing patterns and songs}(/images/pattern_song.png)
+![An image showing patterns and songs](/images/pattern_song.png)
 ---
 class: center, middle
 # Let's build a DSL for that
@@ -547,10 +522,10 @@ class: center, middle, subtitle
 ---
 class: center, middle
 # Mixer / Mixing Desk / Console
-![Blurry image of a large mixing desk}(/images/mixing_desk.jpg)
+![Blurry image of a large mixing desk](/images/mixing_desk.jpg)
 ---
 class: center, middle
-![A diagram explaining the mixer structure}(/images/mixer.png)
+![A diagram explaining the mixer structure](/images/mixer.png)
 ---
 class: middle
 # Channels
@@ -561,7 +536,7 @@ class: middle
 ---
 class: center, middle
 # Equalizer / EQ
-![A simple three band EQ filter curve}(/images/eq.png)
+![A simple three band EQ filter curve](/images/eq.png)
 ---
 class: center, middle
 # Compressor
@@ -572,7 +547,7 @@ class: center, middle
 ---
 class: center, middle
 # Waveshaper
-![A waveshaper curve}(/images/waveshaper.png)
+![A waveshaper curve](/images/waveshaper.png)
 ---
 class: center, middle
 # Waveshaper
@@ -598,7 +573,7 @@ class: center, middle
 ---
 class: center, middle
 # Delay (Echo)
-![visualisation of a delay effect}(/images/delay.png)
+![visualisation of a delay effect](/images/delay.png)
 ---
 class: center, middle
 # Delay (Echo)
@@ -628,15 +603,16 @@ class: center, middle
 ---
 class: center, middle
 # Reverb
-![A photo of the Hallgrímskirkja in Rejkjavik}(/images/hallgrimskirkja.jpg)
+![A photo of the Hallgrímskirkja in Rejkjavik](/images/hallgrimskirkja.jpg)
 ---
 class: center, middle
 # Reverb
-![A reverb visualisation part one}(/images/reverb_raw.png)
+![A reverb visualisation part one](/images/reverb_raw.png)
 ---
 class: center, middle
 # Reverb
-![A reverb visualisation part two}(/images/reverb_diffused.png)
+
+![A reverb visualisation part two](/images/reverb_diffused.png)
 
 <audio src="/samples/reverb.wav" data-player="scope-full"></audio>
 ---
