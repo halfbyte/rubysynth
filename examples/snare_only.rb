@@ -6,7 +6,6 @@ require 'synth_blocks'
 #
 
 SAMPLING_FREQUENCY=44100
-FREQUENCY=110
 
 amp_env = SynthBlocks::Mod::Adsr.new(0.001, 0.1, 0.5, 0.2)
 out = SAMPLING_FREQUENCY.times.map do |s|
