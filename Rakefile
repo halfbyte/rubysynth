@@ -1,4 +1,4 @@
-SAMPLES = %w[pitch_env_drum waveshaper]
+SAMPLES = %w[pitch_env_drum waveshaper noise lowpass_filtered highpass_filtered amp_env filter_env pitch_env manual_snare snare_only]
 
 desc "update examples"
 task :update_examples => SAMPLES.map {|sample| "website/samples/#{sample}.wav"}

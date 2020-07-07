@@ -5,11 +5,8 @@ require 'synth_blocks'
 # But now as a draum sound
 #
 
-
 SAMPLING_FREQUENCY=44100
 FREQUENCY=110
-
-
 
 filter = SynthBlocks::Core::StateVariableFilter.new(SAMPLING_FREQUENCY)
 amp_env = SynthBlocks::Mod::Adsr.new(0.001, 0.1, 0.5, 0.2)
