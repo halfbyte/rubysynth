@@ -19,7 +19,7 @@ class: center, middle, depfu, contain
 background-image: url(/images/depfu-left-blue.png)
 ---
 class: contain
-background-image: url(/images/depfu_example.png)
+background-image: url(/images/depfu_engine_update.png)
 ---
 class: center, middle, subtitle
 # A warning
@@ -46,6 +46,8 @@ class: center, middle
 # SonicPi
 
 ## by Sam Aaron
+## [sonic-pi.net](https://sonic-pi.net/)
+## [patreon.com/samaaron](https://patreon.com/samaaron)
 ---
 class: center, middle
 # Let's dig deeper
@@ -617,17 +619,21 @@ class: center, middle
 <audio src="/samples/delay.wav" data-player="scope-full"></audio>
 ---
 class: center, middle, subtitle
+
 # Let's put it all together
-<audio src="/samples/full_song.ogg" data-player="scope-full">
+---
+class: fullscreen-video, center
+<video src="/images/full_song.mp4"></video>
+
 ???
 **00:28**
 ---
 class: subtitle, middle, center
 # ❤️ Thank you ❤️
-## http://rubysynth.fun
+## [rubysynth.fun](http://rubysynth.fun)
 
 ## 🎹 ✏️
-## @halfbyte
+## @halfbyte - [halfbyte.org](https://halfbyte.org)
 ## depfu.com
 
 
