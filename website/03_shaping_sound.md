@@ -83,7 +83,10 @@ It's the shape of the sound over time. A piano has a relatively sharp attack, th
 
 There are endless ways of how to construct an envelope but the so called ADSR (Attack, Decay, Sustain, Release) envelope sits right in the sweet spot of being very versatile and simple to parameterize. Here's what it looks like:
 
-<video src="images/adsr.ogv" controls></video>
+<video controls>
+  <source src="images/adsr.av1.mp4" type="video/mp4">
+  <source src="images/adsr.mp4" type="video/mp4">
+</video>
 
 That the red dot stayed for so long on the end of the sustain phase is not due to my shoddy editing. The sustain level is held until the note is "released", for example, if you think about an organ, for as long as the organ player holds down the key.
 

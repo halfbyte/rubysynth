@@ -38,7 +38,10 @@ class: center, middle, subtitle
 # Music
 ---
 class: fullscreen-video, center
-<video src="/images/sonic_pi.mp4"></video>
+<video controls>
+  <source src="images/sonic_pi.av1.mp4" type="video/mp4">
+  <source src="images/sonic_pi.mp4" type="video/mp4">
+</video>
 ???
 **00:01**
 ---
@@ -297,7 +300,10 @@ class: center, middle
 ---
 class: center, middle
 # This!
-<video src="/images/adsr.ogv"></video>
+<video controls>
+  <source src="images/adsr.av1.mp4" type="video/mp4">
+  <source src="images/adsr.mp4" type="video/mp4">
+</video>
 ---
 class: very-small-code
 ```ruby
@@ -623,7 +629,10 @@ class: center, middle, subtitle
 # Let's put it all together
 ---
 class: fullscreen-video, center
-<video src="/images/full_song.mp4"></video>
+<video controls>
+  <source src="images/full_song.av1.mp4" type="video/mp4">
+  <source src="images/full_song.mp4" type="video/mp4">
+</video>
 
 ???
 **00:28**

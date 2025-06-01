@@ -15,7 +15,10 @@ Sound, fundamentally, is air particles being moved in a way that can be detected
 
 Here's a very crude graphical representation of this I threw together in Processing real quick:
 
-<video src="images/air-movie.ogv" controls></video>
+<video controls>
+  <source src="images/air-movie.av1.mp4" type="video/mp4">
+  <source src="images/air-movie.mp4" type="video/mp4">
+</video>
 
 To generate sound, you'll somehow need to get these air particles moving. You could do that by attenuating a string like on a guitar or in a piano, hitting a drum skin or a metal or wooden bar like in a marimba, but if we want to involve a computer here, it's pretty obvious that we somehow need to convert electrical signals into these particle waves.
 

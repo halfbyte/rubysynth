@@ -7,7 +7,10 @@ nav_order: 1
 
 We'll start this off with a short demonstration of a software called SonicPi, which allows you to live code music:
 
-<video src="images/sonic_pi.mp4" controls></video>
+<video controls>
+  <source src="images/sonic_pi.av1.mp4" type="video/mp4">
+  <source src="images/sonic_pi.mp4" type="video/mp4">
+</video>
 
 Sonic Pi is a wonderful piece of software. It can teach both the basics of programming and the basics of music making while sounding quite professional. That's due to the great foundation Sonic Pi is based on: Supercollider is a system specifically built for live coding and has been under continuous development since 1996!
 

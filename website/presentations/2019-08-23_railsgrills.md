@@ -42,7 +42,11 @@ class: center, middle, subtitle
 # Music
 ---
 class: fullscreen-video, center
-<video src="/images/sonic_pi.mp4"></video> ???
+<video controls>
+  <source src="images/sonic_pi.av1.mp4" type="video/mp4">
+  <source src="images/sonic_pi.mp4" type="video/mp4">
+</video>
+???
 **00:01**
 ---
 class: center, middle
@@ -118,7 +122,10 @@ class: center, middle
 
 # Vibrating air molecules
 
-<video src="/images/air-movie.ogv"></video>
+<video controls>
+  <source src="images/air-movie.av1.mp4" type="video/mp4">
+  <source src="images/air-movie.mp4" type="video/mp4">
+</video>
 ---
 
 class: center, middle, frame-image
@@ -317,7 +324,10 @@ class: center, middle
 ---
 class: center, middle
 # This!
-<video src="/images/adsr.ogv"></video>
+<video controls>
+  <source src="images/adsr.av1.mp4" type="video/mp4">
+  <source src="images/adsr.mp4" type="video/mp4">
+</video>
 ---
 class: small-code
 ```ruby
@@ -564,7 +574,10 @@ class: center, middle
 ---
 class: center, middle
 # Compressor
-<video src="/images/compressor.ogv"></video>
+<video controls>
+  <source src="images/compressor.av1.mp4" type="video/mp4">
+  <source src="images/compressor.mp4" type="video/mp4">
+</video>
 ---
 class: center, middle
 # Insert FX
@@ -584,7 +597,10 @@ end
 ---
 class: center, middle
 # Chorus
-<video src="/images/chorus.ogv?a"></video>
+<video controls>
+  <source src="images/chorus.av1.mp4" type="video/mp4">
+  <source src="images/chorus.mp4" type="video/mp4">
+</video>
 ???
 The overlay creates interferences
 ---

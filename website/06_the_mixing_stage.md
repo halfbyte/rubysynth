@@ -35,7 +35,10 @@ Compression in this case does not mean data compression. Instead, a compressor c
 
 Compression works by (more or less) making louder sounds more quiet. For that, the compressor uses a curve like this.
 
-<video src="images/compressor.ogv" controls></video>
+<video controls>
+  <source src="images/compressor.av1.mp4" type="video/mp4">
+  <source src="images/compressor.mp4" type="video/mp4">
+</video>
 
 Additionally, a compressor usually has a way to change the attack and decay times, meaning the the loudness reduction does not happen instantly but is fading in after the loudness reaches a certain threshold and if the sound gets quieter again, the compressor takes a while to dial back the signal reduction. This makes it possible to use a compressor not only for actually compressing the dynamic range but also shaping so-called transients, like the attack of a kick drum. If you use a slightly longer attack on the compressor, the signal is not compressed for that time and only ducked down after it, so that the attack of the drum becomes even more pronounced.
 
@@ -68,7 +71,10 @@ The second effect we're going to take a look at is a chorus effect. The idea beh
 
 the way a chorus achieves this is by running half of the signal through a tiny delay and then slightly modulating the delay time. Especially with synth lines, this does make the result sound a lot fatter.
 
-<video src="images/chorus.ogv" controls></video>
+<video controls>
+  <source src="images/chorus.av1.mp4" type="video/mp4">
+  <source src="images/chorus.mp4" type="video/mp4">
+</video>
 
 ## Send effects
 
